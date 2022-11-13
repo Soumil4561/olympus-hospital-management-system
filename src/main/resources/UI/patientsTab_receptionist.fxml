@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.HelloController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" text="Patients" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" text="Appointments" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" text="Bills" />
+            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="114.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" text="Settings" />
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="100.0" prefWidth="38.0" />
+            <Label prefHeight="82.0" prefWidth="255.0" text="Olympus">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <GridPane fx:id="gridpane" prefHeight="400.0" prefWidth="657.0" BorderPane.alignment="TOP_LEFT">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="479.99998779296874" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="25.0" minWidth="20.0" prefWidth="25.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="95.60001220703126" minHeight="25.0" prefHeight="0.0" vgrow="NEVER" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="256.8" valignment="TOP" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="59.600012207031284" minHeight="20.0" prefHeight="25.0" vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <TableView fx:id="table" prefHeight="296.0" prefWidth="572.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="uid" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="fname" prefWidth="75.0" text="First Name" />
+                  <TableColumn fx:id="lname" prefWidth="75.0" text="Last Name" />
+                  <TableColumn fx:id="contact_no" prefWidth="75.0" text="Phone No." />
+                  <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
+              </columns>
+            </TableView>
+            <ScrollBar GridPane.rowIndex="2" />
+            <ScrollBar orientation="VERTICAL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="searchbox" maxWidth="250.0" prefHeight="26.0" prefWidth="160.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="searchbutton" mnemonicParsing="false" onMouseClicked="#getPatientDetails" prefHeight="26.0" prefWidth="75.0" text="Search" />
+                  <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="148.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="add" mnemonicParsing="false" onMouseClicked="#add" prefHeight="26.0" prefWidth="56.0" text="Add" />
+                  <Button fx:id="delete" mnemonicParsing="false" onMouseClicked="#delete" text="Delete" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

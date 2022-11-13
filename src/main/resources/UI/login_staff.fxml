@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="801.0" style="-fx-background-color: #0c0e23;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.LoginController">
+   <top>
+      <VBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="70.0" prefWidth="600.0" text="Login" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Symbol" size="33.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="0.0" prefWidth="600.0" text="Staff" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Myanmar Text Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="437.0" prefWidth="417.0" HBox.hgrow="NEVER">
+               <children>
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="uid_input" prefHeight="26.0" prefWidth="200.0" promptText="Username" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="46.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="pass_input" prefHeight="26.0" prefWidth="200.0" promptText="Password" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="57.0" prefWidth="410.0">
+                     <children>
+                        <ChoiceBox fx:id="staff_choice" mouseTransparent="true" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <Region maxWidth="1.7976931348623157E308" prefHeight="22.0" prefWidth="410.0" />
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="400.0">
+                     <children>
+                        <Button fx:id="logInButton" minHeight="10.0" minWidth="50.0" mnemonicParsing="false" onMouseClicked="#gotoStaffScene" prefHeight="30.0" prefWidth="105.0" text="Log In" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="67.0" prefWidth="400.0">
+                     <children>
+                        <Button fx:id="forgotPassButton" minHeight="10.0" minWidth="70.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="169.0" text="Forgot Password?" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="400.0" HBox.hgrow="NEVER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="295.0" prefWidth="382.0">
+                     <children>
+                        <Button fx:id="staffLogin" alignment="CENTER" contentDisplay="TOP" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="128.0" stylesheets="@css/style.css" text="Staff" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@png/icons8-staff-96.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="295.0" prefWidth="382.0">
+                     <children>
+                        <Button fx:id="adminLogin" alignment="CENTER" contentDisplay="TOP" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="128.0" stylesheets="@css/style.css" text="Admin" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@png/icons8-admin-settings-male-96.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
