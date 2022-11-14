@@ -54,7 +54,6 @@
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onMouseClicked="#changeWall" prefHeight="85.0" prefWidth="151.0" text="Change wall" />
          </children>
       </VBox>
    </center>

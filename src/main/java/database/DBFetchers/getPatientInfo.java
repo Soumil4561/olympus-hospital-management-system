@@ -1,6 +1,6 @@
 package database.DBFetchers;
 
-import hospital.Pateint.Patient;
+import hospital.Patient.Patient;
 import database.DBConnectors.SqlSearchConnection;
 
 import java.sql.Date;
@@ -49,7 +49,9 @@ public class getPatientInfo{
             String gender=data.getString("gender");
             long contact=data.getLong("contact_no");
             String email= data.getString("email");
+            String status=data.getString("stat");
             plist[counter]=new Patient(p_id,p_fname,p_lname,p_DOB,gender,contact,email);
+            plist[counter].setStatus(status);
             counter++;
         }
         data.close();

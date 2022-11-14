@@ -26,20 +26,14 @@ public class HomeController {
     private Button patientButton;
 
     @FXML
-    void changeWall(MouseEvent event) {
-    homePane.setId("homepane2");
-    }
-    @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml")));
+
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } catch (Exception e){
-            System.out.println("Cant Switch to Patients Tab");
-        }
+
     }
 
 }

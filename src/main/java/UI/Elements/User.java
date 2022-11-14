@@ -4,6 +4,34 @@ public class User {
     private String fname;
     private String lname;
     private String status;
+
+    public User(){
+        this.fname = null;
+        this.lname = null;
+        this.uid = 0;
+        this.contact_no = 0;
+        this.status = null;
+    }
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setUid(long uid) {
+        this.uid = uid;
+    }
+
+    public void setContact_no(long contact_no) {
+        this.contact_no = contact_no;
+    }
+
     private long uid;
     private long contact_no;
 

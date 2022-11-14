@@ -1,7 +1,7 @@
 package hospital.Admissions;
 
 import hospital.Bed.Bed;
-import hospital.Pateint.Patient;
+import hospital.Patient.Patient;
 import hospital.Staff.Doctor;
 
 public class NewAdmission {

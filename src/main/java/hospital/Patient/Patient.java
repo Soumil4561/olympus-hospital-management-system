@@ -1,6 +1,6 @@
-package hospital.Pateint;
+package hospital.Patient;
 
-import database.DBConnectors.SqlInsertConnection;
+import database.DBConnectors.SqlInsertUpdateConnection;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -93,7 +93,7 @@ public class Patient {
     public boolean createNewPatient() throws SQLException {
         String query="INSERT INTO patient VALUES ('"+getPatient_id()+"','"+getFname()+"','"+getLname()+"','"+getDOB()+"','"+getGender()+"','"+getContact_no()+"','"+getEmail()+"','opd')";
         System.out.println(query);
-        return SqlInsertConnection.connect(query);
+        return SqlInsertUpdateConnection.connect(query);
     }
 
 }

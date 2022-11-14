@@ -1,6 +1,6 @@
-package hospital.Pateint;
+package hospital.Patient;
 
-import database.DBConnectors.SqlInsertConnection;
+import database.DBConnectors.SqlInsertUpdateConnection;
 import hospital.Department.Department;
 import hospital.Staff.Doctor;
 
@@ -11,10 +11,10 @@ public class PatientReport {
     public long report_id;
     public Patient patient;
     public Doctor doctor;
-    public long department_id;
-    public Date start_date;
-    public Date end_date;
-    public String remarks;
+    private long department_id;
+    private Date start_date;
+    private Date end_date;
+    private String remarks;
 
     public PatientReport(Patient patient, String department_name) throws SQLException {
         this.patient=patient;
@@ -23,9 +23,13 @@ public class PatientReport {
         this.start_date=new Date(millis);
     }
 
+    public long getReport_id() {
+        return report_id;
+    }
+
     public boolean createNewReport() throws SQLException {
         String query="INSERT INTO patient_reports (`patient_id`, `department_id`, `startdate`) VALUES ('"+patient.getPatient_id()+"','"+department_id+"','"+start_date+"')";
-        return SqlInsertConnection.connect(query);
+        return SqlInsertUpdateConnection.connect(query);
     }
 
 }
