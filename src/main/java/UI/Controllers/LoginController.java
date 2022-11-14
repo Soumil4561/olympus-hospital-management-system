@@ -22,17 +22,11 @@ import java.util.ResourceBundle;
 import hospital.Staff.Staff;
 
 
-public class LoginController implements Initializable {
+public class LoginController {
     long uid;
     String pass;
-    long uidBack = 1;
-    String passBack = "q";
     @FXML
     private Button logInButton;
-
-    @FXML
-    private ChoiceBox<String> staff_choice;
-    private final String[] staff = {"Receptionist", "Doctor", "Nurse"};
     @FXML
     private TextField pass_input;
 
@@ -45,7 +39,7 @@ public class LoginController implements Initializable {
         pass = pass_input.getText();
 
         if(isReceptionist(uid,pass)){
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UI/homeTab.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -64,8 +58,4 @@ public class LoginController implements Initializable {
        return Staff.Login(id,password);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        staff_choice.getItems().addAll(staff);
-    }
 }

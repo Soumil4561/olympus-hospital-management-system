@@ -1,84 +1,50 @@
-.button
+.sideitem
 {
--fx-background-color : #F3F3F3;
-background-color : #F3F3F3;
-
+-fx-background-color : #0800ff00;
 }
-.button:hover
+.curr_sideitem
 {
--fx-background-color : #A1C1F4 ;
-background-color : #A1C1F4 ;
+-fx-background-color : #5b02686d;
+-fx-border-color : #b855ca6a;
+-fx-border-width : 0 0 3 0;
+
 }
-.button:pressed
+.sideitem:hover
 {
--fx-background-color : #73A3EF ;
-background-color : #73A3EF ;
+-fx-background-color : #6f0599bf ;
+-fx-border-color : #ffffff ;
+-fx-border-width : 0 0 0 3;
+}
+.sideitem:pressed
+{
+-fx-background-color : #782168 ;
 }
 
-.table-view .column-header,
-.table-view .column-header-background .filler {
-    -fx-cell-size : 20;
-    -fx-background-color:   #2D75E8;
+.header
+{
+-fx-background-color : #540b84d1;
 }
-.table-view .column-header .label{
-
-   -fx-text-fill: white;
-   -fx-font-weight: bold;
-   -fx-alignment: CENTER_LEFT;
+.sidebox
+{
+-fx-background-color : #540b84d1;
 }
-.table-view .cell{
-   -fx-cell-size: 30;
-  -fx-alignment: center-left;
-  -fx-text-fill: #000000;
-  -fx-alignment: CENTER_LEFT;
+.home
+{
+-fx-background-color : #00000000; 
 }
-
-.table-row-cell:selected {
-    -fx-background-color:  rgb(127, 172, 243);
- }
- .table-row-cell:selected .text {
-        -fx-fill : white ;
- 
- }
-/* scroll bar starts here */
-
-/* The increment and decrement button CSS class of scrollbar */
-.table-view .increment-button ,.table-view .decrement-button {
-    -fx-background-color:transparent;
-	-fx-background-radius: 2em;
-
+.home:hover
+{
+-fx-background-color : #54545472; 
 }
-
-/* The main scrollbar **track** CSS class  */
-.table-view .scroll-bar:horizontal .track,
-.table-view .scroll-bar:vertical .track{
-	-fx-background-color: transparent;
-	-fx-border-color:derive(  #2D75E8,80%);
-	-fx-background-radius: 2em;
-	-fx-border-radius:2em;
+.home:pressed
+{
+-fx-background-color : #543434a9; 
 }
-
-/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
-.table-view .scroll-bar:horizontal .thumb,
-.table-view .scroll-bar:vertical .thumb {
-    -fx-background-color:derive( #2D75E8,90%);
-	-fx-background-insets: 2, 0, 0;
-	-fx-background-radius: 2em;
-
+.homepane1
+{
+    -fx-background-image: url('images/bg1.jpg');
 }
-
-/* chart properties */
-
-.chart {
-    -fx-padding: 10px;
-    -fx-background-color: transparent;
-    -fx-legend-visible: false;
-}
-.chart-plot-background {
-    -fx-background-color:transparent;
-}
-
-.chart-pie {
-    -fx-border-color: derive(-fx-pie-color, 1%);
-    -fx-border-width: 0px;
+.homepane2
+{
+    -fx-background-image: url('images/bg2.jpeg');
 }

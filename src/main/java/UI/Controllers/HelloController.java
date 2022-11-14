@@ -25,12 +25,6 @@ public class HelloController implements Initializable {
     private TableColumn<User, String> fname;
 
     @FXML
-    private Button add;
-
-    @FXML
-    private Button delete;
-
-    @FXML
     private Button searchButton;
     @FXML
     private TableColumn<User, String> lname;
@@ -47,27 +41,12 @@ public class HelloController implements Initializable {
     private TableColumn<User, String> status;
 
     @FXML
-    void add(MouseEvent event) {
-        User user = new User("s","k","a",100,928492639);
-        table.getItems().add(user);
-    }
-    @FXML
-    void delete(MouseEvent event) {
-
-        ObservableList<User> selectedUser, allUsers;
-        allUsers = table.getItems();
-        selectedUser = table.getSelectionModel().getSelectedItems();
-        selectedUser.forEach(allUsers::remove);
-    }
-    @FXML
     private TableView<User> table;
 
     @FXML
     private TableColumn<User, Integer> uid;
 
     ObservableList<User> list = FXCollections.observableArrayList(
-            new User("m","g","a",213,312),
-            new User("x","w","f",211,512)
             );
 
     @Override
