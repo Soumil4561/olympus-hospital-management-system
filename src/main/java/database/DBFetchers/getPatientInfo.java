@@ -52,6 +52,7 @@ public class getPatientInfo{
             plist[counter]=new Patient(p_id,p_fname,p_lname,p_DOB,gender,contact,email);
             counter++;
         }
+        data.close();
     }
 }
 
