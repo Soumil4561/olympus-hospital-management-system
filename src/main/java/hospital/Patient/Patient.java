@@ -96,4 +96,9 @@ public class Patient {
         return SqlInsertUpdateConnection.connect(query);
     }
 
+    public boolean editPatientDetails(Patient pat) throws SQLException {
+        String query="UPDATE patient SET fname='"+pat.getFname()+"',lname='"+pat.getLname()+"',patient_DOB='"+pat.getDOB()+"',contact_no='"+pat.getContact_no()+"',email='"+pat.getEmail()+"',stat='"+getStatus()+"' WHERE (patient_id='"+pat.getPatient_id()+"')";
+        return SqlInsertUpdateConnection.connect(query);
+    }
+
 }

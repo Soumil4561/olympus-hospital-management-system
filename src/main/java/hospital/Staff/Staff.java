@@ -78,7 +78,7 @@ public class Staff {
         this.password = password;
     }
 
-    public static boolean Login(long id, String password) throws SQLException {
+    public static String Login(long id, String password) throws SQLException {
         return CredentialCheck.loginCredentials(id,password);
     }
 }

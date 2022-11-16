@@ -37,24 +37,24 @@ public class LoginController {
     void gotoStaffScene(MouseEvent event) throws IOException, SQLException {
         uid = Long.parseLong(uid_input.getText());
         pass = pass_input.getText();
-
-        if(isReceptionist(uid,pass)){
+        String typeOfStaff=LoginRequest(uid,pass);
+        if(typeOfStaff.equals("Receptionist")){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UI/homeTab.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } else {
+        }
+        else {
             try {
                 AlertBox.display("Wrong Username or Password");
             } catch (Exception e){
                 System.out.println("cant open alertbox");
             }
         }
-
     }
 
-    public boolean isReceptionist(long id,String password) throws SQLException {
+    public String LoginRequest(long id,String password) throws SQLException {
        return Staff.Login(id,password);
     }
 
