@@ -1,14 +1,12 @@
 package database.DBFetchers;
 
 import database.DBConnectors.SqlSearchConnection;
+import database.DBConnectors.getConnection;
 import hospital.Appointments.Appointment;
 import hospital.Appointments.AppointmentView;
 import hospital.Staff.Doctor;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Time;
+import java.sql.*;
 
 import static database.DBFetchers.ResultsetFunctions.size;
 
@@ -17,11 +15,13 @@ public class getAppointmentInfo {
         String query="SELECT appointment_id,CONCAT(patient.fname,' ',patient.lname) as 'Patient Name' , " +
                 "CONCAT(staff.fname,' ',staff.lname) as 'Doctor Name', " +
                 "report_id , appointment_date,appointment_time " +
-                "FROM appointments " +
-                "JOIN staff on appointments.staff_id=staff.staff_id " +
-                "JOIN patient on appointments.patient_id=patient.patient_id " +
-                "where appointment_date='"+date+"'";
-        ResultSet data = SqlSearchConnection.connect(query);
+                "FROM hospital.appointments " +
+                "JOIN hospital.staff on appointments.staff_id=staff.staff_id " +
+                "JOIN hospital.patient on appointments.patient_id=patient.patient_id " +
+                "where appointment_date=?";
+        PreparedStatement ps= getConnection.getStatement(query);
+        ps.setDate(1,date);
+        ResultSet data = SqlSearchConnection.execute(ps);
         int size=size(data);
         AppointmentView[] appointmentList=new AppointmentView[size];
         int counter=0;

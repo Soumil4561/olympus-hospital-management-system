@@ -1,9 +1,11 @@
 package database.DBFetchers;
 
+import database.DBConnectors.getConnection;
 import hospital.Patient.Patient;
 import database.DBConnectors.SqlSearchConnection;
 
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -18,24 +20,27 @@ public class getPatientInfo{
      * @return  list of patient objects
      * @throws SQLException
      */
-    public static Patient[] searchPatients(int patient_id) throws SQLException {
+    public static Patient[] searchPatients(long patient_id) throws SQLException {
         String id=String.valueOf(patient_id);
         String query;
-        query="select * from patient where patient_id Regexp '^"+id+"'";
-        ResultSet data= SqlSearchConnection.connect(query);
+        query="select * from patient where patient_id Regexp '^?'";
+        PreparedStatement ps= getConnection.getStatement(query);
+        ps.setLong(1,patient_id);
+        ResultSet data= SqlSearchConnection.execute(ps);
         int size=ResultsetFunctions.size(data);
         Patient[] plist=new Patient[size];
         dataToArray(data,plist);
         return plist;
     }
 
-    public static Patient[] searchPatients(String patient_name) throws SQLException{
+    public static Patient[] searchPatients(String patient_name) throws SQLException {
         String query;
-        query="select * from patient where fname Regexp '^"+patient_name+"'";
-        ResultSet data= SqlSearchConnection.connect(query);
-        int size=ResultsetFunctions.size(data);
-        Patient[] plist=new Patient[size];
-        dataToArray(data,plist);
+        query = "select * from hospital.patient where fname Regexp '^"+patient_name+"'";
+        PreparedStatement ps = getConnection.getStatement(query);
+        ResultSet data = SqlSearchConnection.execute(ps);
+        int size = ResultsetFunctions.size(data);
+        Patient[] plist = new Patient[size];
+        dataToArray(data, plist);
         return plist;
     }
 

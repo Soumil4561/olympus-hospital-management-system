@@ -1,14 +1,13 @@
 package hospital.Appointments;
 
 import database.DBConnectors.SqlInsertUpdateConnection;
+import database.DBConnectors.getConnection;
 import hospital.Patient.Patient;
 import hospital.Patient.PatientReport;
 import hospital.Staff.Doctor;
 import database.DBFetchers.getAppointmentInfo;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.sql.Time;
+import java.sql.*;
 
 public class Appointment {
     private long appointment_id;
@@ -28,9 +27,13 @@ public class Appointment {
     }
 
     public boolean createNewAppointment() throws SQLException {
-        String query="INSERT INTO appointments (`patient_id`, `staff_id`, `report_id`, `appointment_date`, `appointment_time`) VALUES " +
-                "('"+patient.getPatient_id()+"','"+doctor.getStaff_id()+"','"+report.getReport_id()+"','"+appointment_date+"','"+appointment_time+"')";
-        SqlInsertUpdateConnection.connect(query);
-        return true;
+        String query="INSERT INTO hospital.appointments (`patient_id`, `staff_id`, `report_id`, `appointment_date`, `appointment_time`) VALUES (?,?,?,?,?)";
+        PreparedStatement ps = getConnection.getStatement(query);
+        ps.setLong(1,patient.getPatient_id());
+        ps.setLong(2,51163);
+        ps.setLong(3,report.getReport_id());
+        ps.setDate(4,appointment_date);
+        ps.setTime(5,appointment_time);
+        return SqlInsertUpdateConnection.execute(ps);
     }
 }
