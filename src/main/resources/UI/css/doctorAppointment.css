@@ -1,0 +1,37 @@
+.sideitem
+{
+-fx-background-color : #0800ff00;
+}
+.curr_sideitem
+{
+-fx-background-color : #5b02686d;
+-fx-border-color : #b855ca6a;
+-fx-border-width : 0 0 3 0;
+}
+.sideitem:hover
+{
+-fx-background-color : #6f0599bf ;
+-fx-border-color : #ffffff ;
+-fx-border-width : 0 0 0 3;
+}
+.sideitem:pressed
+{
+-fx-background-color : #782168 ;
+}
+.sidebox
+{
+-fx-background-color : #540b84d1;
+}
+.home
+{
+-fx-background-color : #00000000;
+}
+.home:hover
+{
+-fx-background-color : #54545472;
+}
+.home:pressed
+{
+-fx-background-color : #543434a9;
+}
+
