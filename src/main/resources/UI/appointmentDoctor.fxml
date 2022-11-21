@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/doctorAppointment.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="85.0" prefWidth="182.0" styleClass="olympusHbox" stylesheets="@css/doctorAppointment.css">
+               <children>
+                  <Label text="Olympus" textFill="#fffbfb">
+                     <font>
+                        <Font name="Script MT Bold" size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="189.0" styleClass="curr_sideitem" stylesheets="@css/doctorAppointment.css" text="Appointments" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="189.0" styleClass="sideitem" stylesheets="@css/doctorAppointment.css" text="Patients" textFill="WHITE" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="189.0" styleClass="sideitem" stylesheets="@css/doctorAppointment.css" text="Lab Request" textFill="WHITE" />
+            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="118.0" prefWidth="182.0" VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="189.0" styleClass="sideitem" stylesheets="@css/doctorAppointment.css" text="Settings" textFill="WHITE" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="421.0" prefWidth="448.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="30.0" prefWidth="455.0" styleClass="sidebox" stylesheets="@css/doctorAppointment.css">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Button mnemonicParsing="false" styleClass="home">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@png/icons8-home-240.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label text=":/Appointments" textFill="#fffdfd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView prefHeight="405.0" prefWidth="418.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="75.0" text="First Name" />
+                  <TableColumn prefWidth="75.0" text="Last Name" />
+                  <TableColumn prefWidth="132.0" text="Appointment Date" />
+                  <TableColumn prefWidth="119.20001220703125" text="Appointment Time" />
+                  <TableColumn prefWidth="68.80001831054688" text="Status" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
