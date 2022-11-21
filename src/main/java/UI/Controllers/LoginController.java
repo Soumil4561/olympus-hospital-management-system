@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +28,9 @@ public class LoginController {
     String pass;
     @FXML
     private Button logInButton;
+
+    @FXML
+    private BorderPane loginPane;
     @FXML
     private TextField pass_input;
 
@@ -39,10 +43,11 @@ public class LoginController {
         pass = pass_input.getText();
         String typeOfStaff=LoginRequest(uid,pass);
         if(typeOfStaff.equals("Receptionist")){
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("UI/homeTab.fxml")));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("UI/homeTab.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+            loginPane = loader.load();
+            stage.getScene().setRoot(loginPane);
             stage.show();
         }
         else {

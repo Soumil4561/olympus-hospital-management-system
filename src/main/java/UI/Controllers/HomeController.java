@@ -25,15 +25,15 @@ public class HomeController {
     @FXML
     private Button patientButton;
 
+
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+            homePane = loader.load();
+            stage.getScene().setRoot(homePane);
             stage.show();
-
     }
 
 }

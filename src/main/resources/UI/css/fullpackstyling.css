@@ -1,6 +1,19 @@
+.addbutton
+{
+   -fx-background-color: #360d52d1;
+}
+.addbutton:hover
+{
+-fx-background-color : #6f0599bf ;
+
+}
+.addbutton:pressed
+{
+-fx-background-color : #2d0a26 ;
+}
 .sideitem
 {
--fx-background-color : #0800ff00;
+-fx-background-color : #0800ff00;   
 }
 .curr_sideitem
 {
@@ -24,27 +37,28 @@
 {
 -fx-background-color : #540b84d1;
 }
+
 .sidebox
 {
 -fx-background-color : #540b84d1;
 }
+
 .home
 {
 -fx-background-color : #00000000; 
 }
+
 .home:hover
 {
 -fx-background-color : #54545472; 
 }
+
 .home:pressed
 {
 -fx-background-color : #543434a9; 
 }
+
 .homepane1
 {
     -fx-background-image: url('images/bg1.jpg');
-}
-.homepane2
-{
-    -fx-background-image: url('images/bg2.jpeg');
 }

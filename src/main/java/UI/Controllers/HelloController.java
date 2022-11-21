@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,8 +26,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
-    public String searchBoxContents;
-
     @FXML
     private TableColumn<User, Long> contact_no;
 
@@ -39,30 +38,35 @@ public class HelloController implements Initializable {
     private TableColumn<User, String> lname;
 
     @FXML
+    private BorderPane patientPane;
+
+    @FXML
     private TextField searchbox;
+    public String searchBoxContents;
 
     @FXML
     void getPatientDetails(MouseEvent event) throws SQLException {
         table.getItems().clear();
         searchBoxContents= searchbox.getText();
         Patient[] pat= getPatientInfo.searchPatients(searchBoxContents);
-        for (int i = 0; i<pat.length; i++) {
+        for (Patient patient : pat) {
             User user = new User();
-            user.setUid(pat[i].getPatient_id());
-            user.setFname((pat[i].getFname()));
-            user.setLname((pat[i].getLname()));
-            user.setStatus(pat[i].getStatus());
-            user.setContact_no(pat[i].getContact_no());
+            user.setUid(patient.getPatient_id());
+            user.setFname((patient.getFname()));
+            user.setLname((patient.getLname()));
+            user.setStatus(patient.getStatus());
+            user.setContact_no(patient.getContact_no());
             table.getItems().add(user);
         }
     }
 
     @FXML
     void gotoHome(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("UI/homeTab.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("UI/homeTab.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        patientPane = loader.load();
+        stage.getScene().setRoot(patientPane);
         stage.show();
     }
     @FXML
