@@ -11,13 +11,16 @@ public class AppointmentView {
     public Date date;
     public Time time;
 
-    public AppointmentView(long appointment_id, String patient_name, String doctor_name, long report_id, Date date, Time time) {
+    public String status;
+
+    public AppointmentView(long appointment_id, String patient_name, String doctor_name, long report_id, Date date, Time time,String status) {
         this.appointment_id = appointment_id;
         this.patient_name = patient_name;
         this.doctor_name = doctor_name;
         this.report_id = report_id;
         this.date = date;
         this.time = time;
+        this.status=status;
     }
 
     public long getAppointment_id() {
