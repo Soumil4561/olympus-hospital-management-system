@@ -26,18 +26,18 @@ public class PatientReport {
         this.start_date=new Date(millis);
     }
 
+    public long getDepartment_id() {
+        return department_id;
+    }
+
+    public Date getStart_date() {
+        return start_date;
+    }
+
     public long getReport_id() {
         return report_id;
     }
 
-    public boolean createNewReport() throws SQLException {
-        String query="INSERT INTO reports.patient_reports (`patient_id`, `department_id`, `startdate`) VALUES (?,?,?)";
-        //'"+patient.getPatient_id()+"','"+department_id+"','"+start_date+"'
-        PreparedStatement ps=getConnection.getStatement(query);
-        ps.setLong(1,patient.getPatient_id());
-        ps.setLong(2,department_id);
-        ps.setDate(3,start_date);
-        return SqlInsertUpdateConnection.execute(ps);
-    }
+
 
 }

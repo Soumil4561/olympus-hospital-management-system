@@ -1,6 +1,9 @@
 package UI.Controllers;
 
 import UI.Elements.Admission;
+import database.DBFetchers.getAdmissionInfo;
+import hospital.Admissions.AdmissionView;
+import hospital.Admissions.NewAdmission;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,15 +23,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdmissionController implements Initializable {
     @FXML
     private TableView<Admission> table;
-    ObservableList<Admission> list = FXCollections.observableArrayList(
-
-    );
-
+    ObservableList<Admission> list = FXCollections.observableArrayList();
     @FXML
     private TableColumn<Admission, Long> bedID;
 
@@ -59,18 +60,13 @@ public class AdmissionController implements Initializable {
     private Button searchbutton;
     public String searchBoxContents;
 
-    public AdmissionController() {
+    public AdmissionController() throws SQLException {
     }
 
     @FXML
     void getAdmissionID(MouseEvent event) {
         table.getItems().clear();
         searchBoxContents= searchbox.getText();
-
-        for () {
-
-            table.getItems().add();
-        }
     }
 
     @FXML
@@ -98,6 +94,19 @@ public class AdmissionController implements Initializable {
         stage.show();
     }
 
+    public void viewDefaultAdmission() throws SQLException {
+        AdmissionView[] admissionlist = getAdmissionInfo.currentAdmissions();
+        for (AdmissionView admissionView : admissionlist) {
+            Admission admission = new Admission();
+            admission.setAdmissionID(admissionView.getAdmission_id());
+            admission.setBedID(admissionView.getBed_id());
+            admission.setDate((admissionView.getAdmission_date()));
+            admission.setDIC(admissionView.getDoctor_name());
+            admission.setPatientName((admissionView.getPatient_name()));
+
+            table.getItems().add(admission);
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -106,7 +115,10 @@ public class AdmissionController implements Initializable {
         bedID.setCellValueFactory(new PropertyValueFactory<>("bedID"));
         DIC.setCellValueFactory(new PropertyValueFactory<>("DIC"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
-
-        table.setItems(list);
+        try {
+            viewDefaultAdmission();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

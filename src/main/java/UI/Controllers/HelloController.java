@@ -1,5 +1,6 @@
 package UI.Controllers;
 
+import UI.Elements.Admission;
 import UI.Elements.User;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
@@ -78,8 +79,17 @@ public class HelloController implements Initializable {
     @FXML
     private TableColumn<User, Integer> uid;
 
-    ObservableList<User> list = FXCollections.observableArrayList(
-            );
+    @FXML
+    void gotoAdmissionsTab(MouseEvent event) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("UI/admissionsTab_receptionist.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        patientPane = loader.load();
+        stage.getScene().setRoot(patientPane);
+        stage.show();
+    }
+
+    ObservableList<User> list = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

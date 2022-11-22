@@ -106,24 +106,5 @@ public class Patient {
         this.status = status;
     }
 
-    public boolean createNewPatient() throws SQLException {
-        String query="INSERT INTO 'hospital'.'patient' (`fname`, `lname`, `patient_DOB`, `gender`, `contact_no`, `email`, `stat`) VALUES (?,?,?,?,?,?,?)";
-        PreparedStatement ps = getConnection.getStatement(query);
-        assert ps != null;
-        ps.setString(1,getFname());
-        ps.setString(2,getLname());
-        ps.setDate(3,getDOB());
-        ps.setString(4,getGender());
-        ps.setLong(5,getContact_no());
-        ps.setString(6,getEmail());
-        ps.setString(7,"opd");
-        return SqlInsertUpdateConnection.execute(ps);
-    }
-
-    public boolean editPatientDetails(Patient pat) throws SQLException {
-        //String query="UPDATE patient SET fname='"+pat.getFname()+"',lname='"+pat.getLname()+"',patient_DOB='"+pat.getDOB()+"',contact_no='"+pat.getContact_no()+"',email='"+pat.getEmail()+"',stat='"+getStatus()+"' WHERE (patient_id='"+pat.getPatient_id()+"')";
-        //return SqlInsertUpdateConnection.connect(query);
-        return true;
-    }
 
 }
