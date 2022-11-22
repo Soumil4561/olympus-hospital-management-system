@@ -67,6 +67,7 @@ public class AdmissionController implements Initializable {
     void getAdmissionID(MouseEvent event) {
         table.getItems().clear();
         searchBoxContents= searchbox.getText();
+
     }
 
     @FXML

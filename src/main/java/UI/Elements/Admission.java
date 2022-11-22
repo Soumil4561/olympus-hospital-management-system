@@ -3,7 +3,7 @@ package UI.Elements;
 import java.sql.Date;
 
 public class Admission {
-    private String patientName,DIC;
+    private String name,DIC;
     private Long admissionID,patientID,bedID;
     private Date date;
 
@@ -11,26 +11,26 @@ public class Admission {
         this.admissionID=0L;
         this.bedID=0L;
         this.patientID=0L;
-        this.patientName=null;
+        this.name=null;
         this.DIC=null;
         this.date=null;
     }
 
-    public Admission(String patientName, String DIC, Long admissionID, Long patientID, Long bedID, Date date){
+    public Admission(String name, String DIC, Long admissionID, Long patientID, Long bedID, Date date){
         this.admissionID=admissionID;
         this.bedID=bedID;
         this.patientID=patientID;
-        this.patientName=patientName;
+        this.name=name;
         this.DIC=DIC;
         this.date=date;
     }
 
     public String getPatientName() {
-        return patientName;
+        return name;
     }
 
     public void setPatientName(String patientName) {
-        this.patientName = patientName;
+        this.name = patientName;
     }
 
     public String getDIC() {
