@@ -1,0 +1,24 @@
+.sideitem
+{
+-fx-background-color : #0800ff00;
+}
+.sideitem:pressed
+{
+-fx-background-color : #782168 ;
+}
+.sidebox
+{
+-fx-background-color : #540b84d1;
+}
+.homeButton
+{
+-fx-background-color : #00000000;
+}
+.homeButton:hover
+{
+-fx-background-color : #54545472;
+}
+.homeButton:pressed
+{
+-fx-background-color : #543434a9;
+}

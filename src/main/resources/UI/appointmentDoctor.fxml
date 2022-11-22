@@ -13,14 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.appointmentController">
    <left>
       <VBox prefHeight="200.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/doctorAppointment.css" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="85.0" prefWidth="182.0" styleClass="olympusHbox" stylesheets="@css/doctorAppointment.css">
                <children>
-                  <Label text="Olympus" textFill="#fffbfb">
+                  <Label text="Olympus" textFill="#fffbfb" underline="true">
                      <font>
                         <Font name="Script MT Bold" size="33.0" />
                      </font>
@@ -61,12 +60,12 @@
             </HBox>
             <TableView prefHeight="405.0" prefWidth="418.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="75.0" text="First Name" />
-                  <TableColumn prefWidth="75.0" text="Last Name" />
-                  <TableColumn prefWidth="132.0" text="Appointment Date" />
-                  <TableColumn prefWidth="119.20001220703125" text="Appointment Time" />
-                  <TableColumn prefWidth="68.80001831054688" text="Status" />
+                <TableColumn fx:id="patientID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="fName" prefWidth="75.0" text="First Name" />
+                  <TableColumn fx:id="lName" prefWidth="75.0" text="Last Name" />
+                  <TableColumn fx:id="appDate" prefWidth="132.0" text="Appointment Date" />
+                  <TableColumn fx:id="appTime" prefWidth="119.20001220703125" text="Appointment Time" />
+                  <TableColumn fx:id="stat" prefWidth="68.80001831054688" text="Status" />
               </columns>
             </TableView>
          </children>

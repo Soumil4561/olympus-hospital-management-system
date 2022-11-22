@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="admissionPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AdmissionController">
+<BorderPane fx:id="admissionPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AdmissionController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
@@ -75,7 +75,7 @@
                 <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="256.8" valignment="TOP" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="table" prefHeight="296.0" prefWidth="572.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="386.0" prefWidth="542.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="admissionID" prefWidth="94.40002286434174" text="Admission ID" />
                         <TableColumn fx:id="patientID" prefWidth="85.59998321533203" text="Patient ID" />

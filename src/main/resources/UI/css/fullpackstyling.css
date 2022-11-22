@@ -62,3 +62,19 @@
 {
     -fx-background-image: url('images/bg1.jpg');
 }
+
+ .mailButton
+{
+    -fx-background-color : #e9c0c000;
+}
+
+.mailButton:hover
+{
+-fx-background-color : #4ad7e772;
+}  
+
+.mailButton:pressed
+{
+    -fx-background-color : #4fbded91;
+}
+
