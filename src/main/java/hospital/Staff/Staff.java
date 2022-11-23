@@ -80,7 +80,10 @@ public class Staff {
 
     public static String Login(long id, String password) throws SQLException {
         String type = CredentialCheck.loginCredentials(id,password);
-
         return type;
+    }
+
+    public static void editAccountDetails(Staff staff){
+
     }
 }
