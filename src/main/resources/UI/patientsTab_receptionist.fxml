@@ -51,7 +51,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="homeButton" mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="7.0" prefWidth="22.0" styleClass="home" stylesheets="@css/fullpackstyling.css">
+                  <Button mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="7.0" prefWidth="22.0" styleClass="home" stylesheets="@css/fullpackstyling.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#gotoHome" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -67,7 +67,7 @@
                   </Label>
                </children>
             </HBox>
-            <GridPane fx:id="gridpane" prefHeight="348.0" prefWidth="455.0" VBox.vgrow="ALWAYS">
+            <GridPane prefHeight="348.0" prefWidth="455.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="479.99998779296874" />
                   <ColumnConstraints hgrow="NEVER" maxWidth="25.0" minWidth="20.0" prefWidth="25.0" />
@@ -78,20 +78,23 @@
                 <RowConstraints maxHeight="59.600012207031284" minHeight="20.0" prefHeight="25.0" vgrow="NEVER" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="table" onMouseClicked="#getPatientCell" prefHeight="296.0" prefWidth="572.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="table" prefHeight="296.0" prefWidth="572.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                     <columns>
-                      <TableColumn fx:id="uid" prefWidth="75.0" text="ID" />
-                      <TableColumn fx:id="fname" prefWidth="75.0" text="First Name" />
-                        <TableColumn fx:id="lname" prefWidth="75.0" text="Last Name" />
-                        <TableColumn fx:id="contact_no" prefWidth="75.0" text="Phone No." />
-                        <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
+                      <TableColumn fx:id="uid" prefWidth="28.00000035762787" text="ID" />
+                      <TableColumn fx:id="fname" prefWidth="67.20002555847168" text="First Name" />
+                        <TableColumn fx:id="lname" prefWidth="64.00000762939453" text="Last Name" />
+                        <TableColumn fx:id="contact_no" prefWidth="64.0" text="Phone No." />
+                        <TableColumn fx:id="status" minWidth="5.60003662109375" prefWidth="45.5999755859375" text="Status" />
+                        <TableColumn fx:id="DOB" minWidth="4.79998779296875" prefWidth="37.60003662109375" text="DOB" />
+                        <TableColumn fx:id="email" prefWidth="56.0" text="E-mail" />
+                        <TableColumn fx:id="gender" prefWidth="53.5999755859375" text="Gender" />
                     </columns>
                   </TableView>
                   <ScrollBar GridPane.rowIndex="2" />
                   <ScrollBar orientation="VERTICAL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="searchbar4" stylesheets="@css/fullpackstyling.css">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="111.0" text="Search Patients:">
+                        <Label prefHeight="20.0" prefWidth="140.0" text="Search Patients:">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -103,7 +106,7 @@
                            <HBox.margin>
                               <Insets bottom="1.0" />
                            </HBox.margin></TextField>
-                        <Button fx:id="searchbutton" mnemonicParsing="false" onMouseClicked="#getPatientDetails" prefHeight="28.0" prefWidth="27.0">
+                        <Button mnemonicParsing="false" onMouseClicked="#getPatientDetails" prefHeight="28.0" prefWidth="27.0">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -116,7 +119,7 @@
                            </HBox.margin>
                         </Button>
                         <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="82.0" HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" styleClass="addbutton" stylesheets="@css/fullpackstyling.css" text="Create Patient" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="addbutton" stylesheets="@css/fullpackstyling.css" text="Create Patient" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

@@ -1,30 +1,28 @@
 package UI.Controllers;
 
+import UI.Elements.PopUpBox;
 import UI.Elements.User;
 import UI.Functions.JumpScene;
-import currentsession.CurrentUserInfo;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-
-import java.awt.desktop.UserSessionEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PatientReceptionistController implements Initializable {
+
+    public Long inheritableUser = 0L;
+
     @FXML
     private TableColumn<User, Long> contact_no;
 
@@ -32,15 +30,32 @@ public class PatientReceptionistController implements Initializable {
     private TableColumn<User, String> fname;
 
     @FXML
-    private Button searchButton;
-    @FXML
     private TableColumn<User, String> lname;
 
     @FXML
     private BorderPane patientPane;
 
     @FXML
+    private TableColumn<User, String> status;
+
+    @FXML
+    private TableView<User> table;
+
+    @FXML
+    private TableColumn<User, Integer> uid;
+
+    @FXML
+    private TableColumn<User, Date> DOB;
+
+    @FXML
+    private TableColumn<User, String> gender;
+
+    @FXML
+    private TableColumn<User, String> email;
+
+    @FXML
     private TextField searchbox;
+
     public String searchBoxContents;
 
 
@@ -56,7 +71,12 @@ public class PatientReceptionistController implements Initializable {
             user.setLname((patient.getLname()));
             user.setStatus(patient.getStatus());
             user.setContact_no(patient.getContact_no());
+            user.setDOB(patient.getDOB());
+            user.setEmail(patient.getEmail());
+            user.setGender(patient.getGender());
+
             table.getItems().add(user);
+
         }
     }
 
@@ -65,32 +85,9 @@ public class PatientReceptionistController implements Initializable {
         JumpScene.changeScene(patientPane,"UI/homeTab.fxml",event);
 
     }
-    @FXML
-    private TableColumn<User, String> status;
 
     @FXML
-    private TableView<User> table;
-
-    @FXML
-    private TableColumn<User, Integer> uid;
-
-
-    @FXML
-    void getPatientCell(MouseEvent event) {
-        table.setRowFactory(tv -> {
-            TableRow<User> row = new TableRow<>();
-            row.setOnMouseClicked(event1 -> {
-                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-                    User rowData = row.getItem();
-                    System.out.println("Double click on: " + rowData.getFname());
-                }
-            });
-            return row;
-        });
-    }
-
-    @FXML
-    void gotoAdmissionsTab(MouseEvent event) throws IOException, SQLException {
+    void gotoAdmissionsTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(patientPane,"UI/admissionsTab_receptionist.fxml",event);
 
     }
@@ -104,7 +101,22 @@ public class PatientReceptionistController implements Initializable {
         contact_no.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
         uid.setCellValueFactory(new PropertyValueFactory<>("uid"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        DOB.setCellValueFactory(new PropertyValueFactory<>("DOB"));
+        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
         table.setItems(list);
+
+        table.setOnMousePressed(event -> {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                User tempUser = table.getSelectionModel().getSelectedItem();
+                inheritableUser = tempUser.getUid();
+                try {
+                    PopUpBox.editformDisplay("Edit Patient Details");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 }

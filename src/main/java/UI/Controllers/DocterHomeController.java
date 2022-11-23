@@ -2,11 +2,8 @@ package UI.Controllers;
 
 import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;

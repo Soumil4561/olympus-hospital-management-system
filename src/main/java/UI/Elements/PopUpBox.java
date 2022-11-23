@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AlertBox {
+public class PopUpBox {
 
     @FXML
     private Button closeButton;
@@ -23,7 +23,19 @@ public class AlertBox {
 
     public static void display(String title) throws IOException {
         Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/alertbox.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("UI/alertbox.fxml"));
+        window.initModality(Modality.APPLICATION_MODAL);
+
+        window.setTitle(title);
+
+        Scene scene = new Scene(fxmlLoader.load());
+        window.setScene(scene);
+        window.showAndWait();
+    }
+
+    public static void editformDisplay(String title) throws IOException {
+        Stage window = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("UI/patientEditForm_PopUp.fxml"));
         window.initModality(Modality.APPLICATION_MODAL);
 
         window.setTitle(title);
