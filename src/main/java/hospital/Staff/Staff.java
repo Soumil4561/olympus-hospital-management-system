@@ -135,9 +135,10 @@ public class Staff {
         return SqlInsertUpdateConnection.execute(ps);
     }
 
-    protected boolean ChangePassword(long staff_id, String password) throws SQLException {
+    public static boolean changePassword(long staff_id, String password) throws SQLException {
         String query="UPDATE `hospital`.`staffidandpass` SET `password` = MD5(?) WHERE (`staff_id` = ?);";
         PreparedStatement ps=getConnection.getStatement(query);
+        assert ps != null;
         ps.setString(1,password);
         ps.setLong(2,staff_id);
         return SqlInsertUpdateConnection.execute(ps);

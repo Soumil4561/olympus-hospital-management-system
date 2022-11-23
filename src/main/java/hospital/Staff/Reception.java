@@ -32,7 +32,7 @@ public class Reception extends Staff{
         return SqlInsertUpdateConnection.execute(ps);
     }
 
-    public boolean editPatientDetails(Patient pat) throws SQLException {
+    public static boolean editPatientDetails(Patient pat) throws SQLException {
         String query="UPDATE hospital.patient SET fname=? ,lname=? ,patient_DOB=? ,contact_no=? ,email=? ,stat=? WHERE (patient_id=?)";
         PreparedStatement ps=getConnection.getStatement(query);
         assert  ps!=null;

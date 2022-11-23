@@ -22,7 +22,7 @@ public class getPatientInfo{
     public static Patient[] searchPatients(long patient_id) throws SQLException {
         String id=String.valueOf(patient_id);
         String query;
-        query="select * from patient where patient_id Regexp '?'";
+        query="select * from hospital.patient where patient_id=?";
         PreparedStatement ps= getConnection.getStatement(query);
         ps.setLong(1,patient_id);
         ResultSet data= SqlSearchConnection.execute(ps);

@@ -4,7 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ResultsetFunctions {
-    public static int size(ResultSet data) throws SQLException {int size =0;
+    public static int size(ResultSet data) throws SQLException {
+        int size =0;
         if (data != null)
         {
             data.last();    // moves cursor to the last row

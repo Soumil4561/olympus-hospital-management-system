@@ -1,5 +1,8 @@
 package UI.Controllers;
 
+import database.DBFetchers.getPatientInfo;
+import hospital.Patient.Patient;
+import hospital.Staff.Reception;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,9 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class EditController implements Initializable {
+public class PatientEditController implements Initializable {
 
     @FXML
     private Button editDetailsButton;
@@ -62,8 +67,16 @@ public class EditController implements Initializable {
     }
 
     @FXML
-    void setValues(MouseEvent event) {
-
+    void setValues(MouseEvent event) throws SQLException {
+        String fname = patient_fname.getText();
+        String lname= patient_lname.getText();
+        String gender=patient_gender.getText();
+        Long number= Long.valueOf(patient_contact_no.getText());
+        String email=patient_email.getText();
+        String status=patient_status.getText();
+        Date date= Date.valueOf(patient_dob.getText());
+        Patient patient=new Patient(PatientReceptionistController.inheritableUser,fname,lname,date,gender,number,email,status);
+        Reception.editPatientDetails(patient);
     }
 
     @Override
@@ -76,5 +89,20 @@ public class EditController implements Initializable {
         patient_status.setEditable(false);
         patient_email.setEditable(false);
         patient_contact_no.setEditable(false);
+
+        try {
+            Patient[] pat= getPatientInfo.searchPatients(PatientReceptionistController.inheritableUser);
+            patient_dob.setText(pat[0].getDOB().toString());
+            patient_fname.setText(pat[0].getFname());
+            patient_lname.setText(pat[0].getLname());
+            patient_email.setText(pat[0].getEmail());
+            patient_uid.setText(String.valueOf(pat[0].getPatient_id()));
+            patient_contact_no.setText(String.valueOf(pat[0].getContact_no()));
+            patient_gender.setText(pat[0].getGender());
+            patient_status.setText(pat[0].getStatus());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

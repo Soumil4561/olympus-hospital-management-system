@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class PatientReceptionistController implements Initializable {
 
-    public Long inheritableUser = 0L;
+    public static Long inheritableUser = 0L;
 
     @FXML
     private TableColumn<User, Long> contact_no;
@@ -111,10 +111,10 @@ public class PatientReceptionistController implements Initializable {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
                 User tempUser = table.getSelectionModel().getSelectedItem();
                 inheritableUser = tempUser.getUid();
-                try {
-                    PopUpBox.editformDisplay("Edit Patient Details");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+               try {
+                   PopUpBox.editformDisplay("Edit Patient Details");
+              } catch (IOException e) {
+                   throw new RuntimeException(e);
                 }
             }
         });

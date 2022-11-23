@@ -35,7 +35,7 @@ public class PopUpBox {
 
     public static void editformDisplay(String title) throws IOException {
         Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("UI/patientEditForm_PopUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/patientEditForm_PopUp.fxml"));
         window.initModality(Modality.APPLICATION_MODAL);
 
         window.setTitle(title);

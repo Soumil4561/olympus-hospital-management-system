@@ -79,3 +79,15 @@
     -fx-background-radius: 100;
     -fx-background-color: green;
 }
+
+.popbuttons:hover
+{
+    -fx-background-radius: 100;
+    -fx-background-color: #00cd00;
+}
+
+.popbuttons:pressed
+{
+    -fx-background-radius: 100;
+    -fx-background-color: #026002;
+}
