@@ -29,12 +29,12 @@ private Button mailButton;
     }
     @FXML
     void gotoAppointmentTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane,"UI/homeTab.fxml",event);
+        JumpScene.changeScene(homePane,"UI/appointmentTab_doctor.fxml",event);
     }
 
     @FXML
     void gotoMailTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane,"UI/homeTab.fxml",event);
+        JumpScene.changeScene(homePane,"UI/mailTab.fxml",event);
     }
     @FXML
     void gotoSettingsTab(MouseEvent event) throws IOException {

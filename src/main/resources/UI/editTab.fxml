@@ -29,7 +29,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="profileButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Profile Overview" textFill="WHITE" />
+            <Button fx:id="profileButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoProfileOverview" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Profile Overview" textFill="WHITE" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="curr_sideitem" stylesheets="@css/fullpackstyling.css" text="Edit Profile" textFill="WHITE" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Change Password" textFill="WHITE" />
             <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
@@ -83,7 +83,7 @@
             <Region prefHeight="28.0" prefWidth="455.0" />
             <HBox prefHeight="18.0" prefWidth="200.0">
                <children>
-                  <Label text="Date of Birth">
+                  <Label text="Date of Birth(Formet: YYYY-MM-DD)">
                      <padding>
                         <Insets left="50.0" />
                      </padding>

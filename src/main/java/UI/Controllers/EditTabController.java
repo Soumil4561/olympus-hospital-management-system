@@ -44,6 +44,7 @@ public class EditTabController {
     @FXML
     private BorderPane pane;
 
+
     @FXML
     void gotoHomeTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(pane,"UI/homeTabDoctor.fxml",event);
