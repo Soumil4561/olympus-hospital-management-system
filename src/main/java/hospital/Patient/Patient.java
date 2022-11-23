@@ -21,17 +21,7 @@ public class Patient {
     /*
     Used when retrieving patients from DB.
      */
-    public Patient(long id, String fname,String lname,Date DOB,String gender,long contact_no,String email){
-        this.patient_id=id;
-        this.fname=fname;
-        this.lname=lname;
-        this.DOB=DOB;
-        this.gender=gender;
-        this.contact_no=contact_no;
-        this.email=email;
-    }
-
-    public Patient(long patient_id, String fname, String lname, Date DOB, String gender, long contact_no, String email, String status) {
+        public Patient(long patient_id, String fname, String lname, Date DOB, String gender, long contact_no, String email, String status) {
         this.patient_id = patient_id;
         this.fname = fname;
         this.lname = lname;

@@ -19,7 +19,7 @@ public class Reception extends Staff{
 
 
     public static boolean createNewPatient(Patient patient) throws SQLException {
-        String query="INSERT INTO 'hospital'.'patient' (`fname`, `lname`, `patient_DOB`, `gender`, `contact_no`, `email`, `stat`) VALUES (?,?,?,?,?,?,?)";
+        String query="INSERT INTO `hospital`.`patient` (`fname`, `lname`, `patient_DOB`, `gender`, `contact_no`, `email`, `stat`) VALUES (?,?,?,?,?,?,?)";
         PreparedStatement ps = getConnection.getStatement(query);
         assert ps != null;
         ps.setString(1,patient.getFname());
@@ -28,12 +28,12 @@ public class Reception extends Staff{
         ps.setString(4,patient.getGender());
         ps.setLong(5,patient.getContact_no());
         ps.setString(6,patient.getEmail());
-        ps.setString(7,"opd");
+        ps.setString(7,"OPD");
         return SqlInsertUpdateConnection.execute(ps);
     }
 
     public static boolean editPatientDetails(Patient pat) throws SQLException {
-        String query="UPDATE hospital.patient SET fname=? ,lname=? ,patient_DOB=? ,contact_no=? ,email=? ,stat=? WHERE (patient_id=?)";
+        String query="UPDATE 'hospital'.'patient' SET 'fname' = ? , 'lname' = ? , 'patient_DOB' = ? , 'contact_no' = ? , 'email' = ? , 'stat' = ? WHERE (patient_id = ?)";
         PreparedStatement ps=getConnection.getStatement(query);
         assert  ps!=null;
         ps.setString(1,pat.getFname());

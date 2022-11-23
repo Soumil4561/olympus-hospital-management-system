@@ -14,7 +14,7 @@ public class NewAdmission {
         this.doctor=doctor;
         this.bed=bed;
     }
-    public void createNewAdmission( ){
+    public void createNewAdmission(){
 
     }
 

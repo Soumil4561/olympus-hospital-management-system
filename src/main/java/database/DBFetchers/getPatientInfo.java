@@ -22,7 +22,7 @@ public class getPatientInfo{
     public static Patient[] searchPatients(long patient_id) throws SQLException {
         String id=String.valueOf(patient_id);
         String query;
-        query="select * from hospital.patient where patient_id=?";
+        query="select * from hospital.patient where patient_id REGEXP ?";
         PreparedStatement ps= getConnection.getStatement(query);
         ps.setLong(1,patient_id);
         ResultSet data= SqlSearchConnection.execute(ps);
@@ -34,7 +34,7 @@ public class getPatientInfo{
 
     public static Patient[] searchPatients(String patient_name) throws SQLException {
         String query;
-        query = "select * from hospital.patient where fname OR lname Regexp '^"+patient_name+"'";
+        query = "select * from hospital.patient where fname Regexp '^"+patient_name+"'";
         PreparedStatement ps = getConnection.getStatement(query);
         ResultSet data = SqlSearchConnection.execute(ps);
         int size = ResultsetFunctions.size(data);
@@ -54,7 +54,7 @@ public class getPatientInfo{
             long contact=data.getLong("contact_no");
             String email= data.getString("email");
             String status=data.getString("stat");
-            plist[counter]=new Patient(p_id,p_fname,p_lname,p_DOB,gender,contact,email);
+            plist[counter]=new Patient(p_id,p_fname,p_lname,p_DOB,gender,contact,email,status);
             plist[counter].setStatus(status);
             counter++;
         }

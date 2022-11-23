@@ -55,10 +55,14 @@ public class PatientAddController {
         String email=patient_email.getText();
         Date date= Date.valueOf(patient_dob.getText());
         Patient patient = new Patient(fname,lname,date,gender,number,email);
-        Reception.createNewPatient(patient);
-        PopUpBox.confirmAdd("Patient Added Successfully!");
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
+        if(Reception.createNewPatient(patient)) {
+            PopUpBox.confirmAdd("Patient Added Successfully!");
+            Stage stage = (Stage) cancelButton.getScene().getWindow();
+            stage.close();
+        }
+        else {
+            PopUpBox.display("YOU SUCK!");
+        }
     }
 
 }
