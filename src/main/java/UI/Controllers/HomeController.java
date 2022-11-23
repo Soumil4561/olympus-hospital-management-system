@@ -1,6 +1,7 @@
 package UI.Controllers;
 
 import UI.Functions.JumpScene;
+import currentsession.CurrentUserInfo;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
