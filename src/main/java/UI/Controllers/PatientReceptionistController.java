@@ -1,7 +1,7 @@
 package UI.Controllers;
 
-import UI.Elements.Admission;
 import UI.Elements.User;
+import UI.Functions.JumpScene;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import javafx.collections.FXCollections;
@@ -10,8 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,7 +24,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class PatientReceptionistController implements Initializable {
     @FXML
     private TableColumn<User, Long> contact_no;
 
@@ -63,12 +61,8 @@ public class HelloController implements Initializable {
 
     @FXML
     void gotoHome(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/homeTab.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        patientPane = loader.load();
-        stage.getScene().setRoot(patientPane);
-        stage.show();
+        JumpScene.changeScene(patientPane,"UI/homeTab.fxml",event);
+
     }
     @FXML
     private TableColumn<User, String> status;
@@ -81,12 +75,8 @@ public class HelloController implements Initializable {
 
     @FXML
     void gotoAdmissionsTab(MouseEvent event) throws IOException, SQLException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/admissionsTab_receptionist.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        patientPane = loader.load();
-        stage.getScene().setRoot(patientPane);
-        stage.show();
+        JumpScene.changeScene(patientPane,"UI/admissionsTab_receptionist.fxml",event);
+
     }
 
     ObservableList<User> list = FXCollections.observableArrayList();

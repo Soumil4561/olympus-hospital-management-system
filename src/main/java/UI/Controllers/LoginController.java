@@ -1,6 +1,7 @@
 package UI.Controllers;
 
 import UI.Elements.AlertBox;
+import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,12 +44,11 @@ public class LoginController {
         pass = pass_input.getText();
         String typeOfStaff=LoginRequest(uid,pass);
         if(typeOfStaff.equals("Receptionist")){
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("UI/homeTab.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            loginPane = loader.load();
-            stage.getScene().setRoot(loginPane);
-            stage.show();
+            JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
+        }
+        else if(typeOfStaff.equals("Doctor")){
+            JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
+
         }
         else {
             try {

@@ -1,6 +1,7 @@
 package UI.Controllers;
 
 import UI.Elements.Admission;
+import UI.Functions.JumpScene;
 import database.DBFetchers.getAdmissionInfo;
 import hospital.Admissions.AdmissionView;
 import hospital.Admissions.NewAdmission;
@@ -77,22 +78,12 @@ public class AdmissionController implements Initializable {
 
     @FXML
     void gotoHome(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/homeTab.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        admissionPane = loader.load();
-        stage.getScene().setRoot(admissionPane);
-        stage.show();
+        JumpScene.changeScene(admissionPane,"UI/homeTab.fxml", event);
     }
 
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        admissionPane = loader.load();
-        stage.getScene().setRoot(admissionPane);
-        stage.show();
+        JumpScene.changeScene(admissionPane,"UI/patientsTab_receptionist.fxml", event);
     }
 
     public void viewDefaultAdmission() throws SQLException {
@@ -103,7 +94,7 @@ public class AdmissionController implements Initializable {
             admission.setBedID(admissionView.getBed_id());
             admission.setDate((admissionView.getAdmission_date()));
             admission.setDIC(admissionView.getDoctor_name());
-            admission.setPatientName((admissionView.getPatient_name()));
+            admission.setName((admissionView.getPatient_name()));
 
             table.getItems().add(admission);
         }

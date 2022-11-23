@@ -1,4 +1,5 @@
 package UI.Controllers;
+import UI.Functions.JumpScene;
 import hospital.Appointments.Appointment;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,21 +49,13 @@ public class AppointmentController implements Initializable {
 
     @FXML
     void gotoHome(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/homeTab.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        appointmentPane = loader.load();
-        stage.getScene().setRoot(appointmentPane);
-        stage.show();
+        JumpScene.changeScene(appointmentPane,"UI/homeTabDoctor.fxml",event);
+
     }
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/patientsTab_doctor.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        appointmentPane = loader.load();
-        stage.getScene().setRoot(appointmentPane);
-        stage.show();
+        JumpScene.changeScene(appointmentPane,"UI/patientsTab_doctor.fxml",event);
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

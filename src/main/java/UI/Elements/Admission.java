@@ -25,11 +25,11 @@ public class Admission {
         this.date=date;
     }
 
-    public String getPatientName() {
+    public String getName() {
         return name;
     }
 
-    public void setPatientName(String patientName) {
+    public void setName(String patientName) {
         this.name = patientName;
     }
 

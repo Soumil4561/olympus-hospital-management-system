@@ -1,5 +1,6 @@
 package UI.Controllers;
 
+import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -27,33 +28,17 @@ private Button mailButton;
 
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/patientsTab_doctor.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        homePane = loader.load();
-        stage.getScene().setRoot(homePane);
-        stage.show();
+        JumpScene.changeScene(homePane,"UI/patientsTab_doctor.fxml",event);
     }
     @FXML
     void gotoAppointmentTab(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/appointmentTab_doctor.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        homePane = loader.load();
-        stage.getScene().setRoot(homePane);
-        stage.show();
+        JumpScene.changeScene(homePane,"UI/homeTab.fxml",event);
     }
 
     @FXML
     void gotoMailTab(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/mailTab.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        homePane = loader.load();
-        stage.getScene().setRoot(homePane);
-        stage.show();
+        JumpScene.changeScene(homePane,"UI/homeTab.fxml",event);
+
     }
-
-
 
 }

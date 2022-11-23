@@ -1,5 +1,6 @@
 package UI.Controllers;
 
+import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -27,22 +28,12 @@ public class HomeController {
 
     @FXML
     void gotoAdmissionTab(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/admissionsTab_receptionist.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        homePane = loader.load();
-        stage.getScene().setRoot(homePane);
-        stage.show();
+        JumpScene.changeScene(homePane,"UI/admissionsTab_receptionist.fxml", event);
     }
 
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            homePane = loader.load();
-            stage.getScene().setRoot(homePane);
-            stage.show();
+        JumpScene.changeScene(homePane,"UI/patientsTab_receptionist.fxml", event);
     }
 
 }
