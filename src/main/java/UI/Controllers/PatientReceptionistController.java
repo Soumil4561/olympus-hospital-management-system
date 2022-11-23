@@ -87,6 +87,10 @@ public class PatientReceptionistController implements Initializable {
     }
 
     @FXML
+    void gotoAddPatient(MouseEvent event) throws IOException {
+        JumpScene.changeScene(patientPane,"UI/admissionsTab_receptionist.fxml",event);
+    }
+    @FXML
     void gotoAdmissionsTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(patientPane,"UI/admissionsTab_receptionist.fxml",event);
 

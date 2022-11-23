@@ -18,7 +18,7 @@ public class Reception extends Staff{
 
 
 
-    public boolean createNewPatient(Patient patient) throws SQLException {
+    public static boolean createNewPatient(Patient patient) throws SQLException {
         String query="INSERT INTO 'hospital'.'patient' (`fname`, `lname`, `patient_DOB`, `gender`, `contact_no`, `email`, `stat`) VALUES (?,?,?,?,?,?,?)";
         PreparedStatement ps = getConnection.getStatement(query);
         assert ps != null;

@@ -44,4 +44,16 @@ public class PopUpBox {
         window.setScene(scene);
         window.showAndWait();
     }
+
+    public static void confirmAdd(String title) throws IOException {
+        Stage window = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("UI/confirmAdd_PopUp.fxml"));
+        window.initModality(Modality.APPLICATION_MODAL);
+
+        window.setTitle(title);
+
+        Scene scene = new Scene(fxmlLoader.load());
+        window.setScene(scene);
+        window.showAndWait();
+    }
 }
