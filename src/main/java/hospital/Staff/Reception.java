@@ -5,13 +5,18 @@ import database.DBConnectors.getConnection;
 import hospital.Patient.Patient;
 import hospital.Patient.PatientReport;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Reception extends Staff{
-    public Reception(String fname, String lname,int id, long number, int DOB, int department) {
-        super(fname,lname, id, number, DOB,department);
+
+
+    public Reception(long id, String fname, String lname, String gender, long number, Date DOB, int department, String email, String residential_address) {
+        super(id, fname, lname, gender, number, DOB, department, email, residential_address);
     }
+
+
 
     public boolean createNewPatient(Patient patient) throws SQLException {
         String query="INSERT INTO 'hospital'.'patient' (`fname`, `lname`, `patient_DOB`, `gender`, `contact_no`, `email`, `stat`) VALUES (?,?,?,?,?,?,?)";
