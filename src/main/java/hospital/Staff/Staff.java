@@ -79,6 +79,8 @@ public class Staff {
     }
 
     public static String Login(long id, String password) throws SQLException {
-        return CredentialCheck.loginCredentials(id,password);
+        String type = CredentialCheck.loginCredentials(id,password);
+
+        return type;
     }
 }

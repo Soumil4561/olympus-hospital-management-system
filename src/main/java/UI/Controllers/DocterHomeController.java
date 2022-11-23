@@ -38,7 +38,6 @@ private Button mailButton;
     @FXML
     void gotoMailTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(homePane,"UI/homeTab.fxml",event);
-
     }
 
 }
