@@ -18,14 +18,14 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
-public class appointmentController implements Initializable {
+public class AppointmentController implements Initializable {
 
     @FXML
     private TableView<Appointment> table;
     ObservableList<Appointment> list = FXCollections.observableArrayList();
 
     @FXML
-    private TableColumn<Appointment, Long> patientID;
+    private TableColumn<Appointment, Long> ID;
 
     @FXML
     private TableColumn<Appointment , String> fName;
@@ -58,7 +58,7 @@ public class appointmentController implements Initializable {
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("UI/patientsTab_receptionist.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("UI/patientsTab_doctor.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appointmentPane = loader.load();
         stage.getScene().setRoot(appointmentPane);
@@ -66,7 +66,7 @@ public class appointmentController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-     patientID.setCellValueFactory(new PropertyValueFactory<>("ID"));
+     ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
      fName.setCellValueFactory(new PropertyValueFactory<>("First Name"));
      lName.setCellValueFactory(new PropertyValueFactory<>("Last Name"));
      appDate.setCellValueFactory(new PropertyValueFactory<>("Appointment Date"));
