@@ -78,7 +78,7 @@
                 <RowConstraints maxHeight="59.600012207031284" minHeight="20.0" prefHeight="25.0" vgrow="NEVER" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="table" prefHeight="296.0" prefWidth="572.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+                  <TableView fx:id="table" onMouseClicked="#getPatientCell" prefHeight="296.0" prefWidth="572.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="uid" prefWidth="75.0" text="ID" />
                       <TableColumn fx:id="fname" prefWidth="75.0" text="First Name" />
@@ -115,7 +115,16 @@
                               <Insets left="3.0" />
                            </HBox.margin>
                         </Button>
-                        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="148.0" HBox.hgrow="ALWAYS" />
+                        <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="82.0" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onMouseClicked="#gotoAddPatient" prefHeight="26.0" prefWidth="135.0" styleClass="addbutton" stylesheets="@css/fullpackstyling.css" text="Create Patient" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@png/icons8-plus-math-30.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                </children>

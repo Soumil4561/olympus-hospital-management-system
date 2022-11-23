@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -18,142 +19,144 @@
          <children>
             <GridPane maxHeight="1.7976931348623157E308" prefHeight="370.0" prefWidth="455.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="50.0" prefWidth="256.39996337890625" />
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="351.60003662109375" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="15.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.60001220703124" minHeight="9.600012207031256" prefHeight="15.199987792968756" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <Label text="Patient UID:" GridPane.rowIndex="1">
+                  <Label text="Patient UID:" GridPane.rowIndex="3">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patient's First Name:" GridPane.rowIndex="2">
+                  <Label text="Patient's First Name:" GridPane.rowIndex="4">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patients Last Name:" GridPane.rowIndex="3">
+                  <Label text="Patients Last Name:" GridPane.rowIndex="5">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patient's Contact No:" GridPane.rowIndex="4">
+                  <Label text="Patient's Contact No:" GridPane.rowIndex="6">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patient's E-mail:" GridPane.rowIndex="5">
+                  <Label text="Patient's E-mail:" GridPane.rowIndex="7">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patient's DOB:" GridPane.rowIndex="6">
+                  <Label text="Patient's DOB:" GridPane.rowIndex="8">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patient's Gender:" GridPane.rowIndex="7">
+                  <Label text="Patient's Gender:" GridPane.rowIndex="9">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patient's Status:" GridPane.rowIndex="8">
+                  <Label text="Patient's Status:" GridPane.rowIndex="10">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="13.0" />
                      </font>
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="patient_uid" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="patient_uid" editable="false" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_fname" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="patient_fname" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_lname" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="patient_lname" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_contact_no" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField fx:id="patient_contact_no" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_email" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <TextField fx:id="patient_email" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_dob" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <TextField fx:id="patient_dob" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_gender" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <TextField fx:id="patient_gender" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_status" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                  <TextField fx:id="patient_status" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_reports" maxHeight="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.vgrow="SOMETIMES">
+                  <TextField fx:id="patient_reports" alignment="TOP_LEFT" maxHeight="300.0" maxWidth="500.0" styleClass="reportfield" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="11" GridPane.vgrow="SOMETIMES">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" text="Editing details for:">
+                        <Label maxWidth="1.7976931348623157E308" text="Editing details for:" textFill="WHITE" underline="true">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="17.0" />
                            </font>
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
                         </Label>
-                        <Label fx:id="patientNameLabel" text="PatientName">
+                        <Label fx:id="patientNameLabel" text="PatientName" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -163,28 +166,32 @@
                         </Label>
                      </children>
                   </HBox>
-                  <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="9">
+                  <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="11">
                      <children>
                         <Label text="Patient's Reports:">
                            <font>
-                              <Font size="16.0" />
+                              <Font size="13.0" />
                            </font>
                            <padding>
                               <Insets right="10.0" />
                            </padding>
+                           <VBox.margin>
+                              <Insets top="7.0" />
+                           </VBox.margin>
                         </Label>
                      </children>
                   </VBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="34.0" prefWidth="455.0">
                <children>
-                  <Button fx:id="editDetailsButton" mnemonicParsing="false" text="Edit Details">
+                  <Button fx:id="editDetailsButton" mnemonicParsing="false" onMouseClicked="#makeFieldsEditable" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Edit Details">
                      <HBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="saveChangesButton" mnemonicParsing="false" text="Accept Changes">
+                  <Button fx:id="saveChangesButton" mnemonicParsing="false" onMouseClicked="#setValues" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Accept Changes">
                      <HBox.margin>
                         <Insets bottom="5.0" left="10.0" right="50.0" />
                      </HBox.margin>
@@ -194,4 +201,26 @@
          </children>
       </VBox>
    </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="15.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Region>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Region minWidth="30.0" prefHeight="200.0" prefWidth="30.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" />
+                  <Region prefHeight="200.0" prefWidth="200.0" styleClass="sidebox2x" stylesheets="@css/fullpackstyling.css" />
+               </children>
+            </HBox>
+            <Region maxHeight="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Region>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>

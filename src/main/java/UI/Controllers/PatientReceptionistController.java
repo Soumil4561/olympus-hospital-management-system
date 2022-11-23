@@ -6,19 +6,18 @@ import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.awt.desktop.UserSessionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -42,6 +41,7 @@ public class PatientReceptionistController implements Initializable {
     @FXML
     private TextField searchbox;
     public String searchBoxContents;
+
 
     @FXML
     void getPatientDetails(MouseEvent event) throws SQLException {
@@ -72,6 +72,21 @@ public class PatientReceptionistController implements Initializable {
 
     @FXML
     private TableColumn<User, Integer> uid;
+
+
+    @FXML
+    void getPatientCell(MouseEvent event) {
+        table.setRowFactory(tv -> {
+            TableRow<User> row = new TableRow<>();
+            row.setOnMouseClicked(event1 -> {
+                if (event1.getClickCount() == 2 && (!row.isEmpty())) {
+                    User rowData = row.getItem();
+                    System.out.println("Double click on: " + rowData.getFname());
+                }
+            });
+            return row;
+        });
+    }
 
     @FXML
     void gotoAdmissionsTab(MouseEvent event) throws IOException, SQLException {

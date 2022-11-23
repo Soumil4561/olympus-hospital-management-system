@@ -8,7 +8,7 @@
 
 }
 .addbutton:pressed
-{
+{   
 -fx-background-color : #2d0a26 ;
 }
 .sideitem
@@ -40,7 +40,11 @@
 
 .sidebox
 {
--fx-background-color : #540b84d1;
+-fx-background-color : #10c52bd1;
+}
+.sidebox2x
+{
+-fx-background-color : #08903cd1;
 }
 
 .home
@@ -63,35 +67,15 @@
     -fx-background-image: url('images/bg1.jpg');
 }
 
- .mailButton
+.reportfield
 {
-    -fx-background-color : #e9c0c000;
+    -fx-background-color:#00000000;
+    -fx-border-width: 0.5 0.5 0.5 0.5;
+    -fx-border-color: white;
 }
 
-.mailButton:hover
+.popbuttons
 {
--fx-background-color : #4ad7e772;
-}  
-
-.mailButton:pressed
-{
-    -fx-background-color : #4fbded91;
+    -fx-background-radius: 100;
+    -fx-background-color: green;
 }
-
-.compose
-{
-    -fx-background-color :  #ffffff;
-    -fx-background-radius : 3333;
-
-}
-.compose:hover
-{
-    -fx-background-color : rgba(229, 177, 255, 0.578);
-}
-.compose:pressed
-{
-    -fx-background-color : rgba(98, 64, 129, 0.64);
-
-}
-
-
