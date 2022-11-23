@@ -2,6 +2,7 @@ package UI.Controllers;
 
 import UI.Elements.User;
 import UI.Functions.JumpScene;
+import currentsession.CurrentUserInfo;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import javafx.collections.FXCollections;
@@ -79,7 +80,7 @@ public class PatientReceptionistController implements Initializable {
         table.setRowFactory(tv -> {
             TableRow<User> row = new TableRow<>();
             row.setOnMouseClicked(event1 -> {
-                if (event1.getClickCount() == 2 && (!row.isEmpty())) {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     User rowData = row.getItem();
                     System.out.println("Double click on: " + rowData.getFname());
                 }
