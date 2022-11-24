@@ -63,6 +63,14 @@ public class EditTabController implements Initializable {
     void gotoProfileOverview(MouseEvent event) throws IOException {
         JumpScene.changeScene(pane,"UI/settingsTab.fxml",event);
     }
+    @FXML
+    void exit(MouseEvent event) throws IOException {
+        JumpScene.changeScene(pane,"UI/login_staff.fxml",event);
+    }
+    @FXML
+    void gotoChangePassword(MouseEvent event) throws IOException {
+        JumpScene.changeScene(pane,"UI/changePassword.fxml",event);
+    }
 
     @FXML
     void saveChanges(MouseEvent event) throws SQLException {
@@ -79,6 +87,8 @@ public class EditTabController implements Initializable {
 
 
     }
+
+
 
 
     @Override

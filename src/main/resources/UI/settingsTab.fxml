@@ -36,6 +36,11 @@
             <Button fx:id="editButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoEditTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Edit Profile" textFill="WHITE" />
             <Button fx:id="changePassButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoChangePassTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Change Password" textFill="WHITE" />
             <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+            <HBox prefHeight="50.0" prefWidth="182.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#logout" prefHeight="50.0" prefWidth="183.0" styleClass="sideitem" text="Log out" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </left>

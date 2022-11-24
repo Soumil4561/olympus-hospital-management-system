@@ -31,8 +31,13 @@
             <Button fx:id="patientButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoPatientTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Patients" textFill="WHITE" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoAdmissionTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Admissons" textFill="WHITE" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Bills" textFill="WHITE" />
-            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="107.0" prefWidth="182.0" VBox.vgrow="ALWAYS" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoSettingsTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Settings" textFill="WHITE" />
+            <HBox prefHeight="50.0" prefWidth="182.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#logout" prefHeight="45.0" prefWidth="182.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Log out" textFill="WHITE" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </left>

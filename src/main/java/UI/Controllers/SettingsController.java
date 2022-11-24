@@ -66,6 +66,11 @@ public class SettingsController implements Initializable {
         JumpScene.changeScene(patientPane,"UI/homeTabDoctor.fxml",event);
     }
 
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(patientPane,"UI/login_staff.fxml",event);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         uid.setEditable(false);

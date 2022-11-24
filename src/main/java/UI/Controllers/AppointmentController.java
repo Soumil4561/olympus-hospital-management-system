@@ -72,4 +72,8 @@ public class AppointmentController implements Initializable {
      table.setItems(list);
 
     }
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(appointmentPane,"login_staff.fxml",event);
+    }
 }
