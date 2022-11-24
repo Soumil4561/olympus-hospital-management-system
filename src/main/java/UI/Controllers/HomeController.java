@@ -26,4 +26,10 @@ public class HomeController {
         JumpScene.changeScene(homePane,"UI/patientsTab_receptionist.fxml", event);
     }
 
+    @FXML
+    void gotoSettingsTab(MouseEvent event) throws IOException {
+        JumpScene.changeScene(homePane,"UI/settingsTab.fxml", event);
+
+    }
+
 }

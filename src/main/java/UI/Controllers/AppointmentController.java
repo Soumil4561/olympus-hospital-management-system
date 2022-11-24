@@ -55,6 +55,12 @@ public class AppointmentController implements Initializable {
         JumpScene.changeScene(appointmentPane,"UI/patientsTab_doctor.fxml",event);
 
     }
+    @FXML
+    void gotoSettingsTab(MouseEvent event) throws IOException {
+        JumpScene.changeScene(appointmentPane,"UI/settingsTab.fxml" ,event);
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
      ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
