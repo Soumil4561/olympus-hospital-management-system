@@ -56,7 +56,11 @@
 
 .sidebox
 {
-    /* -fx-background-image: url('images/bg1.jpg'); */
+    -fx-background-image: url('images/bg1.jpg');
+    -fx-background-color : #c8c8c860;
+}
+.loginBox
+{
     -fx-background-color : #b1b1b160;
     -fx-background-radius : 22;
 }
