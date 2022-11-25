@@ -17,8 +17,6 @@ import hospital.Staff.Staff;
 public class LoginController {
     long uid;
     String pass;
-    @FXML
-    private Button logInButton;
 
     @FXML
     private BorderPane loginPane;

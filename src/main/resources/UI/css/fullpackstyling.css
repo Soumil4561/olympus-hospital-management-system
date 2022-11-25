@@ -11,6 +11,22 @@
 {   
 -fx-background-color : #0a2d14 ;
 }
+.logInButton
+{
+   -fx-background-color: #09d6d689;
+   -fx-background-radius : 22;
+}
+.logInButton:hover
+{
+-fx-background-color : #007f8dd1;
+-fx-background-radius : 22;
+
+}
+.logInButton:pressed
+{   
+-fx-background-color : #26798e ;
+-fx-background-radius : 22;
+}
 .sideitem
 {
 -fx-background-color : #00ff4000;   
@@ -40,7 +56,9 @@
 
 .sidebox
 {
--fx-background-color : #10c52bd1;
+    /* -fx-background-image: url('images/bg1.jpg'); */
+    -fx-background-color : #b1b1b160;
+    -fx-background-radius : 22;
 }
 .sidebox2x
 {
@@ -62,9 +80,10 @@
 -fx-background-color : #34543aa9; 
 }
 
-.homepane1
+.loginPane
 {
     -fx-background-image: url('images/bg1.jpg');
+    -fx-background-position: center center;
 }
 
 .reportfield
