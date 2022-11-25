@@ -41,4 +41,9 @@ private Button mailButton;
         JumpScene.changeScene(homePane,"UI/settingsTab.fxml",event);
     }
 
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
+    }
+
 }

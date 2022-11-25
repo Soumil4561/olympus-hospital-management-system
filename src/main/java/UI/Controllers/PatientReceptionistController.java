@@ -95,6 +95,10 @@ public class PatientReceptionistController implements Initializable {
         JumpScene.changeScene(patientPane,"UI/admissionsTab_receptionist.fxml",event);
 
     }
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(patientPane, "UI/login_staff.fxml",event);
+    }
 
     ObservableList<User> list = FXCollections.observableArrayList();
 

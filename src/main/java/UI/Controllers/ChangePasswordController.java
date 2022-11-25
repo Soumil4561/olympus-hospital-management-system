@@ -46,6 +46,11 @@ public class ChangePasswordController {
     void gotoProfileOverview(MouseEvent event) throws IOException {
       JumpScene.changeScene(pane,"UI/settingsTab.fxml",event);
     }
+
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(pane,"UI/login_staff.fxml",event);
+    }
     @FXML
     void confirmPassword(MouseEvent event) throws SQLException {
         String current = cuurPassword.getText();

@@ -53,14 +53,10 @@ public class PatientTabController {
 
     }
 
-
-
-
     @FXML
     void gotoAppointmentTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(patientTabPane,"UI/appointmentTab_doctor.fxml", event);
     }
-
 
     @FXML
     void gotoHomeTab(MouseEvent event) throws IOException {
@@ -75,6 +71,10 @@ public class PatientTabController {
     @FXML
     void gotoSettingsTab(MouseEvent event) throws IOException {
     JumpScene.changeScene(patientTabPane,"UI/homeTabDoctor.fxml", event);
+    }
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+       JumpScene.changeScene(patientTabPane,"UI/login_staff.fxml",event);
     }
 
 }

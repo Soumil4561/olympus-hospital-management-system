@@ -87,6 +87,11 @@ public class AdmissionController implements Initializable {
         JumpScene.changeScene(admissionPane,"UI/settingsTab.fxml" , event);
     }
 
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(admissionPane,"UI/login_staff.fxml",event);
+    }
+
     public void viewDefaultAdmission() throws SQLException {
         AdmissionView[] admissionlist = getAdmissionInfo.currentAdmissions();
         for (AdmissionView admissionView : admissionlist) {
