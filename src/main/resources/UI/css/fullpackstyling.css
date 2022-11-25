@@ -33,30 +33,29 @@
 }
 .curr_sideitem
 {
--fx-background-color : #1168026d;
--fx-border-color : #55ca786a;
+-fx-background-color : #025c686d;
+-fx-border-color : #55b6ca6a;
 -fx-border-width : 0 0 3 0;
 
 }
 .sideitem:hover
 {
--fx-background-color : #059905bf ;
+-fx-background-color : #058a99bf ;
 -fx-border-color : #ffffff ;
 -fx-border-width : 0 0 0 3;
 }
 .sideitem:pressed
 {
--fx-background-color : #217824 ;
+-fx-background-color : #217867 ;
 }
 
 .header
 {
--fx-background-color : #0b8413d1;
+-fx-background-color : #688382a9;
 }
 
 .sidebox
 {
-    -fx-background-image: url('images/bg1.jpg');
     -fx-background-color : #c8c8c860;
 }
 .loginBox
