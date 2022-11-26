@@ -89,7 +89,7 @@ public class AdmissionController implements Initializable {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(admissionPane,"UI/login_staff.fxml",event);
+        JumpScene.changeScene(admissionPane,"UI/confirmLogout.fxml",event);
     }
 
     public void viewDefaultAdmission() throws SQLException {

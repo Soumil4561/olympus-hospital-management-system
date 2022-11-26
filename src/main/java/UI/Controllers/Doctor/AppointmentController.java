@@ -61,7 +61,7 @@ public class AppointmentController implements Initializable {
     }
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(appointmentPane,"UI/login_staff.fxml",event);
+        JumpScene.changeScene(appointmentPane,"UI/confirmLogout.fxml",event);
     }
 
 

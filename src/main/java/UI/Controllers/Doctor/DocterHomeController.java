@@ -43,7 +43,7 @@ private Button mailButton;
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
+        JumpScene.changeScene(homePane,"UI/confirmLogout.fxml",event);
     }
 
 }

@@ -74,7 +74,7 @@ public class PatientTabController {
     }
     @FXML
     void logout(MouseEvent event) throws IOException {
-       JumpScene.changeScene(patientTabPane,"UI/login_staff.fxml",event);
+       JumpScene.changeScene(patientTabPane,"UI/confirmLogout.fxml",event);
     }
 
 }

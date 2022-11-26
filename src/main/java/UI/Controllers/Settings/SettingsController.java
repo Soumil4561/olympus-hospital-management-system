@@ -68,7 +68,7 @@ public class SettingsController implements Initializable {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(patientPane,"UI/login_staff.fxml",event);
+        JumpScene.changeScene(patientPane,"UI/confirmLogout.fxml",event);
     }
 
     @Override
