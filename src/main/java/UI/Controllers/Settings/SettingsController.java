@@ -1,5 +1,6 @@
 package UI.Controllers.Settings;
 
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;
 import javafx.fxml.FXML;
@@ -68,7 +69,8 @@ public class SettingsController implements Initializable {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(patientPane,"UI/confirmLogout.fxml",event);
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(patientPane,"UI/login_staff.fxml",event);
     }
 
     @Override

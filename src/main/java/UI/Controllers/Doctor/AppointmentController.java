@@ -1,4 +1,5 @@
 package UI.Controllers.Doctor;
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import hospital.Appointments.Appointment;
 import javafx.collections.FXCollections;
@@ -61,7 +62,8 @@ public class AppointmentController implements Initializable {
     }
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(appointmentPane,"UI/confirmLogout.fxml",event);
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(appointmentPane,"UI/login_staff.fxml",event);
     }
 
 

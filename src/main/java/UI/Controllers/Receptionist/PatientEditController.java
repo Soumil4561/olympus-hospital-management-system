@@ -1,8 +1,11 @@
 package UI.Controllers.Receptionist;
 
 import UI.Elements.Report;
+import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getPatientInfo;
+import database.DBFetchers.getReportInfo;
 import hospital.Patient.Patient;
+import hospital.Patient.PatientReportView;
 import hospital.Staff.Reception;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
@@ -105,7 +108,18 @@ public class PatientEditController implements Initializable {
         pause.setOnFinished(e -> buttonnotif.setVisible(false));
         pause.play();
     }
-    private void setReportList(){
+    private void setReportList() throws SQLException {
+        PatientReportView[] reports = getReportInfo.searchPatientReports(CurrentPatientInfo.getPatient().getPatient_id());
+        for(int i = 0; i<reports.length; i++){
+            Report report = new Report();
+            report.setReportid(reports[i].getReport_id());
+            report.setDate(reports[i].getStart_date());
+            report.setDic(reports[i].getDoctor_name());
+            report.setDeptname(reports[i].getDepartment_name());
+
+            table.getItems().add(report);
+
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -117,8 +131,11 @@ public class PatientEditController implements Initializable {
         deptname.setCellValueFactory(new PropertyValueFactory<>("deptname"));
 
         table.setItems(list);
-
-
+        try {
+            setReportList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         patient_dob.setEditable(false);
         patient_fname.setEditable(false);

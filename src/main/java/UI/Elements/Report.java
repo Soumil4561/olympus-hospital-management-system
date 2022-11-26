@@ -22,19 +22,19 @@ public class Report {
         this.deptname = null;
     }
 
-    public String getDocname() {
+    public String getDic() {
         return dic;
     }
 
-    public void setDocname(String docname) {
+    public void setDic(String docname) {
         this.dic = docname;
     }
 
-    public String getDepartname() {
+    public String getDeptname() {
         return deptname;
     }
 
-    public void setDepartname(String departname) {
+    public void setDeptname(String departname) {
         this.deptname = departname;
     }
 

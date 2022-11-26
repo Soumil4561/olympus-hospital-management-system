@@ -1,6 +1,7 @@
 package UI.Controllers.Receptionist;
 
 import UI.Elements.Admission;
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import database.DBFetchers.getAdmissionInfo;
 import hospital.Admissions.AdmissionView;
@@ -89,7 +90,8 @@ public class AdmissionController implements Initializable {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(admissionPane,"UI/confirmLogout.fxml",event);
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(admissionPane,"UI/login_staff.fxml",event);
     }
 
     public void viewDefaultAdmission() throws SQLException {

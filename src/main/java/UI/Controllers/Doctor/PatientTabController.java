@@ -1,5 +1,6 @@
 package UI.Controllers.Doctor;
 
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -74,7 +75,8 @@ public class PatientTabController {
     }
     @FXML
     void logout(MouseEvent event) throws IOException {
-       JumpScene.changeScene(patientTabPane,"UI/confirmLogout.fxml",event);
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(patientTabPane,"UI/login_staff.fxml",event);
     }
 
 }

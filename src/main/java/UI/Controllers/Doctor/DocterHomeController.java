@@ -1,9 +1,11 @@
 package UI.Controllers.Doctor;
 
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
@@ -43,7 +45,8 @@ private Button mailButton;
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane,"UI/confirmLogout.fxml",event);
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
     }
 
 }

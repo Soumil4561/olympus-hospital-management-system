@@ -1,5 +1,6 @@
 package UI.Controllers.Receptionist;
 
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -31,8 +32,9 @@ public class HomeController {
         JumpScene.changeScene(homePane,"UI/settingsTab.fxml", event);
 
     }
-
-    public void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane,"UI/confirmLogout.fxml",event);
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
     }
 }

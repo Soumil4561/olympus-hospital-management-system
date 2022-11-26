@@ -1,5 +1,6 @@
 package UI.Controllers.Settings;
 
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;
 import hospital.Staff.Staff;
@@ -65,6 +66,7 @@ public class EditTabController implements Initializable {
     }
     @FXML
     void exit(MouseEvent event) throws IOException {
+        PopUpBox.logout("Confirm Logout?");
         JumpScene.changeScene(pane,"UI/login_staff.fxml",event);
     }
     @FXML

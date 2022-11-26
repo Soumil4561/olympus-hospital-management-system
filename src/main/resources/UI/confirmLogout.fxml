@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.LogoutController">
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Elements.PopUpBox">
    <center>
       <HBox alignment="CENTER_LEFT" prefHeight="2.0" prefWidth="382.0" BorderPane.alignment="CENTER">
          <children>
@@ -39,7 +39,7 @@
                            </HBox.margin>
                         </Button>
                         <Region prefHeight="26.0" prefWidth="54.0" />
-                        <Button mnemonicParsing="false" onMouseClicked="#gotoHome" text="Cancel" />
+                        <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#close" text="Cancel" />
                      </children>
                   </HBox>
                </children>

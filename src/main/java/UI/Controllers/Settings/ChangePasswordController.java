@@ -50,6 +50,7 @@ public class ChangePasswordController {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
+        PopUpBox.logout("Confirm Logout?");
         JumpScene.changeScene(pane,"UI/login_staff.fxml",event);
     }
     @FXML

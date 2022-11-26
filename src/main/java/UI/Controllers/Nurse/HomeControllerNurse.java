@@ -1,5 +1,6 @@
 package UI.Controllers.Nurse;
 
+import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,7 +34,8 @@ public class HomeControllerNurse {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane,"UI/confirmLogout.fxml",event);
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
     }
 
 }

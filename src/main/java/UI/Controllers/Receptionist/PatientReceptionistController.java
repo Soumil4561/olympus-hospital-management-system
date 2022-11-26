@@ -102,7 +102,8 @@ public class PatientReceptionistController implements Initializable {
     }
     @FXML
     void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(patientPane, "UI/confirmLogout.fxml",event);
+        PopUpBox.logout("Confirm Logout?");
+        JumpScene.changeScene(patientPane,"UI/login_staff.fxml",event);
     }
 
     ObservableList<User> list = FXCollections.observableArrayList();
