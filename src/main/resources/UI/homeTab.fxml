@@ -10,11 +10,11 @@
 
 <BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="loginPane" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.HomeController">
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="homesidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="86.0" prefWidth="638.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css">
                <children>
-                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="182.0">
+                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="182.0" styleClass="homeheader">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="175.0" text="Olympus" textAlignment="JUSTIFY" textFill="WHITE" underline="true">
                            <font>

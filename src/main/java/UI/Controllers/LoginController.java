@@ -27,23 +27,25 @@ public class LoginController {
 
     @FXML
     void gotoStaffScene(MouseEvent event) throws IOException, SQLException {
-        uid = Long.parseLong(uid_input.getText());
-        pass = pass_input.getText();
-        String typeOfStaff=LoginRequest(uid,pass);
-        if(typeOfStaff.equals("Receptionist")){
-            JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
-        }
-        else if(typeOfStaff.equals("Doctor")){
-            JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
-
-        }
-        else {
-            try {
-                PopUpBox.display("Wrong Username or Password");
-            } catch (Exception e){
-                System.out.println("cant open alertbox");
-            }
-        }
+        JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
+//
+//        uid = Long.parseLong(uid_input.getText());
+//        pass = pass_input.getText();
+//        String typeOfStaff=LoginRequest(uid,pass);
+//        if(typeOfStaff.equals("Receptionist")){
+//            JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
+//        }
+//        else if(typeOfStaff.equals("Doctor")){
+//            JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
+//
+//        }
+//        else {
+//            try {
+//                PopUpBox.display("Wrong Username or Password");
+//            } catch (Exception e){
+//                System.out.println("cant open alertbox");
+//            }
+//        }
     }
 
     public String LoginRequest(long id,String password) throws SQLException {

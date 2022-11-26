@@ -5,9 +5,7 @@ import hospital.Patient.Patient;
 import hospital.Staff.Reception;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -18,7 +16,15 @@ import java.util.ResourceBundle;
 public class PatientEditController implements Initializable {
 
     @FXML
-    private Button editDetailsButton;
+    private TableColumn<?, ?> reportid;
+
+    @FXML
+    private TableView<?> table;
+    @FXML
+    private Label buttonnotif;
+
+    @FXML
+    private TableColumn<?, ?> date;
 
     @FXML
     private Label patientNameLabel;
@@ -42,28 +48,24 @@ public class PatientEditController implements Initializable {
     private TextField patient_lname;
 
     @FXML
-    private TextField patient_reports;
-
-    @FXML
     private TextField patient_status;
 
     @FXML
     private TextField patient_uid;
 
-    @FXML
-    private Button saveChangesButton;
-
 
     @FXML
-    void makeFieldsEditable(MouseEvent event) {
+    void makeFieldsEditable(MouseEvent event) throws SQLException {
+        Patient[] pat= getPatientInfo.searchPatients(PatientReceptionistController.inheritableUser);
         patient_dob.setEditable(true);
         patient_fname.setEditable(true);
         patient_lname.setEditable(true);
         patient_gender.setEditable(true);
-        patient_reports.setEditable(true);
         patient_status.setEditable(true);
         patient_email.setEditable(true);
         patient_contact_no.setEditable(true);
+        patientNameLabel.setText(pat[0].getFname() + pat[0].getLname());
+
     }
 
     @FXML
@@ -81,11 +83,11 @@ public class PatientEditController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         patient_dob.setEditable(false);
         patient_fname.setEditable(false);
         patient_lname.setEditable(false);
         patient_gender.setEditable(false);
-        patient_reports.setEditable(false);
         patient_status.setEditable(false);
         patient_email.setEditable(false);
         patient_contact_no.setEditable(false);

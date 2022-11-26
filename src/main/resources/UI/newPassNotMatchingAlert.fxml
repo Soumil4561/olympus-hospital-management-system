@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Elements.PopUpBox">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Elements.PopUpBox">
    <children>
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="14.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@png/icons8-warning-96.png" />
          </image>
       </ImageView>
-      <Label layoutX="108.0" layoutY="84.0" prefHeight="52.0" prefWidth="194.0" text="Please enter correctly!&#10;" />
-      <Button fx:id="closeButton" layoutX="134.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="26.0" prefWidth="40.0" text="OK" />
+      <Label layoutX="84.0" layoutY="74.0" prefHeight="52.0" prefWidth="194.0" text="Please enter correctly!&#10;" />
+      <Button fx:id="closeButton" layoutX="130.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="26.0" prefWidth="40.0" text="OK" />
       <Label layoutX="84.0" layoutY="38.0" prefHeight="45.0" prefWidth="178.0" text="New password and Confirm &#10;password does not match! &#10;">
          <font>
             <Font name="System Bold" size="12.0" />

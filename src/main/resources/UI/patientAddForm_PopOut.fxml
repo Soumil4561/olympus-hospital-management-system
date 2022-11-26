@@ -130,12 +130,12 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="455.0">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#confirmAdd" prefHeight="30.0" prefWidth="69.0" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Confirm">
+                  <Button mnemonicParsing="false" onMouseClicked="#confirmAdd" prefHeight="30.0" prefWidth="69.0" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Confirm" textFill="WHITE">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="cancelButton" mnemonicParsing="false" onMouseClicked="#cancelAdd" prefHeight="30.0" prefWidth="63.0" styleClass="popbuttonscancel" stylesheets="@css/fullpackstyling.css" text="Cancel">
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onMouseClicked="#cancelAdd" prefHeight="30.0" prefWidth="63.0" styleClass="popbuttonscancel" stylesheets="@css/fullpackstyling.css" text="Cancel" textFill="WHITE">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="50.0" />
                      </HBox.margin>

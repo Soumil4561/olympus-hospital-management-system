@@ -1,15 +1,17 @@
 .addbutton
 {
-   -fx-background-color: #0d5215d1;
+   -fx-background-color: #0d5052d1;
+   -fx-background-radius : 22;
 }
 .addbutton:hover
 {
--fx-background-color : #05990cbf ;
-
+-fx-background-color : #059992bf ;
+-fx-background-radius : 22;
 }
 .addbutton:pressed
 {   
--fx-background-color : #0a2d14 ;
+-fx-background-color : #1d5c63 ;
+-fx-background-radius : 22;
 }
 .logInButton
 {
@@ -51,13 +53,54 @@
 
 .header
 {
--fx-background-color : #688382a9;
+-fx-background-color : #24e7e0a9;
 }
 
 .sidebox
 {
+    -fx-background-color : #279b9fc2;
+}
+
+
+
+
+
+.homesideitem
+{
+-fx-background-color : #00ff4000;   
+}
+.currhome_sideitem
+{
+-fx-background-color : #025c686d;
+-fx-border-color : #55b6ca6a;
+-fx-border-width : 0 0 3 0;
+
+}
+.homesideitem:hover
+{
+-fx-background-color : #058a99bf ;
+-fx-border-color : #ffffff ;
+-fx-border-width : 0 0 0 3;
+}
+.homesideitem:pressed
+{
+-fx-background-color : #217867 ;
+}
+.homeheader
+{
+-fx-background-color : #00948f87;
+}
+.homesidebox
+{
     -fx-background-color : #c8c8c860;
 }
+
+
+
+
+
+
+
 .loginBox
 {
     -fx-background-color : #b1b1b160;
@@ -65,7 +108,7 @@
 }
 .sidebox2x
 {
--fx-background-color : #08903cd1;
+-fx-background-color : #087990d1;
 }
 
 .home
@@ -93,7 +136,7 @@
 {
     -fx-background-color:#00000000;
     -fx-border-width: 0.5 0.5 0.5 0.5;
-    -fx-border-color: white;
+    -fx-border-color: rgb(0, 0, 0);
 }
 
 .patienttable{
@@ -106,28 +149,20 @@
     -fx-font-weight: none;
 }
 
-.list-cell:even,
-.list-cell:odd,
-.table-row-cell:even,
-.table-row-cell:odd{    
-    -fx-control-inner-background: derive(-fx-base, 15%);
-}
-
-.list-cell:empty,
-.table-row-cell:empty {
-    -fx-background-color: transparent;
-}
-
-.rowtable
+.mailbutton
 {
- -fx-border-width: 0 1 0 0;
- -fx-border-color: rgb(42, 42, 42) ;
+    -fx-background-color:#426e7823;
+    -fx-background-radius : 22;
 }
-
-.list-cell,
-.table-row-cell{
-    -fx-border-color: transparent;
-    -fx-table-cell-border-color:transparent;
+.mailbutton:hover
+{
+    -fx-background-color:#58899357;
+    -fx-background-radius : 22;
+}
+.mailbutton:pressed
+{
+    -fx-background-color:#2c757a98;
+    -fx-background-radius : 22;
 }
 
 .popbuttons
@@ -162,4 +197,34 @@
 {
     -fx-background-radius: 100;
     -fx-background-color: #600202;
+}
+
+.popbuttonsedit
+{
+    -fx-background-radius: 100;
+    -fx-background-color: rgb(0, 150, 214);
+}
+.popbuttonsedit:hover
+{
+    -fx-background-radius: 100;
+    -fx-background-color: #34e6ef;
+}
+
+.popbuttonsedit:pressed
+{
+    -fx-background-radius: 100;
+    -fx-background-color: #025a60;
+}
+
+.labelnotif
+{
+    -fx-background-color: rgba(16, 90, 238, 0.53);
+    -fx-background-radius : 22;
+
+}
+.labelnotif2
+{
+    -fx-background-color: rgba(16, 238, 90, 0.53);
+    -fx-background-radius : 22;
+
 }

@@ -3,7 +3,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -141,14 +145,9 @@
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="patient_reports" alignment="TOP_LEFT" maxHeight="300.0" maxWidth="500.0" styleClass="reportfield" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="11" GridPane.vgrow="SOMETIMES">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
-                     </GridPane.margin>
-                  </TextField>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
                      <children>
-                        <Label maxWidth="1.7976931348623157E308" text="Editing details for:" textFill="WHITE" underline="true">
+                        <Label maxWidth="1.7976931348623157E308" text="Viewing Details For:" textFill="WHITE" underline="true">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -182,16 +181,44 @@
                      </children>
                   </VBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                    <columns>
+                      <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+                      <TableColumn fx:id="reportid" prefWidth="75.0" text="Report ID" />
+                    </columns>
+                     <GridPane.margin>
+                        <Insets right="30.0" />
+                     </GridPane.margin>
+                  </TableView>
                </children>
             </GridPane>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="34.0" prefWidth="455.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="608.0">
                <children>
-                  <Button fx:id="editDetailsButton" mnemonicParsing="false" onMouseClicked="#makeFieldsEditable" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Edit Details">
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="350.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="buttonnotif" styleClass="labelnotif" stylesheets="@css/fullpackstyling.css" text="Patient Details are now Editable!" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@png/icons8-white-exclamation-mark-96.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button fx:id="editDetailsButton" mnemonicParsing="false" onMouseClicked="#makeFieldsEditable" styleClass="popbuttonsedit" stylesheets="@css/fullpackstyling.css" text="Edit Details" textFill="WHITE">
                      <HBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="saveChangesButton" mnemonicParsing="false" onMouseClicked="#setValues" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Accept Changes">
+                  <Button fx:id="saveChangesButton" mnemonicParsing="false" onMouseClicked="#setValues" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Accept Changes" textFill="WHITE">
                      <HBox.margin>
                         <Insets bottom="5.0" left="10.0" right="50.0" />
                      </HBox.margin>
