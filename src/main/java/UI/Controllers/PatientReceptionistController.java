@@ -3,6 +3,7 @@ package UI.Controllers;
 import UI.Elements.PopUpBox;
 import UI.Elements.User;
 import UI.Functions.JumpScene;
+import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import javafx.collections.FXCollections;
@@ -11,8 +12,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -119,7 +124,12 @@ public class PatientReceptionistController implements Initializable {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
                 User tempUser = table.getSelectionModel().getSelectedItem();
                 inheritableUser = tempUser.getUid();
-               try {
+                try {
+                    CurrentPatientInfo.setPatient(getPatientInfo.searchPatients(inheritableUser)[0]);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
                    PopUpBox.editformDisplay("Edit Patient Details");
               } catch (IOException e) {
                    throw new RuntimeException(e);

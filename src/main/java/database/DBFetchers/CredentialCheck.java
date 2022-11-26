@@ -5,13 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import currentsession.CurrentUserInfo;
 import database.DBConnectors.SqlSearchConnection;
 import database.DBConnectors.getConnection;
 import hospital.Staff.Staff;
 
-import javax.swing.plaf.ColorUIResource;
 
 import static database.DBFetchers.ResultsetFunctions.size;
 

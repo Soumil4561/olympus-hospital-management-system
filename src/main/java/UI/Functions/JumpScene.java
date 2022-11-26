@@ -4,9 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
 import javafx.scene.input.MouseEvent;
-import java.io.IOException;
+import java.io.IOException;                     
 
 public class JumpScene {
     public static void changeScene(BorderPane pane, String fxmlLocation, MouseEvent event) throws IOException {

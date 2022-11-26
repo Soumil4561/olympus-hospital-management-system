@@ -1,12 +1,6 @@
 package hospital.Patient;
 
-import database.DBConnectors.SqlInsertUpdateConnection;
-import database.DBConnectors.getConnection;
-
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class Patient {
     private long patient_id;
@@ -107,5 +101,6 @@ public class Patient {
     public void setStatus(String status) {
         this.status = status;
     }
+
 
 }

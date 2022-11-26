@@ -18,20 +18,21 @@ public class HomeController {
 
     @FXML
     void gotoAdmissionTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane, "UI/admissionsTab_receptionist.fxml", event);
+        JumpScene.changeScene(homePane,"UI/admissionsTab_receptionist.fxml", event);
     }
 
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane, "UI/patientsTab_receptionist.fxml", event);
+        JumpScene.changeScene(homePane,"UI/patientsTab_receptionist.fxml", event);
     }
 
     @FXML
     void gotoSettingsTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane, "UI/settingsTab.fxml", event);
+        JumpScene.changeScene(homePane,"UI/settingsTab.fxml", event);
+
     }
-    @FXML
-    void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(homePane, "UI/login_staff.fxml", event);
+
+    public void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
     }
 }

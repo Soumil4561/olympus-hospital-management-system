@@ -81,11 +81,9 @@ public class EditTabController implements Initializable {
         Long mobnum = Long.valueOf(phone.getText());
         String mail = email.getText();
         String homeaddress = resiAddress.getText();
-
         Staff staff = new Staff(CurrentUserInfo.getStaff().getStaff_id(),fname,lname,sex,mobnum,date,CurrentUserInfo.getStaff().getDepartment_id(),mail,homeaddress);
         Staff.editAccountDetails(staff);
-
-
+        CurrentUserInfo.setStaff(staff);
     }
 
 

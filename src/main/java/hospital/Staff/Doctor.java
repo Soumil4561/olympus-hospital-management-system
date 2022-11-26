@@ -1,7 +1,5 @@
 package hospital.Staff;
 
-import hospital.Appointments.AppointmentView;
-
 import java.sql.Date;
 
 public class Doctor extends Staff{
