@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class PatientFile {
     public static boolean create(long report_id){
-        String pathname="D:\\CS Project\\Patient Reports\\"+report_id+".oly";
+        String pathname="D:\\CS Project\\Patient Report\\"+report_id+".oly";
         try{
             File file = new File(pathname);
             if (!file.createNewFile()){
@@ -29,7 +29,7 @@ public class PatientFile {
         BufferedWriter bw = null;
         PrintWriter pw = null;
         try {
-            fw = new FileWriter("D:\\CS Project\\Patient Reports\\" + report_id + ".oly", true);
+            fw = new FileWriter("D:\\CS Project\\Patient Report\\" + report_id + ".oly", true);
             bw = new BufferedWriter(fw);
             pw = new PrintWriter(bw);
 
@@ -49,7 +49,7 @@ public class PatientFile {
     }
 
     public static boolean encryptCreate(long report_id,String text) throws FileNotFoundException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException {
-        String pathname="D:\\CS Project\\Patient Reports\\"+report_id+".oly";
+        String pathname="D:\\CS Project\\Patient Report\\"+report_id+".oly";
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         keyGenerator.init(256);
         SecretKey originalKey = keyGenerator.generateKey();

@@ -145,7 +145,7 @@
                         <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
                      <children>
                         <Label maxWidth="1.7976931348623157E308" text="Viewing Details For:" textFill="WHITE" underline="true">
                            <font>
@@ -153,14 +153,6 @@
                            </font>
                            <HBox.margin>
                               <Insets left="20.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label fx:id="patientNameLabel" text="PatientName" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="5.0" />
                            </HBox.margin>
                         </Label>
                      </children>
@@ -180,7 +172,17 @@
                         </Label>
                      </children>
                   </VBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="patientNameLabel" text="PatientName" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children></HBox>
                   <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
                     <columns>
                       <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
@@ -196,12 +198,12 @@
                <children>
                   <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="350.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label fx:id="buttonnotif" styleClass="labelnotif" stylesheets="@css/fullpackstyling.css" text="Patient Details are now Editable!" textFill="WHITE">
+                        <Label fx:id="buttonnotif" prefHeight="34.0" prefWidth="250.0" styleClass="labelnotif" stylesheets="@css/fullpackstyling.css" text="Patient Details are now Editable!" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="30.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@png/icons8-exclamation-mark-50.png" />
                                  </image>

@@ -1,13 +1,18 @@
 package UI.Controllers.Receptionist;
 
-import UI.Controllers.Receptionist.PatientReceptionistController;
+import UI.Elements.Report;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import hospital.Staff.Reception;
+import javafx.animation.PauseTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.sql.Date;
@@ -17,15 +22,15 @@ import java.util.ResourceBundle;
 public class PatientEditController implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> reportid;
+    private TableColumn<Report, Long> reportid;
 
     @FXML
-    private TableView<?> table;
+    private TableView<Report> table;
     @FXML
     private Label buttonnotif;
 
     @FXML
-    private TableColumn<?, ?> date;
+    private TableColumn<Report, Long> date;
 
     @FXML
     private Label patientNameLabel;
@@ -54,9 +59,10 @@ public class PatientEditController implements Initializable {
     @FXML
     private TextField patient_uid;
 
+    ObservableList<Report> list = FXCollections.observableArrayList();
 
     @FXML
-    void makeFieldsEditable(MouseEvent event) throws SQLException {
+    void makeFieldsEditable(MouseEvent event) {
         patient_dob.setEditable(true);
         patient_fname.setEditable(true);
         patient_lname.setEditable(true);
@@ -64,6 +70,13 @@ public class PatientEditController implements Initializable {
         patient_status.setEditable(true);
         patient_email.setEditable(true);
         patient_contact_no.setEditable(true);
+
+        buttonnotif.setText("Patient Details are now editable!");
+        buttonnotif.setId("labelnotif");
+        buttonnotif.setVisible(true);
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e -> buttonnotif.setVisible(false));
+        pause.play();
     }
 
     @FXML
@@ -77,10 +90,27 @@ public class PatientEditController implements Initializable {
         Date date= Date.valueOf(patient_dob.getText());
         Patient patient=new Patient(PatientReceptionistController.inheritableUser,fname,lname,date,gender,number,email,status);
         Reception.editPatientDetails(patient);
-    }
 
+        buttonnotif.setText("New Patient Details Saved Successfully!");
+        buttonnotif.setId("labelnotif2");
+        buttonnotif.setVisible(true);
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e -> buttonnotif.setVisible(false));
+        pause.play();
+    }
+    private void setReportList(){
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        buttonnotif.setVisible(false);
+
+        reportid.setCellValueFactory(new PropertyValueFactory<>("reportid"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        table.setItems(list);
+
+
+
         patient_dob.setEditable(false);
         patient_fname.setEditable(false);
         patient_lname.setEditable(false);
@@ -99,7 +129,7 @@ public class PatientEditController implements Initializable {
             patient_contact_no.setText(String.valueOf(pat[0].getContact_no()));
             patient_gender.setText(pat[0].getGender());
             patient_status.setText(pat[0].getStatus());
-            patientNameLabel.setText(pat[0].getFname() + pat[0].getLname());
+            patientNameLabel.setText(pat[0].getFname() +" "+ pat[0].getLname());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
