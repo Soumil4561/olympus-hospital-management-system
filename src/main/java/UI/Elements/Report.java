@@ -5,15 +5,37 @@ import java.sql.Date;
 public class Report {
     private Date date;
     private Long reportid;
+    private String dic;
+    private String deptname;
 
-    public Report(Date date, Long reportid, String description) {
+    public Report(Date date, Long reportid, String docname, String departname) {
         this.date = date;
         this.reportid = reportid;
+        this.dic = docname;
+        this.deptname = departname;
     }
 
     public Report() {
         this.date = null;
         this.reportid = 0L;
+        this.dic = null;
+        this.deptname = null;
+    }
+
+    public String getDocname() {
+        return dic;
+    }
+
+    public void setDocname(String docname) {
+        this.dic = docname;
+    }
+
+    public String getDepartname() {
+        return deptname;
+    }
+
+    public void setDepartname(String departname) {
+        this.deptname = departname;
     }
 
     public Date getDate() {

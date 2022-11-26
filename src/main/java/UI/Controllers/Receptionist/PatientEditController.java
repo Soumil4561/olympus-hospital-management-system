@@ -22,15 +22,22 @@ import java.util.ResourceBundle;
 public class PatientEditController implements Initializable {
 
     @FXML
+    private TableColumn<Report, Long> date;
+
+    @FXML
     private TableColumn<Report, Long> reportid;
 
     @FXML
-    private TableView<Report> table;
-    @FXML
-    private Label buttonnotif;
+    private TableColumn<?, ?> deptname;
 
     @FXML
-    private TableColumn<Report, Long> date;
+    private TableColumn<?, ?> dic;
+
+    @FXML
+    private TableView<Report> table;
+
+    @FXML
+    private Label buttonnotif;
 
     @FXML
     private Label patientNameLabel;
@@ -99,7 +106,6 @@ public class PatientEditController implements Initializable {
         pause.play();
     }
     private void setReportList(){
-
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -107,6 +113,9 @@ public class PatientEditController implements Initializable {
 
         reportid.setCellValueFactory(new PropertyValueFactory<>("reportid"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        dic.setCellValueFactory(new PropertyValueFactory<>("dic"));
+        deptname.setCellValueFactory(new PropertyValueFactory<>("deptname"));
+
         table.setItems(list);
 
 

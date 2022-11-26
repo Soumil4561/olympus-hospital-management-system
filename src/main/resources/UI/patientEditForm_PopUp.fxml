@@ -187,6 +187,8 @@
                     <columns>
                       <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
                       <TableColumn fx:id="reportid" prefWidth="75.0" text="Report ID" />
+                        <TableColumn fx:id="deptname" prefWidth="75.0" text="Dept. Name" />
+                        <TableColumn fx:id="dic" prefWidth="75.0" text="DIC" />
                     </columns>
                      <GridPane.margin>
                         <Insets right="30.0" />
