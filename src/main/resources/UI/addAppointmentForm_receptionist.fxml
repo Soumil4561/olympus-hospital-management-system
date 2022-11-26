@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="patientAddPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Receptionist.AddAppointmentController">
+   <center>
+      <VBox prefHeight="624.0" prefWidth="674.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane maxHeight="1.7976931348623157E308" prefHeight="370.0" prefWidth="455.0" VBox.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="50.0" prefWidth="256.39996337890625" />
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="351.60003662109375" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="15.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.60001220703124" minHeight="9.600012207031256" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="104.2" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="121.19998474121095" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="166.5999969482422" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="186.99997863769528" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="33.60001220703123" minHeight="10.0" prefHeight="15.000048828124989" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Patient's Name:" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Report ID:" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Department Name:" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Doctor in Charge:" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="appointDate" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="appointTime" maxWidth="500.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="100.0" top="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" text="Enter Appointment Details:" textFill="WHITE" underline="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="patname" text="NAME" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="reportid" text="ID" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="deptname" text="DEPT_NAME" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="dic" text="DIC" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="257.0" GridPane.rowIndex="7">
+                     <children>
+                        <Label text="Appointment Date:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="(YYYY-DD-MM)" textFill="#8e8383">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="257.0" GridPane.rowIndex="8">
+                     <children>
+                        <Label text="Appointment Time:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="(HH:MM)" textFill="#8e8383">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="45.0" prefWidth="455.0">
+               <children>
+                  <Button fx:id="confirmButton" mnemonicParsing="false" onMouseClicked="#confirmAdd" prefHeight="30.0" prefWidth="69.0" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Confirm" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onMouseClicked="#cancelAdd" prefHeight="30.0" prefWidth="63.0" styleClass="popbuttonscancel" stylesheets="@css/fullpackstyling.css" text="Cancel" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="50.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="15.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Region>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Region minWidth="30.0" prefHeight="200.0" prefWidth="30.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" />
+                  <Region prefHeight="200.0" prefWidth="200.0" styleClass="sidebox2x" stylesheets="@css/fullpackstyling.css" />
+               </children>
+            </HBox>
+            <Region maxHeight="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Region>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

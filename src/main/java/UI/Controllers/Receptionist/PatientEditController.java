@@ -1,5 +1,6 @@
 package UI.Controllers.Receptionist;
 
+import UI.Elements.PopUpBox;
 import UI.Elements.Report;
 import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getPatientInfo;
@@ -17,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -70,6 +72,7 @@ public class PatientEditController implements Initializable {
     private TextField patient_uid;
 
     ObservableList<Report> list = FXCollections.observableArrayList();
+    public static Report inheritedReport = new Report();
 
     @FXML
     void makeFieldsEditable(MouseEvent event) {
@@ -121,6 +124,21 @@ public class PatientEditController implements Initializable {
 
         }
     }
+
+    @FXML
+    void deleteReport(MouseEvent event) {
+    Report report = table.getSelectionModel().getSelectedItem();
+    //
+    //Delete From Backend
+    //
+    table.getItems().remove(report);
+    }
+
+    @FXML
+    void gotoAddReport(MouseEvent event) throws IOException {
+        PopUpBox.addReportPopUp("Add Report Details");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttonnotif.setVisible(false);
@@ -131,6 +149,18 @@ public class PatientEditController implements Initializable {
         deptname.setCellValueFactory(new PropertyValueFactory<>("deptname"));
 
         table.setItems(list);
+
+        table.setOnMousePressed(event -> {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2){
+                inheritedReport = table.getSelectionModel().getSelectedItem();
+                try {
+                    PopUpBox.addAppointmentPopUp("Add Appointment Details!");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         try {
             setReportList();
         } catch (SQLException e) {
@@ -159,6 +189,7 @@ public class PatientEditController implements Initializable {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
+
         }
     }
 }

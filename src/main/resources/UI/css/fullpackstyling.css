@@ -113,20 +113,26 @@
 
 .home
 {
--fx-background-color : #00000000; 
+-fx-background-color : #5a5a5a60; 
 }
 
 .home:hover
 {
--fx-background-color : #54545472; 
+-fx-background-color : #27545b91; 
 }
 
 .home:pressed
 {
--fx-background-color : #34543aa9; 
+-fx-background-color : #345354a9; 
 }
 
 .loginPane
+{
+    -fx-background-image: url('images/bg1.jpg');
+    -fx-background-position: center center;
+}
+
+.homepane1
 {
     -fx-background-image: url('images/bg1.jpg');
     -fx-background-position: center center;
@@ -139,15 +145,6 @@
     -fx-border-color: rgb(0, 0, 0);
 }
 
-.patienttable{
-    -fx-background-color: rgba(46, 46, 46, 0.751);
-    -fx-selection-bar-non-focused: derive(-fx-base, 50%);
-}
-
-.patienttable .column-header .label{
-    -fx-alignment: CENTER_LEFT;
-    -fx-font-weight: none;
-}
 
 .mailbutton
 {
@@ -162,6 +159,22 @@
 .mailbutton:pressed
 {
     -fx-background-color:#2c757a98;
+    -fx-background-radius : 22;
+}
+
+.compose
+{
+    -fx-background-color:#003c6d98;
+    -fx-background-radius : 22;
+}
+.compose:hover
+{
+    -fx-background-color:#14527d57;
+    -fx-background-radius : 22;
+}
+.compose:pressed
+{
+    -fx-background-color:#2c4a7a98;
     -fx-background-radius : 22;
 }
 

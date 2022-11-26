@@ -108,6 +108,26 @@ public class PopUpBox {
         Scene scene = new Scene(fxmlLoader.load());
         window.setScene(scene);
         window.showAndWait();
-
     }
+
+    public static void addAppointmentPopUp(String title) throws IOException {
+        Stage window = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/addAppointmentForm_receptionist.fxml"));
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle(title);
+        Scene scene = new Scene(fxmlLoader.load());
+        window.setScene(scene);
+        window.showAndWait();
+    }
+
+    public static void addReportPopUp(String title) throws IOException {
+        Stage window = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/createReportForm_PopUp.fxml"));
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle(title);
+        Scene scene = new Scene(fxmlLoader.load());
+        window.setScene(scene);
+        window.showAndWait();
+    }
+
 }

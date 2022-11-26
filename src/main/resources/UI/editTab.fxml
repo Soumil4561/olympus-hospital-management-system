@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Settings.EditTabController">
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Settings.EditTabController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
@@ -110,10 +110,15 @@
             <Region prefHeight="28.0" prefWidth="200.0" />
             <HBox prefHeight="18.0" prefWidth="455.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="207.0" text="Date of Birth(Formet: YYYY-MM-DD)">
+                  <Label prefHeight="18.0" prefWidth="70.0" text="Date of Birth">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="207.0" text="(YYYY-DD-MM)" textFill="#736a6a">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
                   </Label>
                </children>
             </HBox>

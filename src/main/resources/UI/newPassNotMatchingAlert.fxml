@@ -14,7 +14,7 @@
             <Image url="@png/icons8-warning-96.png" />
          </image>
       </ImageView>
-      <Label layoutX="84.0" layoutY="74.0" prefHeight="52.0" prefWidth="194.0" text="Please enter correctly!&#10;" />
+      <Label layoutX="91.0" layoutY="74.0" prefHeight="52.0" prefWidth="194.0" text="Please enter correctly!&#10;" />
       <Button fx:id="closeButton" layoutX="130.0" layoutY="143.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="26.0" prefWidth="40.0" text="OK" />
       <Label layoutX="84.0" layoutY="38.0" prefHeight="45.0" prefWidth="178.0" text="New password and Confirm &#10;password does not match! &#10;">
          <font>

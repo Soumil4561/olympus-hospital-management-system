@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Doctor.DocterHomeController">
+<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Doctor.DocterHomeController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
@@ -47,18 +47,8 @@
          <children>
             <HBox prefHeight="30.0" prefWidth="455.0">
                <children>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@png/icons8-home-240.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="39.0" prefWidth="69.0" text=" Home" underline="true">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
                   <Region prefHeight="48.0" prefWidth="278.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onMouseClicked="#gotoMailTab" prefHeight="38.0" prefWidth="53.0" styleClass="mailButton" stylesheets="@css/fullpackstyling.css">
+                  <Button mnemonicParsing="false" onMouseClicked="#gotoMailTab" prefHeight="38.0" prefWidth="53.0" styleClass="mailbutton" stylesheets="@css/fullpackstyling.css">
                      <graphic>
                         <ImageView fitHeight="37.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
