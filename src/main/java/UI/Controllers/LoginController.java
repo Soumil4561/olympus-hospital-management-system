@@ -2,6 +2,7 @@ package UI.Controllers;
 
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
+import currentsession.CurrentUserInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -30,13 +31,14 @@ public class LoginController {
     void gotoStaffScene(MouseEvent event) throws IOException, SQLException {
         uid = Long.parseLong(uid_input.getText());
         pass = pass_input.getText();
-        String typeOfStaff=LoginRequest(uid,pass);
-        if(typeOfStaff.equals("Receptionist")){
-            JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
-        }
-        else if(typeOfStaff.equals("Doctor")){
-            JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
-
+        if(Staff.Login(uid,pass)){
+            String typeOfStaff = CurrentUserInfo.getStaff().getType();
+            if(typeOfStaff.equals("Receptionist")){
+                JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
+            }
+            else if(typeOfStaff.equals("Doctor")){
+                JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
+            }
         }
         else {
             try {
@@ -52,13 +54,14 @@ public class LoginController {
     void gotoStaffHome(ActionEvent event) throws SQLException, IOException {
         uid = Long.parseLong(uid_input.getText());
         pass = pass_input.getText();
-        String typeOfStaff=LoginRequest(uid,pass);
-        if(typeOfStaff.equals("Receptionist")){
-            JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
-        }
-        else if(typeOfStaff.equals("Doctor")){
-            JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
-
+        if(Staff.Login(uid,pass)){
+            String typeOfStaff = CurrentUserInfo.getStaff().getType();
+            if(typeOfStaff.equals("Receptionist")){
+                JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
+            }
+            else if(typeOfStaff.equals("Doctor")){
+                JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
+            }
         }
         else {
             try {
@@ -68,9 +71,4 @@ public class LoginController {
             }
         }
     }
-
-    public String LoginRequest(long id,String password) throws SQLException {
-       return Staff.Login(id,password);
-    }
-
 }

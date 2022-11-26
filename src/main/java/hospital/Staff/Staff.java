@@ -19,6 +19,8 @@ public class Staff {
     protected String email;
     private long department_id;
 
+    private String type;
+
     protected String residential_address;
     protected String password;
 
@@ -32,6 +34,19 @@ public class Staff {
         this.gender=gender;
         this.email=email;
         this.residential_address=residential_address;
+    }
+
+    public Staff(long id,String fname,String lname, String gender,long number,Date DOB,long department,String email, String residential_address, String type) {
+        this.fname = fname;
+        this.lname = lname;
+        this.staff_id = staff_id;
+        this.contact_no = contact_no;
+        this.date_of_birth = date_of_birth;
+        this.gender = gender;
+        this.email = email;
+        this.department_id = department_id;
+        this.type = type;
+        this.residential_address = residential_address;
     }
 
     public String getFname() {
@@ -114,9 +129,16 @@ public class Staff {
         this.password = password;
     }
 
-    public static String Login(long id, String password) throws SQLException {
-        String type = CredentialCheck.loginCredentials(id,password);
+    public static boolean Login(long id, String password) throws SQLException {
+        return CredentialCheck.loginCredentials(id,password);
+    }
+
+    public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public static boolean editAccountDetails(Staff staff) throws SQLException {

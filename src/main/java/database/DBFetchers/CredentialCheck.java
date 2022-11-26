@@ -14,7 +14,7 @@ import hospital.Staff.Staff;
 import static database.DBFetchers.ResultsetFunctions.size;
 
 public class CredentialCheck {
-    public static String loginCredentials(long id, String password) throws SQLException {
+    public static boolean loginCredentials(long id, String password) throws SQLException {
         String query="SELECT * from hospital.staffidandpass join hospital.staff on staff.staff_id=staffidandpass.staff_id where staffidandpass.staff_id=? AND password=MD5(?)";
         PreparedStatement ps= getConnection.getStatement(query);
         ps.setLong(1,id);
@@ -32,13 +32,13 @@ public class CredentialCheck {
             Date date=data.getDate("DOB");
             String address=data.getString("residential_address");
             Long contact_no=data.getLong("contact_no");
-            Staff staff=new Staff(staff_id,fname,lname,gender,contact_no,date,department_id,email,address);
+            Staff staff=new Staff(staff_id,fname,lname,gender,contact_no,date,department_id,email,address,typeOfStaff);
             CurrentUserInfo.setStaff(staff);
             data.close();
             ps.close();
-            return typeOfStaff;
+            return true;
         }
         data.close();
-        return "";
+        return false;
     }
 }
