@@ -27,7 +27,7 @@ public class LoginController {
     private TextField uid_input;
 
     @FXML
-    void gotoStaffScene(ActionEvent event) throws IOException, SQLException {
+    void gotoStaffScene(MouseEvent event) throws IOException, SQLException {
         uid = Long.parseLong(uid_input.getText());
         pass = pass_input.getText();
         String typeOfStaff=LoginRequest(uid,pass);
@@ -48,26 +48,26 @@ public class LoginController {
     }
 
 
-//    @FXML
-//    void gotoStaffHome(ActionEvent event) throws SQLException {
-//        uid = Long.parseLong(uid_input.getText());
-//        pass = pass_input.getText();
-//        String typeOfStaff=LoginRequest(uid,pass);
-//        if(typeOfStaff.equals("Receptionist")){
-//            JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
-//        }
-//        else if(typeOfStaff.equals("Doctor")){
-//            JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
-//
-//        }
-//        else {
-//            try {
-//                PopUpBox.display("Wrong Username or Password");
-//            } catch (Exception e){
-//                System.out.println("cant open alertbox");
-//            }
-//        }
-//    }
+    @FXML
+    void gotoStaffHome(ActionEvent event) throws SQLException, IOException {
+        uid = Long.parseLong(uid_input.getText());
+        pass = pass_input.getText();
+        String typeOfStaff=LoginRequest(uid,pass);
+        if(typeOfStaff.equals("Receptionist")){
+            JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
+        }
+        else if(typeOfStaff.equals("Doctor")){
+            JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
+
+        }
+        else {
+            try {
+                PopUpBox.display("Wrong Username or Password");
+            } catch (Exception e){
+                System.out.println("cant open alertbox");
+            }
+        }
+    }
 
     public String LoginRequest(long id,String password) throws SQLException {
        return Staff.Login(id,password);

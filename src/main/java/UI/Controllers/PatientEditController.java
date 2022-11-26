@@ -56,7 +56,6 @@ public class PatientEditController implements Initializable {
 
     @FXML
     void makeFieldsEditable(MouseEvent event) throws SQLException {
-        Patient[] pat= getPatientInfo.searchPatients(PatientReceptionistController.inheritableUser);
         patient_dob.setEditable(true);
         patient_fname.setEditable(true);
         patient_lname.setEditable(true);
@@ -64,8 +63,6 @@ public class PatientEditController implements Initializable {
         patient_status.setEditable(true);
         patient_email.setEditable(true);
         patient_contact_no.setEditable(true);
-        patientNameLabel.setText(pat[0].getFname() + pat[0].getLname());
-
     }
 
     @FXML
@@ -83,7 +80,6 @@ public class PatientEditController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         patient_dob.setEditable(false);
         patient_fname.setEditable(false);
         patient_lname.setEditable(false);
@@ -102,6 +98,7 @@ public class PatientEditController implements Initializable {
             patient_contact_no.setText(String.valueOf(pat[0].getContact_no()));
             patient_gender.setText(pat[0].getGender());
             patient_status.setText(pat[0].getStatus());
+            patientNameLabel.setText(pat[0].getFname() + pat[0].getLname());
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
