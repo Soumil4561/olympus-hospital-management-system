@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class ChangePasswordController {
 
@@ -54,10 +55,11 @@ public class ChangePasswordController {
     @FXML
     void confirmPassword(MouseEvent event) throws SQLException {
         String current = cuurPassword.getText();
-        if (CredentialCheck.loginCredentials(CurrentUserInfo.getStaff().getStaff_id(),current)!=""){
+        long id=CurrentUserInfo.getStaff().getStaff_id();
+        if (!Objects.equals(CredentialCheck.loginCredentials(id, current), "")){
             String newPass= newPassword.getText();
             String confPass= confirmPassword.getText();
-            if(newPass==confPass){
+            if(Objects.equals(newPass, confPass)){
                 Staff.changePassword(CurrentUserInfo.getStaff().getStaff_id(),confPass);
             }
             else{
@@ -79,7 +81,6 @@ public class ChangePasswordController {
 
         }
         }
-
     }
 
 

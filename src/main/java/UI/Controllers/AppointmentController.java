@@ -59,6 +59,10 @@ public class AppointmentController implements Initializable {
     void gotoSettingsTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(appointmentPane,"UI/settingsTab.fxml" ,event);
     }
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        JumpScene.changeScene(appointmentPane,"UI/login_staff.fxml",event);
+    }
 
 
     @Override
@@ -72,8 +76,5 @@ public class AppointmentController implements Initializable {
      table.setItems(list);
 
     }
-    @FXML
-    void logout(MouseEvent event) throws IOException {
-        JumpScene.changeScene(appointmentPane,"login_staff.fxml",event);
-    }
+
 }

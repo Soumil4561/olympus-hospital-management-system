@@ -51,10 +51,6 @@ public class SettingsController implements Initializable {
     @FXML
     private TextField uid;
 
-    @FXML
-    void gotoChangePassTab(MouseEvent event) {
-
-    }
 
     @FXML
     void gotoEditTab(MouseEvent event) throws IOException {
@@ -64,6 +60,10 @@ public class SettingsController implements Initializable {
     @FXML
     void gotoHomeTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(patientPane,"UI/homeTabDoctor.fxml",event);
+    }
+    @FXML
+    void gotoChangePassword(MouseEvent event) throws IOException {
+        JumpScene.changeScene(patientPane,"UI/changePassword.fxml",event);
     }
 
     @FXML

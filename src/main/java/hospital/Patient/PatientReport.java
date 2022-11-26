@@ -1,13 +1,8 @@
 package hospital.Patient;
 
-import database.DBConnectors.SqlInsertUpdateConnection;
-import database.DBConnectors.getConnection;
 import hospital.Department.Department;
 import hospital.Staff.Doctor;
-
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class PatientReport {
@@ -18,6 +13,7 @@ public class PatientReport {
     private Date start_date;
     private Date end_date;
     private String remarks;
+
 
     public PatientReport(Patient patient, String department_name) throws SQLException {
         this.patient=patient;
@@ -38,6 +34,7 @@ public class PatientReport {
         return report_id;
     }
 
-
-
+    public Patient getPatient() {
+        return patient;
+    }
 }
