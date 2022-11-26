@@ -1,4 +1,4 @@
-package UI.Controllers;
+package UI.Controllers.Settings;
 
 import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;
@@ -62,7 +62,7 @@ public class SettingsController implements Initializable {
         JumpScene.changeScene(patientPane,"UI/homeTabDoctor.fxml",event);
     }
     @FXML
-    void gotoChangePassword(MouseEvent event) throws IOException {
+    void gotoChangePassTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(patientPane,"UI/changePassword.fxml",event);
     }
 

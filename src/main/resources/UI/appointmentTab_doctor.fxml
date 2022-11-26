@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="patientPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.AppointmentController">
+<BorderPane fx:id="patientPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Doctor.AppointmentController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>

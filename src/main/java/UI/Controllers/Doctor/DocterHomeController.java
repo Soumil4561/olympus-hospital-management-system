@@ -1,4 +1,4 @@
-package UI.Controllers;
+package UI.Controllers.Doctor;
 
 import UI.Functions.JumpScene;
 import javafx.fxml.FXML;

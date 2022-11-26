@@ -1,4 +1,4 @@
-package UI.Controllers;
+package UI.Controllers.Settings;
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;

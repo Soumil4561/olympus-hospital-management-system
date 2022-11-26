@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="loginPane" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.DocterHomeController">
+<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Doctor.DocterHomeController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
@@ -47,10 +47,20 @@
          <children>
             <HBox prefHeight="30.0" prefWidth="455.0">
                <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@png/icons8-home-240.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="39.0" prefWidth="69.0" text=" Home" underline="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                   <Region prefHeight="48.0" prefWidth="278.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onMouseClicked="#gotoMailTab" prefHeight="38.0" prefWidth="42.0" styleClass="mailbutton" stylesheets="@css/fullpackstyling.css">
+                  <Button mnemonicParsing="false" onMouseClicked="#gotoMailTab" prefHeight="38.0" prefWidth="53.0" styleClass="mailButton" stylesheets="@css/fullpackstyling.css">
                      <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" styleClass="addbutton">
+                        <ImageView fitHeight="37.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@png/icons8-envelope-96.png" />
                            </image>
@@ -59,24 +69,12 @@
                      <effect>
                         <Glow />
                      </effect>
-                     <HBox.margin>
-                        <Insets right="15.0" />
-                     </HBox.margin>
                   </Button>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <VBox alignment="CENTER" prefHeight="370.0" prefWidth="474.0">
-               <children>
-                  <Label text="Welcome" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="53.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
          </children>
       </VBox>
    </center>

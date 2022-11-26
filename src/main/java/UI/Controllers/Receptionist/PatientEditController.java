@@ -1,5 +1,6 @@
-package UI.Controllers;
+package UI.Controllers.Receptionist;
 
+import UI.Controllers.Receptionist.PatientReceptionistController;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import hospital.Staff.Reception;

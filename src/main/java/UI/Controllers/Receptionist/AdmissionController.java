@@ -1,4 +1,4 @@
-package UI.Controllers;
+package UI.Controllers.Receptionist;
 
 import UI.Elements.Admission;
 import UI.Functions.JumpScene;

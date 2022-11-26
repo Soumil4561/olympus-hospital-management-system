@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Receptionist.HomeController">
+<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Nurse.HomeControllerNurse">
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="homesidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="86.0" prefWidth="638.0" styleClass="header" stylesheets="@css/fullpackstyling.css">
                <children>
-                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="182.0" styleClass="homeheader">
+                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="182.0">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="175.0" text="Olympus" textAlignment="JUSTIFY" textFill="WHITE" underline="true">
                            <font>
@@ -28,9 +28,8 @@
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="patientButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoPatientTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Patients" textFill="WHITE" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoAdmissionTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Admissons" textFill="WHITE" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Bills" textFill="WHITE" />
+            <Button fx:id="patientButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoPatientTabNurse" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Patients" textFill="WHITE" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoAdmittedTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Admissions" textFill="WHITE" />
             <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="107.0" prefWidth="182.0" VBox.vgrow="ALWAYS" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoSettingsTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Settings" textFill="WHITE" />
             <HBox prefHeight="50.0" prefWidth="182.0">
