@@ -38,7 +38,7 @@
                               <Insets left="20.0" right="20.0" top="30.0" />
                            </VBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" onMouseClicked="#gotoStaffScene" prefHeight="30.0" prefWidth="79.0" styleClass="logInButton" text="Log In" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#gotoStaffScene" prefHeight="30.0" prefWidth="79.0" styleClass="logInButton" text="Log In" textFill="WHITE">
                            <VBox.margin>
                               <Insets bottom="10.0" top="25.0" />
                            </VBox.margin>
