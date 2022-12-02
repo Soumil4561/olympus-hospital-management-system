@@ -4,6 +4,9 @@ import UI.Elements.PopUpBox;
 import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getDepartmentInfo;
 import hospital.Department.Department;
+import hospital.Patient.Patient;
+import hospital.Patient.PatientReport;
+import hospital.Staff.Reception;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -49,8 +52,12 @@ public class AddReportController implements Initializable {
     }
 
     @FXML
-    void confirmAdd(MouseEvent event) {
-
+    void confirmAdd(MouseEvent event) throws SQLException, IOException {
+        String dept_name = deptname.getValue();
+        Patient patient = CurrentPatientInfo.getPatient();
+        long staff_id = Long.parseLong(dic.getText());
+        PatientReport report = new PatientReport(patient,dept_name,staff_id);
+        Reception.createNewReport(report);
     }
     private void setChoices() throws SQLException {
         String[] dept = getDepartmentInfo.getDeptNames();

@@ -119,7 +119,7 @@ public class PatientEditController implements Initializable {
             report.setDate(reports[i].getStart_date());
             report.setDic(reports[i].getDoctor_name());
             report.setDeptname(reports[i].getDepartment_name());
-
+            report.setDic_id(reports[i].getStaff_id());
             table.getItems().add(report);
 
         }
@@ -128,9 +128,7 @@ public class PatientEditController implements Initializable {
     @FXML
     void deleteReport(MouseEvent event) {
     Report report = table.getSelectionModel().getSelectedItem();
-    //
-    //Delete From Backend
-    //
+    //report.getReportid();
     table.getItems().remove(report);
     }
 

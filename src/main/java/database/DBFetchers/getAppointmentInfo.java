@@ -2,9 +2,7 @@ package database.DBFetchers;
 
 import database.DBConnectors.SqlSearchConnection;
 import database.DBConnectors.getConnection;
-import hospital.Appointments.Appointment;
 import hospital.Appointments.AppointmentView;
-import hospital.Staff.Doctor;
 
 import java.sql.*;
 

@@ -1,6 +1,7 @@
 package database.FileWriter;
 
-import javax.crypto.Cipher;
+import com.sun.security.jgss.GSSUtil;
+
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
@@ -8,11 +9,11 @@ import java.io.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-public class PatientFile {
+public class ReportGenerator {
     public static boolean create(long report_id){
-        String pathname="D:\\CS Project\\Patient Report\\"+report_id+".oly";
+        String pathname="D:\\CS Project\\Patient Reports\\"+report_id+".oly";
+        File file = new File(pathname);
         try{
-            File file = new File(pathname);
             if (!file.createNewFile()){
                 System.out.println("File already exists.");
                 return false;
@@ -24,19 +25,18 @@ public class PatientFile {
     }
 
     public static boolean append(long report_id, String text) throws IOException {
-
+        String pathname = "D:\\CS Project\\Patient Reports\\"+report_id+".oly";
+        System.out.println(pathname);
         FileWriter fw = null;
         BufferedWriter bw = null;
         PrintWriter pw = null;
         try {
-            fw = new FileWriter("D:\\CS Project\\Patient Report\\" + report_id + ".oly", true);
+            fw = new FileWriter(pathname, true);
             bw = new BufferedWriter(fw);
             pw = new PrintWriter(bw);
-
             pw.println(text);
             pw.flush();
-        }
-        finally {
+        }  finally {
             try {
                 pw.close();
                 bw.close();

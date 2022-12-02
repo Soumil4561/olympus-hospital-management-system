@@ -2,6 +2,7 @@ package UI.Controllers.Receptionist;
 
 import UI.Elements.Report;
 import currentsession.CurrentPatientInfo;
+import hospital.Appointments.NewAppointment;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
@@ -53,10 +55,12 @@ public class AddAppointmentController implements Initializable {
     }
 
     @FXML
-    void confirmAdd(MouseEvent event) {
+    void confirmAdd(MouseEvent event) throws SQLException {
        Date appointdate = Date.valueOf(appointDate.getText());
        Time appointtime = Time.valueOf(appointTime.getText());
 
+       NewAppointment newAppointment = new NewAppointment(CurrentPatientInfo.getPatient(),appointdate,appointtime,report.getReportid(),report.getDic_id());
+       newAppointment.createNewAppointment();
     }
 
     @Override

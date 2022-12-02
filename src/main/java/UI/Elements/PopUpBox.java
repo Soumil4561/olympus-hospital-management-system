@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -19,6 +20,9 @@ public class PopUpBox {
 
     @FXML
     private BorderPane pane;
+
+    @FXML
+    private static Label warninglabel;
 
     @FXML
     void gotoLogin(MouseEvent event) throws IOException {
@@ -36,6 +40,18 @@ public class PopUpBox {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/alertbox.fxml"));
         window.initModality(Modality.APPLICATION_MODAL);
 
+        window.setTitle(title);
+
+        Scene scene = new Scene(fxmlLoader.load());
+        window.setScene(scene);
+        window.showAndWait();
+    }
+
+    public static void displayAlert(String title, String text) throws IOException {
+        Stage window = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/warningbox.fxml"));
+        window.initModality(Modality.APPLICATION_MODAL);
+        warninglabel.setText(text);
         window.setTitle(title);
 
         Scene scene = new Scene(fxmlLoader.load());

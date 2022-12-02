@@ -58,7 +58,7 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Doctor In Charge:" GridPane.rowIndex="6">
+                  <Label text="DIC ID:" GridPane.rowIndex="6">
                      <font>
                         <Font size="13.0" />
                      </font>

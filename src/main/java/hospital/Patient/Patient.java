@@ -102,5 +102,4 @@ public class Patient {
         this.status = status;
     }
 
-
 }

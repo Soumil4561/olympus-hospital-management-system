@@ -7,12 +7,14 @@ public class Report {
     private Long reportid;
     private String dic;
     private String deptname;
+    private Long dic_id;
 
-    public Report(Date date, Long reportid, String docname, String departname) {
+    public Report(Date date, Long reportid, String docname, String departname, Long dic_id) {
         this.date = date;
         this.reportid = reportid;
         this.dic = docname;
         this.deptname = departname;
+        this.dic_id = 0L;
     }
 
     public Report() {
@@ -20,6 +22,7 @@ public class Report {
         this.reportid = 0L;
         this.dic = null;
         this.deptname = null;
+        this.dic_id =0L;
     }
 
     public String getDic() {
@@ -52,5 +55,13 @@ public class Report {
 
     public void setReportid(Long reportid) {
         this.reportid = reportid;
+    }
+
+    public Long getDic_id() {
+        return dic_id;
+    }
+
+    public void setDic_id(Long dic_id) {
+        this.dic_id = dic_id;
     }
 }

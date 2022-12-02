@@ -1,7 +1,7 @@
 package UI.Controllers.Doctor;
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
-import hospital.Appointments.Appointment;
+import hospital.Appointments.NewAppointment;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,26 +21,26 @@ import java.util.ResourceBundle;
 public class AppointmentController implements Initializable {
 
     @FXML
-    private TableView<Appointment> table;
-    ObservableList<Appointment> list = FXCollections.observableArrayList();
+    private TableView<NewAppointment> table;
+    ObservableList<NewAppointment> list = FXCollections.observableArrayList();
 
     @FXML
-    private TableColumn<Appointment, Long> ID;
+    private TableColumn<NewAppointment, Long> ID;
 
     @FXML
-    private TableColumn<Appointment , String> fName;
+    private TableColumn<NewAppointment, String> fName;
 
     @FXML
-    private TableColumn<Appointment , String> lName;
+    private TableColumn<NewAppointment, String> lName;
 
     @FXML
-    private TableColumn<Appointment , Date> appDate;
+    private TableColumn<NewAppointment, Date> appDate;
 
     @FXML
-    private TableColumn<Appointment , Time> appTime;
+    private TableColumn<NewAppointment, Time> appTime;
 
     @FXML
-    private TableColumn<Appointment , String> status;
+    private TableColumn<NewAppointment, String> status;
 
     @FXML
     private BorderPane appointmentPane;

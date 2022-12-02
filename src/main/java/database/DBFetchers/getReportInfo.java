@@ -43,7 +43,8 @@ public class getReportInfo {
             String doctor_name = data.getString("doctor_name");
             String department_name = data.getString("dept_name");
             Date date = data.getDate("startdate");
-            reports[counter++] = new PatientReportView(report_id,doctor_name,department_name,date);
+            long staff_id = data.getLong("staff_id");
+            reports[counter++] = new PatientReportView(report_id,doctor_name,department_name,date,staff_id);
         }
         data.close();
         ps.close();

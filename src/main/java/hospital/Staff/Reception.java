@@ -3,14 +3,13 @@ package hospital.Staff;
 import database.DBConnectors.SqlInsertUpdateConnection;
 import database.DBConnectors.getConnection;
 import database.DBFetchers.getReportInfo;
-import database.FileWriter.PatientFile;
+import database.FileWriter.ReportGenerator;
+import hospital.Admissions.NewAdmission;
 import hospital.Patient.Patient;
 import hospital.Patient.PatientReport;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Reception extends Staff{
     public Reception(long id, String fname, String lname, String gender, long number, Date DOB, int department, String email, String residential_address) {
@@ -32,7 +31,6 @@ public class Reception extends Staff{
     }
 
     public static boolean editPatientDetails(Patient pat) throws SQLException {
-        //String query="UPDATE 'hospital'.'patient' SET 'fname' = ? , 'lname' = ? , 'patient_DOB' = ? , 'contact_no' = ? , 'email' = ? , 'stat' = ? WHERE (patient_id = ?)";
         String query="UPDATE `hospital`.`patient` SET `fname` = ?, `lname` = ?, `patient_DOB` = ?, `gender` = ?, `contact_no` = ?, `email` = ?, `stat` = ? WHERE (`patient_id` = ?)";
         PreparedStatement ps=getConnection.getStatement(query);
         assert  ps!=null;
@@ -48,28 +46,51 @@ public class Reception extends Staff{
     }
 
     public static boolean createNewReport(PatientReport report) throws SQLException, IOException {
-        String query="INSERT INTO hospital.patient_reports (`patient_id`, `department_id`, `startdate`) VALUES (?,?,?)";
+        String query="INSERT INTO hospital.patient_reports (`patient_id`, `staff_id`, `department_id`, `startdate`) VALUES (?,?,?,?)";
         PreparedStatement ps=getConnection.getStatement(query);
         assert ps != null;
         ps.setLong(1,report.patient.getPatient_id());
-        ps.setLong(2,report.getDepartment_id());
-        ps.setDate(3,report.getStart_date());
-        //SqlInsertUpdateConnection.execute(ps);
+        ps.setLong(2, report.getStaff_id());
+        ps.setLong(3,report.getDepartment_id());
+        ps.setDate(4,report.getStart_date());
+        SqlInsertUpdateConnection.execute(ps);
         long report_id = getReportInfo.findReportID(report.getPatient().getPatient_id(),report.getStart_date());
-        createReportFile(report_id,report.getPatient());
+        System.out.println(report_id);
+        createReportFile(report_id,report.getPatient(),report.getStart_date());
         return true;
     }
 
-    private static void createReportFile(long report_id, Patient patient) throws IOException {
-        PatientFile.create(report_id);
-        String text = "Report ID: "+report_id;
-        PatientFile.append(report_id,text);
-        text = "Patient ID: "+patient.getPatient_id();
-        PatientFile.append(report_id,text);
-        text = "Patient Name: "+patient.getFname()+" "+patient.getLname();
-        PatientFile.append(report_id,text);
-        text = "--------------------------------------";
-        PatientFile.append(report_id,text);
+    private static void createReportFile(long report_id, Patient patient,Date start_date) throws IOException {
+        ReportGenerator.create(report_id);
+        long millis = System.currentTimeMillis();
+        Time time = new  Time(millis);
+        String text = "Report ID: "+report_id+
+                "\nPatient ID: "+patient.getPatient_id()
+                +"\nPatient Name: "+patient.getFname()+" "+patient.getLname()
+                + "\n--------------------------------------"
+                +"\n|"+start_date+"|"+time.toString()+"| : Report Created.";
+        ReportGenerator.append(report_id,text);
+    }
+
+    public static boolean createNewAdmission(NewAdmission admission) throws SQLException {
+        String query = "INSERT INTO `hospital`.`admission` (`patient_id`, `report_id`, `staff_id`, `bed_id`, `admission_date`) VALUES (?,?,?,?,?)";
+        PreparedStatement ps = getConnection.getStatement(query);
+        ps.setLong(1,admission.getPatient_id());
+        ps.setLong(2,admission.getReport_id());
+        ps.setLong(3,admission.getDoctor_id());
+        ps.setLong(4,admission.getBed_id());
+        ps.setDate(5,admission.getDate());
+        try{
+            SqlInsertUpdateConnection.execute(ps);
+        }
+        catch (SQLException e) {
+            return false;
+        }
+        query = "UPDATE `hospital`.`patient` SET `stat` = 'IPD' WHERE (`patient_id` = ? )";
+        ps = getConnection.getStatement(query);
+        ps.setLong(1,admission.getPatient_id());
+        SqlInsertUpdateConnection.execute(ps);
+        return true;
     }
 
 
