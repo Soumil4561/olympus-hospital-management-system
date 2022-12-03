@@ -6,16 +6,16 @@ import java.sql.Time;
 public class Appointment {
 
     private Long ID;
-    private String fname;
-    private String lname;
+    private String name;
+    private Long reportID;
     private Date appDate;
     private Time appTime;
     private String status;
 
-    public Appointment(Long ID, String fname, String lname, Date appDate, Time appTime, String status) {
+    public Appointment(Long ID, String name, Long reportID, Date appDate, Time appTime, String status) {
         this.ID = ID;
-        this.fname = fname;
-        this.lname = lname;
+        this.name = name;
+        this.reportID = reportID;
         this.appDate = appDate;
         this.appTime = appTime;
         this.status = status;
@@ -23,8 +23,8 @@ public class Appointment {
 
     public Appointment() {
         this.ID = 0L ;
-        this.fname = null;
-        this.lname = null;
+        this.name = null;
+        this.reportID = 0L;
         this.appDate = null;
         this.appTime = null;
         this.status = null;
@@ -38,20 +38,20 @@ public class Appointment {
         this.ID = ID;
     }
 
-    public String getFname() {
-        return fname;
+    public String getName() {
+        return name;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLname() {
-        return lname;
+    public Long getReportID() {
+        return reportID;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setReportID(Long reportID) {
+        this.reportID = reportID;
     }
 
     public Date getAppDate() {

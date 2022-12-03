@@ -1,10 +1,9 @@
 package UI.Controllers.Doctor;
 import UI.Elements.Appointment;
 import UI.Elements.PopUpBox;
-import UI.Elements.User;
 import UI.Functions.JumpScene;
-import currentsession.CurrentPatientInfo;
-import database.DBFetchers.getPatientInfo;
+import database.DBFetchers.getAppointmentInfo;
+import hospital.Appointments.AppointmentView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class AppointmentController implements Initializable {
 
-    public Appointment inhtAppointment;
+    public static Appointment inhtAppointment;
 
     @FXML
     private TableView<Appointment> table;
@@ -34,10 +33,10 @@ public class AppointmentController implements Initializable {
     private TableColumn<Appointment, Long> ID;
 
     @FXML
-    private TableColumn<Appointment, String> fName;
+    private TableColumn<Appointment, String> Name;
 
     @FXML
-    private TableColumn<Appointment, String> lName;
+    private TableColumn<Appointment, Long> reportID;
 
     @FXML
     private TableColumn<Appointment, Date> appDate;
@@ -69,24 +68,43 @@ public class AppointmentController implements Initializable {
     @FXML
     void logout(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
-        JumpScene.changeScene(appointmentPane,"UI/login_staff.fxml",event);
+        if(PopUpBox.log) JumpScene.changeScene(appointmentPane,"UI/login_staff.fxml",event);
     }
 
-    void displayAppointments(){
-        //display appointment code
+    void displayAppointments() throws SQLException {
+        long millis= System.currentTimeMillis();
+        Date date = new Date(millis);
+        AppointmentView[] list = getAppointmentInfo.appointmentOnDate(date);
+        for (int i = 0; i < list.length; i++){
+            Appointment appointment = new Appointment();
+            appointment.setName(list[i].getPatient_name());
+            appointment.setReportID(list[i].getReport_id());
+            appointment.setID(list[i].getAppointment_id());
+            appointment.setAppDate(list[i].getDate());
+            appointment.setAppTime(list[i].getTime());
+            appointment.setStatus(list[i].getStatus());
+
+            table.getItems().add(appointment);
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
      ID.setCellValueFactory(new PropertyValueFactory<>("ID"));
-     fName.setCellValueFactory(new PropertyValueFactory<>("First Name"));
-     lName.setCellValueFactory(new PropertyValueFactory<>("Last Name"));
-     appDate.setCellValueFactory(new PropertyValueFactory<>("Appointment Date"));
-     appTime.setCellValueFactory(new PropertyValueFactory<>("Appointment Time"));
-     status.setCellValueFactory(new PropertyValueFactory<>("Status"));
+     Name.setCellValueFactory(new PropertyValueFactory<>("name"));
+     reportID.setCellValueFactory(new PropertyValueFactory<>("reportID"));
+     appDate.setCellValueFactory(new PropertyValueFactory<>("appDate"));
+     appTime.setCellValueFactory(new PropertyValueFactory<>("appTime"));
+     status.setCellValueFactory(new PropertyValueFactory<>("status"));
      table.setItems(list);
 
-     table.setOnMousePressed(event -> {
+        try {
+            displayAppointments();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        table.setOnMousePressed(event -> {
          if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
                 inhtAppointment = table.getSelectionModel().getSelectedItem();
 

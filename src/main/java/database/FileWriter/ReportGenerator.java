@@ -26,7 +26,6 @@ public class ReportGenerator {
 
     public static boolean append(long report_id, String text) throws IOException {
         String pathname = "D:\\CS Project\\Patient Reports\\"+report_id+".oly";
-        System.out.println(pathname);
         FileWriter fw = null;
         BufferedWriter bw = null;
         PrintWriter pw = null;

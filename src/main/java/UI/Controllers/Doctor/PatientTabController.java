@@ -89,12 +89,12 @@ public class PatientTabController implements Initializable {
 
     @FXML
     void gotoSettingsTab(MouseEvent event) throws IOException {
-    JumpScene.changeScene(patientTabPane,"UI/homeTabDoctor.fxml", event);
+    JumpScene.changeScene(patientTabPane,"UI/settingsTab.fxml", event);
     }
     @FXML
     void logout(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
-        JumpScene.changeScene(patientTabPane,"UI/login_staff.fxml",event);
+        if(PopUpBox.log) JumpScene.changeScene(patientTabPane,"UI/login_staff.fxml",event);
     }
 
     @Override

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PopUpBox {
-
+    public static Boolean log = false;
     @FXML
     private Button closeButton;
 
@@ -26,6 +26,8 @@ public class PopUpBox {
 
     @FXML
     void gotoLogin(MouseEvent event) throws IOException {
+        boolean logout = true;
+        log = logout;
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
@@ -57,7 +59,6 @@ public class PopUpBox {
         window.initModality(Modality.APPLICATION_MODAL);
         warninglabel.setText(text);
         window.setTitle(title);
-
         Scene scene = new Scene(fxmlLoader.load());
         window.setScene(scene);
         window.showAndWait();
@@ -84,7 +85,15 @@ public class PopUpBox {
 
     }
     public static void logout(String title) throws IOException {
-        popUp(title,"/UI/confirmLogout.fxml");
+        Stage window = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/confirmLogout.fxml"));
+        window.initModality(Modality.APPLICATION_MODAL);
+
+        window.setTitle(title);
+
+        Scene scene = new Scene(fxmlLoader.load());
+        window.setScene(scene);
+        window.showAndWait();
     }
 
     public static void addAppointmentPopUp(String title) throws IOException {

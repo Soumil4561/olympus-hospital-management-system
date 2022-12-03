@@ -12,7 +12,7 @@ public class getAppointmentInfo {
     public static AppointmentView[] appointmentOnDate(Date date) throws SQLException {
         String query="SELECT appointment_id,CONCAT(patient.fname,' ',patient.lname) as 'Patient Name' , " +
                 "CONCAT(staff.fname,' ',staff.lname) as 'Doctor Name', " +
-                "report_id , appointment_date,appointment_time,status " +
+                "report_id , appointment_date,appointment_time,status, patient.patient_id " +
                 "FROM hospital.appointments " +
                 "JOIN hospital.staff on appointments.staff_id=staff.staff_id " +
                 "JOIN hospital.patient on appointments.patient_id=patient.patient_id " +
@@ -31,7 +31,8 @@ public class getAppointmentInfo {
             Date appointment_date=data.getDate("appointment_date");
             Time appointment_time=data.getTime("appointment_time");
             String status=data.getString("status");
-            appointmentList[counter++]=new AppointmentView(appointment_id,patient_name,doctor_name,report_id,appointment_date,appointment_time,status);
+            Long patient_id = data.getLong("patient_id");
+            appointmentList[counter++]=new AppointmentView(appointment_id,patient_name,doctor_name,report_id,appointment_date,appointment_time,status,patient_id);
         }
         data.close();
         return appointmentList;

@@ -70,7 +70,7 @@ public class SettingsController implements Initializable {
     @FXML
     void logout(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
-        JumpScene.changeScene(patientPane,"UI/login_staff.fxml",event);
+        if(PopUpBox.log) JumpScene.changeScene(patientPane,"UI/login_staff.fxml",event);
     }
 
     @Override

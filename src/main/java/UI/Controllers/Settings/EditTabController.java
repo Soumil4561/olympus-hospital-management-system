@@ -67,7 +67,7 @@ public class EditTabController implements Initializable {
     @FXML
     void exit(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
-        JumpScene.changeScene(pane,"UI/login_staff.fxml",event);
+        if(PopUpBox.log) JumpScene.changeScene(pane,"UI/login_staff.fxml",event);
     }
     @FXML
     void gotoChangePassword(MouseEvent event) throws IOException {

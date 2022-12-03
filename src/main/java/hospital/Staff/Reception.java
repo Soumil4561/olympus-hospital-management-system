@@ -7,6 +7,7 @@ import database.FileWriter.ReportGenerator;
 import hospital.Admissions.NewAdmission;
 import hospital.Patient.Patient;
 import hospital.Patient.PatientReport;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.sql.*;
@@ -55,7 +56,6 @@ public class Reception extends Staff{
         ps.setDate(4,report.getStart_date());
         SqlInsertUpdateConnection.execute(ps);
         long report_id = getReportInfo.findReportID(report.getPatient().getPatient_id(),report.getStart_date());
-        System.out.println(report_id);
         createReportFile(report_id,report.getPatient(),report.getStart_date());
         return true;
     }
@@ -68,7 +68,7 @@ public class Reception extends Staff{
                 "\nPatient ID: "+patient.getPatient_id()
                 +"\nPatient Name: "+patient.getFname()+" "+patient.getLname()
                 + "\n--------------------------------------"
-                +"\n|"+start_date+"|"+time.toString()+"| : Report Created.";
+                +"\n"+start_date+"~"+time.toString()+"~Report Created~-";
         ReportGenerator.append(report_id,text);
     }
 

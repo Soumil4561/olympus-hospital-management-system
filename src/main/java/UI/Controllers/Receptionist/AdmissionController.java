@@ -91,7 +91,7 @@ public class AdmissionController implements Initializable {
     @FXML
     void logout(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
-        JumpScene.changeScene(admissionPane,"UI/login_staff.fxml",event);
+        if(PopUpBox.log) JumpScene.changeScene(admissionPane,"UI/login_staff.fxml",event);
     }
 
     public void viewDefaultAdmission() throws SQLException {

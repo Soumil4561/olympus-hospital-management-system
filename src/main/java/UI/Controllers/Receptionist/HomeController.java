@@ -34,7 +34,7 @@ public class HomeController {
     @FXML
     void logout(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
-        JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
+        if(PopUpBox.log) JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
     }
 
     @FXML

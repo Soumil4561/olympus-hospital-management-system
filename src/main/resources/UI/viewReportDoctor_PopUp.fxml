@@ -53,7 +53,7 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Report ID;" GridPane.rowIndex="5">
+                  <Label text="Report ID:" GridPane.rowIndex="5">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -149,7 +149,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onMouseClicked="#gotoAddPrescription" styleClass="addpres" text="Add Prescription" textFill="WHITE">
+                  <Button mnemonicParsing="false" onMouseClicked="#gotoAddPrescription" styleClass="addpres" stylesheets="@css/fullpackstyling.css" text="Add Prescription" textFill="WHITE">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
