@@ -61,14 +61,10 @@ public class PatientReceptionistController implements Initializable {
     @FXML
     private TextField searchbox;
 
-    public String searchBoxContents;
-
-
     @FXML
     void getPatientDetails(MouseEvent event) throws SQLException {
         table.getItems().clear();
-        searchBoxContents= searchbox.getText();
-        Patient[] pat= getPatientInfo.searchPatients(searchBoxContents);
+        Patient[] pat= getPatientInfo.searchPatients(searchbox.getText());
         for (Patient patient : pat) {
             User user = new User();
             user.setUid(patient.getPatient_id());

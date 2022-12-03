@@ -35,9 +35,9 @@ public class PopUpBox {
         stage.close();
     }
 
-    public static void display(String title) throws IOException {
+    public static void popUp(String title,String location) throws IOException {
         Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/alertbox.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(location));
         window.initModality(Modality.APPLICATION_MODAL);
 
         window.setTitle(title);
@@ -45,6 +45,10 @@ public class PopUpBox {
         Scene scene = new Scene(fxmlLoader.load());
         window.setScene(scene);
         window.showAndWait();
+    }
+
+    public static void display(String title) throws IOException {
+        popUp(title,"/UI/alertbox.fxml");
     }
 
     public static void displayAlert(String title, String text) throws IOException {
@@ -60,90 +64,42 @@ public class PopUpBox {
     }
 
     public static void editformDisplay(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/patientEditForm_PopUp.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-
-        window.setTitle(title);
-
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/patientEditForm_PopUp.fxml");
     }
 
     public static void confirmAdd(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/confirmAdd_PopUp.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-
-        window.setTitle(title);
-
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/confirmAdd_PopUp.fxml");
     }
 
     public static void addPatientPopUp(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/patientAddForm_PopOut.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-
-        window.setTitle(title);
-
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/patientAddForm_PopOut.fxml");
     }
 
     public static void newPassNotMatchingPopUp(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/newPassNotMatchingAlert.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
-
+       popUp(title,"/UI/newPassNotMatchingAlert.fxml");
     }
 
     public static void oldPasswordNotMatching(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/oldPasswordErrorAlert.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/oldPasswordErrorAlert.fxml");
 
     }
     public static void logout(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/confirmLogout.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/confirmLogout.fxml");
     }
 
     public static void addAppointmentPopUp(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/addAppointmentForm_receptionist.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/addAppointmentForm_receptionist.fxml");
     }
 
     public static void addReportPopUp(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/createReportForm_PopUp.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle(title);
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/createReportForm_PopUp.fxml");
     }
 
+    public static void viewReportPopUp() throws IOException {
+        popUp("View Patient Report","/UI/viewReportDoctor_PopUp.fxml" );
+    }
+
+    public static void viewPrescriptionPopUp() throws IOException {
+        popUp("Add Prescription in Report","/UI/addPrescription_PopUp.fxml" );
+    }
 }

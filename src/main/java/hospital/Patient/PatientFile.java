@@ -79,6 +79,7 @@ public class PatientFile {
     }
 
     public static PatientFile parseFile(ArrayList<String> output){
+
         PatientFile file = new PatientFile();
         file.setReport_id(Long.parseLong(output.get(0).substring(11)));
         file.setPatient_id(Long.parseLong(output.get(1).substring(12)));

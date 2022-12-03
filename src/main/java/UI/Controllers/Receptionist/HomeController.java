@@ -30,11 +30,15 @@ public class HomeController {
     @FXML
     void gotoSettingsTab(MouseEvent event) throws IOException {
         JumpScene.changeScene(homePane,"UI/settingsTab.fxml", event);
-
     }
     @FXML
     void logout(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
         JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
+    }
+
+    @FXML
+    void gotoMail(MouseEvent event) throws IOException {
+        JumpScene.changeScene(homePane,"UI/mailTab.fxml",event);
     }
 }

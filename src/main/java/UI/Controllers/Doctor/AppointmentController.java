@@ -1,7 +1,10 @@
 package UI.Controllers.Doctor;
+import UI.Elements.Appointment;
 import UI.Elements.PopUpBox;
+import UI.Elements.User;
 import UI.Functions.JumpScene;
-import hospital.Appointments.NewAppointment;
+import currentsession.CurrentPatientInfo;
+import database.DBFetchers.getPatientInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,32 +18,35 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
 public class AppointmentController implements Initializable {
 
-    @FXML
-    private TableView<NewAppointment> table;
-    ObservableList<NewAppointment> list = FXCollections.observableArrayList();
+    public Appointment inhtAppointment;
 
     @FXML
-    private TableColumn<NewAppointment, Long> ID;
+    private TableView<Appointment> table;
+    ObservableList<Appointment> list = FXCollections.observableArrayList();
 
     @FXML
-    private TableColumn<NewAppointment, String> fName;
+    private TableColumn<Appointment, Long> ID;
 
     @FXML
-    private TableColumn<NewAppointment, String> lName;
+    private TableColumn<Appointment, String> fName;
 
     @FXML
-    private TableColumn<NewAppointment, Date> appDate;
+    private TableColumn<Appointment, String> lName;
 
     @FXML
-    private TableColumn<NewAppointment, Time> appTime;
+    private TableColumn<Appointment, Date> appDate;
 
     @FXML
-    private TableColumn<NewAppointment, String> status;
+    private TableColumn<Appointment, Time> appTime;
+
+    @FXML
+    private TableColumn<Appointment, String> status;
 
     @FXML
     private BorderPane appointmentPane;
@@ -66,6 +72,9 @@ public class AppointmentController implements Initializable {
         JumpScene.changeScene(appointmentPane,"UI/login_staff.fxml",event);
     }
 
+    void displayAppointments(){
+        //display appointment code
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -77,6 +86,20 @@ public class AppointmentController implements Initializable {
      status.setCellValueFactory(new PropertyValueFactory<>("Status"));
      table.setItems(list);
 
-    }
+     table.setOnMousePressed(event -> {
+         if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                inhtAppointment = table.getSelectionModel().getSelectedItem();
 
+             try {
+                 PopUpBox.viewReportPopUp();
+             } catch (IOException e) {
+                 throw new RuntimeException(e);
+             }
+         }
+     });
+
+    }
 }
+
+
+

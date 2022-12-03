@@ -14,7 +14,7 @@
 
 <BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Doctor.DocterHomeController">
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="homesidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="86.0" prefWidth="638.0" styleClass="header" stylesheets="@css/fullpackstyling.css">
                <children>
@@ -59,6 +59,12 @@
                      <effect>
                         <Glow />
                      </effect>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
                   </Button>
                </children>
                <VBox.margin>
