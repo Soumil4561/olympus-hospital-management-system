@@ -111,4 +111,5 @@ public class PopUpBox {
     public static void viewPrescriptionPopUp() throws IOException {
         popUp("Add Prescription in Report","/UI/addPrescription_PopUp.fxml" );
     }
+
 }
