@@ -83,7 +83,7 @@ public class AppointmentController implements Initializable {
             appointment.setAppDate(list[i].getDate());
             appointment.setAppTime(list[i].getTime());
             appointment.setStatus(list[i].getStatus());
-
+            appointment.setPatientID(list[i].getPatient_id());
             table.getItems().add(appointment);
         }
     }
@@ -107,7 +107,6 @@ public class AppointmentController implements Initializable {
         table.setOnMousePressed(event -> {
          if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
                 inhtAppointment = table.getSelectionModel().getSelectedItem();
-
              try {
                  PopUpBox.viewReportPopUp();
              } catch (IOException e) {

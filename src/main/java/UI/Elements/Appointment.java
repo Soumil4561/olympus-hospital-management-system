@@ -5,20 +5,19 @@ import java.sql.Time;
 
 public class Appointment {
 
-    private Long ID;
-    private String name;
-    private Long reportID;
+    private Long ID, patientID, reportID;
+    private String name, status;
     private Date appDate;
     private Time appTime;
-    private String status;
 
-    public Appointment(Long ID, String name, Long reportID, Date appDate, Time appTime, String status) {
+    public Appointment(Long ID, Long patientID, String name, Long reportID, Date appDate, Time appTime, String status) {
         this.ID = ID;
         this.name = name;
         this.reportID = reportID;
         this.appDate = appDate;
         this.appTime = appTime;
         this.status = status;
+        this.patientID = patientID;
     }
 
     public Appointment() {
@@ -28,6 +27,7 @@ public class Appointment {
         this.appDate = null;
         this.appTime = null;
         this.status = null;
+        this.patientID = 0L;
     }
 
     public Long getID() {
@@ -76,5 +76,13 @@ public class Appointment {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Long getPatientID() {
+        return patientID;
+    }
+
+    public void setPatientID(Long patientID) {
+        this.patientID = patientID;
     }
 }

@@ -40,7 +40,7 @@ public class AddAppointmentController implements Initializable {
     private Label dic;
 
     @FXML
-    private BorderPane patientAddPane;
+    private BorderPane addAppointmentPane;
 
     @FXML
     private Label patname;

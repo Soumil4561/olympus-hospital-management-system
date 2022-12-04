@@ -6,6 +6,7 @@ import UI.Elements.PopUpBox;
 import database.FileWriter.FileReader;
 import database.FileWriter.ReportGenerator;
 import hospital.Patient.PatientFile;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +26,6 @@ import java.util.ResourceBundle;
 
 public class ReportsController implements Initializable {
 
-    Appointment appointment = AppointmentController.inhtAppointment;
     ParsedReport transf = new ParsedReport();
     @FXML
     private TableView<ParsedReport> table;
@@ -67,7 +68,7 @@ public class ReportsController implements Initializable {
     private TextArea desriptionField;
 
     void displayReportContent() throws IOException {
-        ArrayList<String> output = FileReader.readReports(121216);
+        ArrayList<String> output = FileReader.readReports(AppointmentController.inhtAppointment.getReportID());
         PatientFile file = PatientFile.parseFile(output);
 
         for (int i = 0; i < file.getNodeList().size(); i++) {
@@ -87,13 +88,22 @@ public class ReportsController implements Initializable {
         long millis = System.currentTimeMillis();
         Date date = new Date(millis);
         Time time = new Time(millis);
+
         report.setDate(date);
         report.setTime(time);
         report.setDescription(desriptionField.getText());
         report.setType("Diagnosis");
+
         transf= report;
         table.getItems().add(report);
+
         desriptionField.clear();
+
+        onclicknotif.setText("The Diagnosis has been added!");
+        onclicknotif.setVisible(true);
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e -> onclicknotif.setVisible(false));
+        pause.play();
     }
 
     @FXML
@@ -104,7 +114,7 @@ public class ReportsController implements Initializable {
         String dis= transf.getDescription();
         String text = date+"~"+time+"~"+type+"~"+dis;
         try{
-            ReportGenerator.append(appointment.getReportID(), text);
+            ReportGenerator.append(AppointmentController.inhtAppointment.getReportID(), text);
         }
         catch (IOException e) {
             UI.Elements.PopUpBox.displayAlert("Error", "Cannot update Report. Please try again later.");
@@ -121,8 +131,9 @@ public class ReportsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        onclicknotif.setVisible(false);
         patientName.setText(AppointmentController.inhtAppointment.getName());
-        patientID.setText(String.valueOf(AppointmentController.inhtAppointment.getID()));
+        patientID.setText(String.valueOf(AppointmentController.inhtAppointment.getPatientID()));
         reportID.setText(String.valueOf(AppointmentController.inhtAppointment.getReportID()));
         patientNameLabel.setText(AppointmentController.inhtAppointment.getName());
 

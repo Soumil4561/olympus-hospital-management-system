@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="patientAddPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Receptionist.AddAppointmentController">
+<BorderPane fx:id="addAppointmentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Receptionist.AddAppointmentController">
    <center>
       <VBox prefHeight="624.0" prefWidth="674.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,8 +23,8 @@
                 <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="351.60003662109375" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="15.0" valignment="CENTER" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="25.60001220703124" minHeight="9.600012207031256" valignment="CENTER" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
@@ -168,7 +168,7 @@
             <HBox prefHeight="50.0" prefWidth="200.0">
                <children>
                   <Region minWidth="30.0" prefHeight="200.0" prefWidth="30.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" />
-                  <Region prefHeight="200.0" prefWidth="200.0" styleClass="sidebox2x" stylesheets="@css/fullpackstyling.css" />
+                  <Region maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="200.0" styleClass="sidebox2x" stylesheets="@css/fullpackstyling.css" />
                </children>
             </HBox>
             <Region maxHeight="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" VBox.vgrow="ALWAYS">

@@ -58,9 +58,6 @@ public class AdmissionController implements Initializable {
     private Button searchbutton;
     public String searchBoxContents;
 
-    public AdmissionController() throws SQLException {
-    }
-
     @FXML
     void getAdmissionID(MouseEvent event) {
         table.getItems().clear();
@@ -69,8 +66,8 @@ public class AdmissionController implements Initializable {
     }
 
     @FXML
-    void gotoAddAdmissionPopOut(MouseEvent event) {
-
+    void gotoAddAdmissionPopOut(MouseEvent event) throws IOException {
+        PopUpBox.viewAddAdmissionPopUp();
     }
 
     @FXML

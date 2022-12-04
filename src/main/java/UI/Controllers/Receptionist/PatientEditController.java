@@ -113,13 +113,13 @@ public class PatientEditController implements Initializable {
     }
     private void setReportList() throws SQLException {
         PatientReportView[] reports = getReportInfo.searchPatientReports(CurrentPatientInfo.getPatient().getPatient_id());
-        for(int i = 0; i<reports.length; i++){
+        for (PatientReportView patientReportView : reports) {
             Report report = new Report();
-            report.setReportid(reports[i].getReport_id());
-            report.setDate(reports[i].getStart_date());
-            report.setDic(reports[i].getDoctor_name());
-            report.setDeptname(reports[i].getDepartment_name());
-            report.setDic_id(reports[i].getStaff_id());
+            report.setReportid(patientReportView.getReport_id());
+            report.setDate(patientReportView.getStart_date());
+            report.setDic(patientReportView.getDoctor_name());
+            report.setDeptname(patientReportView.getDepartment_name());
+            report.setDic_id(patientReportView.getStaff_id());
             table.getItems().add(report);
 
         }

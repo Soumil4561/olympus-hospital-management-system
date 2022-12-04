@@ -53,11 +53,11 @@ public class PopUpBox {
         popUp(title,"/UI/alertbox.fxml");
     }
 
-    public static void displayAlert(String title, String text) throws IOException {
+    public static void displayAlert(String title, String warning) throws IOException {
         Stage window = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/warningbox.fxml"));
         window.initModality(Modality.APPLICATION_MODAL);
-        warninglabel.setText(text);
+        warninglabel.setText(warning);
         window.setTitle(title);
         Scene scene = new Scene(fxmlLoader.load());
         window.setScene(scene);
@@ -110,6 +110,10 @@ public class PopUpBox {
 
     public static void viewPrescriptionPopUp() throws IOException {
         popUp("Add Prescription in Report","/UI/addPrescription_PopUp.fxml" );
+    }
+
+    public static void viewAddAdmissionPopUp() throws IOException {
+        popUp("Add Admission Details","/UI/addAdmissionsForm_receptionist.fxml" );
     }
 
 }
