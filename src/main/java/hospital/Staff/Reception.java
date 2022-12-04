@@ -77,7 +77,7 @@ public class Reception extends Staff{
         PreparedStatement ps = getConnection.getStatement(query);
         ps.setLong(1,admission.getPatient_id());
         ps.setLong(2,admission.getReport_id());
-        ps.setLong(3,admission.getDoctor_id());
+        ps.setLong(3,admission.getStaff_id());
         ps.setLong(4,admission.getBed_id());
         ps.setDate(5,admission.getDate());
         try{

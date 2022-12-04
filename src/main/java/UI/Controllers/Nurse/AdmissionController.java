@@ -77,7 +77,7 @@ public class AdmissionController implements Initializable {
 
     @FXML
     void gotoPatientTab(MouseEvent event) throws IOException {
-      JumpScene.changeScene(admissionPane,"UI/patientsTab_nurse.fxml",event);
+      JumpScene.changeScene(admissionPane,"UI/patientsTab_nurser.fxml",event);
     }
 
     @FXML

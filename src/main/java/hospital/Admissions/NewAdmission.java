@@ -1,14 +1,10 @@
 package hospital.Admissions;
 
-import hospital.Bed.Bed;
-import hospital.Patient.Patient;
-import hospital.Staff.Doctor;
-
 import java.sql.Date;
 
 public class NewAdmission {
     public long patient_id;
-    public long doctor_id;
+    public long staff_id;
     public long report_id;
     public long bed_id;
     public Date date;
@@ -21,12 +17,12 @@ public class NewAdmission {
         this.patient_id = patient_id;
     }
 
-    public long getDoctor_id() {
-        return doctor_id;
+    public long getStaff_id() {
+        return staff_id;
     }
 
-    public void setDoctor_id(long doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setStaff_id(long staff_id) {
+        this.staff_id = staff_id;
     }
 
     public long getReport_id() {
@@ -45,9 +41,9 @@ public class NewAdmission {
         this.bed_id = bed_id;
     }
 
-    public NewAdmission(long patient_id, long doctor_id, long report_id, long bed_id, Date date) {
+    public NewAdmission(long patient_id, long staff_id, long report_id, long bed_id, Date date) {
         this.patient_id = patient_id;
-        this.doctor_id = doctor_id;
+        this.staff_id = staff_id;
         this.report_id = report_id;
         this.bed_id = bed_id;
         this.date=date;
@@ -55,7 +51,7 @@ public class NewAdmission {
 
     public NewAdmission(long patient_id, long doctor_id, long report_id, long bed_id) {
         this.patient_id = patient_id;
-        this.doctor_id = doctor_id;
+        this.staff_id = staff_id;
         this.report_id = report_id;
         this.bed_id = bed_id;
         long millis=System.currentTimeMillis();

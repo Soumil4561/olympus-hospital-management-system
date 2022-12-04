@@ -18,13 +18,13 @@ public class HomeControllerNurse {
     private Button patientButton;
 
     @FXML
-    void gotoAdmittedTab(MouseEvent event) {
-
+    void gotoAdmittedTab(MouseEvent event) throws IOException {
+      JumpScene.changeScene(homePane,"UI/admissionsTab_nurse.fxml",event);
     }
 
     @FXML
-    void gotoPatientTabNurse(MouseEvent event) {
-
+    void gotoPatientTabNurse(MouseEvent event) throws IOException {
+      JumpScene.changeScene(homePane,"UI/patientsTab_nurser.fxml",event);
     }
 
     @FXML

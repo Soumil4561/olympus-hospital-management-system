@@ -4,6 +4,7 @@ import database.DBConnectors.SqlInsertUpdateConnection;
 import database.DBConnectors.SqlSearchConnection;
 import database.DBConnectors.getConnection;
 import database.DBFetchers.getPrescriptionInfo;
+import database.DBFetchers.getLabInfo;
 import database.FileWriter.ReportGenerator;
 import hospital.Patient.PatientFile;
 
@@ -12,6 +13,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Time;
+
+
 
 public class Doctor extends Staff{
 
@@ -54,11 +57,31 @@ public class Doctor extends Staff{
         long prescription_id = getPrescriptionInfo.findPrescriptionID(patient_id,prescription);
         String text = date.toString()+"~"+time.toString()+"~"+"Prescription ID:"+ prescription_id+"~"+prescription;
         try{
-            ReportGenerator.append(report_id,text);
+            return ReportGenerator.append(report_id,text);
         }
         catch (IOException e){
             UI.Elements.PopUpBox.displayAlert("Error","Cannot update Report. Please try again later.");
         }
-        return true;
+        return false;
     }
+
+    public static boolean createLabRequest(long patient_id, String test_name, long staff_id) throws SQLException {
+        String query = "INSERT INTO `hospital`.`lab_requests` (`patient_id`, `test_id`, `staff_id`) VALUES (?,?,?)";
+        PreparedStatement ps = getConnection.getStatement(query);
+        return SqlInsertUpdateConnection.execute(ps);
+    }
+
+    public static boolean createLabRequest(long patient_id, String test_name, long staff_id, long report_id) throws SQLException {
+        int test_id = getLabInfo.getTestID(test_name);
+        String query = "INSERT INTO `hospital`.`lab_requests` (`patient_id`, `test_id`, `staff_id`, `report_id`) VALUES (?,?,?,?)";
+        PreparedStatement ps = getConnection.getStatement(query);
+        ps.setLong(1,patient_id);
+        ps.setLong(2,test_id);
+        ps.setLong(3,staff_id);
+        ps.setLong(4,report_id);
+        return SqlInsertUpdateConnection.execute(ps);
+    }
+
+
+
 }
