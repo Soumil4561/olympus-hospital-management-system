@@ -3,10 +3,12 @@ package UI.Controllers.Settings;
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;
+import database.DBFetchers.getDepartmentInfo;
 import hospital.Staff.Staff;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -31,8 +33,6 @@ public class EditTabController implements Initializable {
     @FXML
     private TextField fName;
 
-    @FXML
-    private TextField gender;
 
     @FXML
     private Button homeButton;
@@ -51,6 +51,9 @@ public class EditTabController implements Initializable {
 
     @FXML
     private TextField resiAddress;
+
+    @FXML
+    private ChoiceBox<String> genderSelection;
 
     @FXML
     private Button saveButton;
@@ -74,12 +77,17 @@ public class EditTabController implements Initializable {
         JumpScene.changeScene(pane,"UI/changePassword.fxml",event);
     }
 
+    private void setChoices() throws SQLException {
+        String[] dept = {"Male", "Female", "Other"};
+        genderSelection.getItems().addAll(dept);
+    }
+
     @FXML
     void saveChanges(MouseEvent event) throws SQLException {
         String fname = fName.getText();
         String lname = lName.getText();
         Date date= Date.valueOf(DOB.getText());
-        String sex = gender.getText();
+        String sex = genderSelection.getValue();
         Long mobnum = Long.valueOf(phone.getText());
         String mail = email.getText();
         String homeaddress = resiAddress.getText();
@@ -97,7 +105,6 @@ public class EditTabController implements Initializable {
         fName.setEditable(true);
         lName.setEditable(true);
         DOB.setEditable(true);
-        gender.setEditable(true);
         phone.setEditable(true);
         email.setEditable(true);
         resiAddress.setEditable(true);
@@ -105,9 +112,13 @@ public class EditTabController implements Initializable {
         fName.setText(CurrentUserInfo.getStaff().getFname());
         lName.setText(CurrentUserInfo.getStaff().getLname());
         DOB.setText(String.valueOf(CurrentUserInfo.getStaff().getDate_of_birth()));
-        gender.setText(CurrentUserInfo.getStaff().getGender());
         phone.setText(String.valueOf(CurrentUserInfo.getStaff().getContact_no()));
         email.setText(CurrentUserInfo.getStaff().getEmail());
         resiAddress.setText(CurrentUserInfo.getStaff().getResidential_address());
+        try {
+            setChoices();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

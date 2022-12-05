@@ -36,6 +36,9 @@ public class LabRequestController implements Initializable {
     private BorderPane labRequestPane;
 
     @FXML
+    private TextField remarks;
+
+    @FXML
     private TextField reportID;
     ObservableList<Test> list = FXCollections.observableArrayList();
     @FXML
@@ -68,7 +71,7 @@ public class LabRequestController implements Initializable {
     }
 
     @FXML
-    void logout(MouseEvent event) throws IOException {
+    void logout(MouseEvent event) throws IOException{
         PopUpBox.logout("Confirm Logout?");
         if(PopUpBox.log) JumpScene.changeScene(labRequestPane,"UI/login_staff.fxml",event);
     }

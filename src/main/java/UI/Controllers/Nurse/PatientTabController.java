@@ -96,9 +96,9 @@ public class PatientTabController implements Initializable {
     }
 
     @FXML
-    void logout(MouseEvent event) throws IOException {
+    void logout(MouseEvent event) throws IOException{
         PopUpBox.logout("Confirm Logout?");
-        if (PopUpBox.log) JumpScene.changeScene(patientTabPane, "UI/login_staff.fxml", event);
+        if(PopUpBox.log) JumpScene.changeScene(patientTabPane,"UI/login_staff.fxml",event);
     }
 
 

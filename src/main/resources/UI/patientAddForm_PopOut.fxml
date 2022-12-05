@@ -67,7 +67,7 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Patient's DOB:" GridPane.rowIndex="7">
+                  <Label text="Patient's DOB (YYYY-MM-DD):" GridPane.rowIndex="7">
                      <font>
                         <Font size="13.0" />
                      </font>

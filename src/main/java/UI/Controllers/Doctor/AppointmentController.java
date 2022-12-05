@@ -71,6 +71,11 @@ public class AppointmentController implements Initializable {
         if(PopUpBox.log) JumpScene.changeScene(appointmentPane,"UI/login_staff.fxml",event);
     }
 
+    @FXML
+    void gotoLabRequestTab(MouseEvent event) throws IOException {
+        JumpScene.changeScene(appointmentPane,"UI/labRequestTab_Doctor.fxml",event);
+    }
+
     void displayAppointments() throws SQLException {
         long millis= System.currentTimeMillis();
         Date date = new Date(millis);

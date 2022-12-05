@@ -83,8 +83,8 @@ public class PatientTabController implements Initializable {
     }
 
     @FXML
-    void gotoLabRequestTab(MouseEvent event) {
-
+    void gotoLabRequestTab(MouseEvent event) throws IOException {
+       JumpScene.changeScene(patientTabPane,"UI/labRequestTab_Doctor.fxml",event);
     }
 
     @FXML
