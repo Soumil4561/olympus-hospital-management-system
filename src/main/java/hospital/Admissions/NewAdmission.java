@@ -49,7 +49,7 @@ public class NewAdmission {
         this.date=date;
     }
 
-    public NewAdmission(long patient_id, long doctor_id, long report_id, long bed_id) {
+    public NewAdmission(long patient_id, long staff_id, long report_id, long bed_id) {
         this.patient_id = patient_id;
         this.staff_id = staff_id;
         this.report_id = report_id;

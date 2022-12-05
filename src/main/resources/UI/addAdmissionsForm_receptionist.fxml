@@ -73,7 +73,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Patient Name:" GridPane.rowIndex="2">
+                              <Label text="Report ID:" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -98,8 +98,8 @@
                                  </GridPane.margin>
                               </Label>
                               <TextField fx:id="patID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="reportID" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="staffID" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField fx:id="patName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                      </children>

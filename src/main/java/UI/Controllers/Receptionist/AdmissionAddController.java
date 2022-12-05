@@ -2,10 +2,15 @@ package UI.Controllers.Receptionist;
 
 import UI.Elements.AdmBed;
 import UI.Elements.PopUpBox;
+import database.DBFetchers.getBedInfo;
+import hospital.Admissions.NewAdmission;
+import hospital.Bed.Bed;
+import hospital.Staff.Reception;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdmissionAddController implements Initializable {
@@ -41,7 +47,7 @@ public class AdmissionAddController implements Initializable {
     private TextField patID;
 
     @FXML
-    private TextField patName;
+    private TextField reportID;
 
     @FXML
     private BorderPane admissionAddPane;
@@ -56,15 +62,35 @@ public class AdmissionAddController implements Initializable {
     }
 
     @FXML
-    void confirmAdd(MouseEvent event) throws IOException {
-        if (patName.getText().trim().isEmpty() || patID.getText().trim().isEmpty() || staffID.getText().trim().isEmpty()){
+    void confirmAdd(MouseEvent event) throws IOException, SQLException {
+        if(table.getSelectionModel().getSelectedItem() == null){
+            PopUpBox.displayAlert("FUCK ON BED!", "PLeASe SeLecT a BeD tO fUck!");
+        }
+        if (reportID.getText().trim().isEmpty() || patID.getText().trim().isEmpty() || staffID.getText().trim().isEmpty()){
             PopUpBox.displayAlert("TextField Data cannot be Empty!", "Please fill the text-boxes with valid data to add Admission!");
         }
-        // add data to backend
+
+        long patid = Long.parseLong(patID.getText());
+        long staffid = Long.parseLong(staffID.getText());
+
+        long reportid = Long.parseLong(reportID.getText());
+        AdmBed bed = table.getSelectionModel().getSelectedItem();
+        long bedID = bed.getBedID();
+        NewAdmission admission = new NewAdmission(patid,staffid, reportid,bedID);
+        Reception.createNewAdmission(admission);
+        Stage stage = (Stage) confirmButton.getScene().getWindow();
+        stage.close();
     }
 
-    void displayBedList(){
-        //add bed to table
+    void displayBedList() throws SQLException {
+        Bed[] emptyBeds = getBedInfo.emptyBeds();
+        for(int i=0; i<emptyBeds.length; i++){
+            AdmBed bed = new AdmBed();
+            bed.setBedID(emptyBeds[i].getBed_id());
+            bed.setDepartment(emptyBeds[i].getDept_name());
+
+            table.getItems().add(bed);
+        }
     }
 
     @Override
@@ -73,6 +99,10 @@ public class AdmissionAddController implements Initializable {
         department.setCellValueFactory(new PropertyValueFactory<>("department"));
         table.setItems(list);
 
-        displayBedList();
+        try {
+            displayBedList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

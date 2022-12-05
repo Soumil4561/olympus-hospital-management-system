@@ -61,10 +61,11 @@ public class LoginController {
             }
             else if(typeOfStaff.equals("Doctor")){
                 JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
-            } else if (typeOfStaff.equals("Nurse")) {
-                JumpScene.changeScene(loginPane,"UI/homeTabNurse.fxml",event);
-
             }
+            else if (typeOfStaff.equals("Nurse")) {
+                JumpScene.changeScene(loginPane,"UI/homeTabNurse.fxml",event);
+            }
+
         }
         else {
             try {

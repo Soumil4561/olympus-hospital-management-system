@@ -1,7 +1,9 @@
 package hospital.Staff;
 
+import UI.Elements.Report;
 import database.DBConnectors.SqlInsertUpdateConnection;
 import database.DBConnectors.getConnection;
+import database.DBFetchers.getAdmissionInfo;
 import database.DBFetchers.getReportInfo;
 import database.FileWriter.ReportGenerator;
 import hospital.Admissions.NewAdmission;
@@ -72,7 +74,7 @@ public class Reception extends Staff{
         ReportGenerator.append(report_id,text);
     }
 
-    public static boolean createNewAdmission(NewAdmission admission) throws SQLException {
+    public static boolean createNewAdmission(NewAdmission admission) throws SQLException, IOException {
         String query = "INSERT INTO `hospital`.`admission` (`patient_id`, `report_id`, `staff_id`, `bed_id`, `admission_date`) VALUES (?,?,?,?,?)";
         PreparedStatement ps = getConnection.getStatement(query);
         ps.setLong(1,admission.getPatient_id());
@@ -90,6 +92,19 @@ public class Reception extends Staff{
         ps = getConnection.getStatement(query);
         ps.setLong(1,admission.getPatient_id());
         SqlInsertUpdateConnection.execute(ps);
+
+        query = "UPDATE hospital.beds SET stat= 1, patient_id =? where (bed_id = ?)";
+        ps = getConnection.getStatement(query);
+        ps.setLong(1,admission.getPatient_id());
+        ps.setLong(2,admission.getBed_id());
+        SqlInsertUpdateConnection.execute(ps);
+        ps.close();
+
+        long admission_id = getAdmissionInfo.getAdmissionID(admission);
+        long millis = System.currentTimeMillis();
+        Time time = new Time(millis);
+        String text = admission.getDate().toString()+"~"+time.toString()+"~"+"Admission ID: "+admission_id+"~"+"Patient admitted and allotted bed number: "+admission.getBed_id();
+        ReportGenerator.append(admission.getReport_id(),text);
         return true;
     }
 

@@ -1,6 +1,10 @@
 package hospital.Staff;
 
+import database.DBFetchers.getLabInfo;
+import hospital.Lab.LabRequest;
+
 import java.sql.Date;
+import java.sql.SQLException;
 
 public class LabTech extends Staff{
 
@@ -16,8 +20,8 @@ public class LabTech extends Staff{
         this.test_id = test_id;
     }
 
-    public static void PendingLabRequests(){
-
+    public static LabRequest[] PendingLabRequests(long test_id) throws SQLException {
+        return getLabInfo.getLabRequests(test_id);
     }
 
 

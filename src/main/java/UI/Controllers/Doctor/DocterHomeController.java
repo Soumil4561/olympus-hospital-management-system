@@ -49,4 +49,9 @@ private Button mailButton;
         if(PopUpBox.log) JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
     }
 
+    @FXML
+    void gotoLabRequest(MouseEvent event) throws IOException {
+        JumpScene.changeScene(homePane,"UI/labRequestTab_Doctor.fxml",event);
+    }
+
 }

@@ -71,8 +71,7 @@ public class Doctor extends Staff{
         return SqlInsertUpdateConnection.execute(ps);
     }
 
-    public static boolean createLabRequest(long patient_id, String test_name, long staff_id, long report_id) throws SQLException {
-        int test_id = getLabInfo.getTestID(test_name);
+    public static boolean createLabRequest(long patient_id, long test_id, long staff_id, long report_id) throws SQLException {
         String query = "INSERT INTO `hospital`.`lab_requests` (`patient_id`, `test_id`, `staff_id`, `report_id`) VALUES (?,?,?,?)";
         PreparedStatement ps = getConnection.getStatement(query);
         ps.setLong(1,patient_id);

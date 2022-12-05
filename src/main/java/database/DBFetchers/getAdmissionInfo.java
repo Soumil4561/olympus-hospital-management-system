@@ -3,6 +3,8 @@ package database.DBFetchers;
 import database.DBConnectors.SqlSearchConnection;
 import database.DBConnectors.getConnection;
 import hospital.Admissions.AdmissionView;
+import hospital.Admissions.NewAdmission;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,5 +36,19 @@ public class getAdmissionInfo {
             admissionList[counter++]=new AdmissionView(admission_id,patient_id,patient_name,doctor_name,bed_id,admission_date);
         }
         return admissionList;
+    }
+
+    public static long getAdmissionID(NewAdmission admission) throws SQLException {
+        String query = "SELECT admission_id from hospital.admission where bed_id = ? AND admission_date =? AND patient_id =?";
+        PreparedStatement ps = getConnection.getStatement(query);
+        ps.setLong(1,admission.getBed_id());
+        ps.setDate(2,admission.getDate());
+        ps.setLong(3,admission.getPatient_id());
+        ResultSet data = SqlSearchConnection.execute(ps);
+        data.absolute(1);
+        long admission_id = data.getLong("admission_id");
+        data.close();
+        ps.close();
+        return admission_id;
     }
 }
