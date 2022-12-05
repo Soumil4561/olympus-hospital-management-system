@@ -19,6 +19,7 @@ public class Staff {
     protected String email;
     private long department_id;
 
+
     private String type;
 
     protected String residential_address;
@@ -39,12 +40,12 @@ public class Staff {
     public Staff(long id,String fname,String lname, String gender,long number,Date DOB,long department,String email, String residential_address, String type) {
         this.fname = fname;
         this.lname = lname;
-        this.staff_id = staff_id;
-        this.contact_no = contact_no;
-        this.date_of_birth = date_of_birth;
+        this.staff_id = id;
+        this.contact_no = number;
+        this.date_of_birth = DOB;
         this.gender = gender;
         this.email = email;
-        this.department_id = department_id;
+        this.department_id = department;
         this.type = type;
         this.residential_address = residential_address;
     }

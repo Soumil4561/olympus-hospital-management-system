@@ -2,6 +2,8 @@ package UI.Controllers.Receptionist;
 
 import UI.Elements.PopUpBox;
 import UI.Elements.Report;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getPatientInfo;
 import database.DBFetchers.getReportInfo;
@@ -126,9 +128,10 @@ public class PatientEditController implements Initializable {
     }
 
     @FXML
-    void deleteReport(MouseEvent event) {
+    void deleteReport(MouseEvent event) throws SQLException, JSchException, SftpException, IOException {
     Report report = table.getSelectionModel().getSelectedItem();
-    //report.getReportid();
+    long report_id = report.getReportid();
+    Reception.closeReport(report_id);
     table.getItems().remove(report);
     }
 

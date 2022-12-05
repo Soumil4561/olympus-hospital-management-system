@@ -22,7 +22,7 @@ public class CurrentUserInfo {
         return staff;
     }
 
-    public static void setStaff(Staff staff) {
-        CurrentUserInfo.staff = staff;
+    public static void setStaff(Staff staff1) {
+        staff = staff1;
     }
 }

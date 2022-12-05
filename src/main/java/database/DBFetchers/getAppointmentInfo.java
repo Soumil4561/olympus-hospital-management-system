@@ -16,7 +16,7 @@ public class getAppointmentInfo {
                 "FROM hospital.appointments " +
                 "JOIN hospital.staff on appointments.staff_id=staff.staff_id " +
                 "JOIN hospital.patient on appointments.patient_id=patient.patient_id " +
-                "where appointment_date=?";
+                "where appointment_date<=?  and status!='solved'";
         PreparedStatement ps= getConnection.getStatement(query);
         ps.setDate(1,date);
         ResultSet data = SqlSearchConnection.execute(ps);

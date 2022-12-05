@@ -25,6 +25,7 @@ public class ReportGenerator {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ssh.sshConnect.uploadFile(pathname+path+".oly",path,".oly");
         return pathname+path+".oly";
     }
 

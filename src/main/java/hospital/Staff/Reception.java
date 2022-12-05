@@ -1,6 +1,7 @@
 package hospital.Staff;
 
 import UI.Elements.Report;
+import com.fasterxml.jackson.core.PrettyPrinter;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import database.DBConnectors.SqlInsertUpdateConnection;
@@ -107,6 +108,20 @@ public class Reception extends Staff{
         Time time = new Time(millis);
         String text = admission.getDate().toString()+"~"+time.toString()+"~"+"Admission ID: "+admission_id+"~"+"Patient admitted and allotted bed number: "+admission.getBed_id();
         ReportGenerator.append(admission.getReport_id(),text);
+        return true;
+    }
+
+    public static boolean closeReport(long report_id) throws SQLException, JSchException, SftpException, IOException {
+        String query = "UPDATE `hospital`.`patient_reports` SET `end_date` = ? WHERE (`report_id` = ?)";
+        PreparedStatement ps = getConnection.getStatement(query);
+        long millis = System.currentTimeMillis();
+        Date date = new Date(millis);
+        ps.setDate(1,date);
+        ps.setLong(2,report_id);
+        SqlInsertUpdateConnection.execute(ps);
+        Time time = new Time(millis);
+        String text=date.toString()+"~"+time.toString()+"~"+"Report Closed"+"~-";
+        ReportGenerator.append(report_id,text);
         return true;
     }
 

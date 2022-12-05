@@ -43,6 +43,10 @@ public class getPatientInfo{
         return plist;
     }
 
+//    public static Patient[] searchPatientbyDepartment(String patient_name, long deptID){
+//        String query =
+//    }
+
     private static void dataToArray(ResultSet data, Patient[] plist) throws SQLException {
         int counter=0;
         while(data.next()){
