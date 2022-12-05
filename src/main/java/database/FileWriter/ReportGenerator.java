@@ -1,6 +1,8 @@
 package database.FileWriter;
 
-import com.sun.security.jgss.GSSUtil;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
+import ssh.sshConnect;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
@@ -10,27 +12,29 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class ReportGenerator {
-    public static boolean create(long report_id){
-        String pathname="D:\\CS Project\\Patient Reports\\"+report_id+".oly";
-        File file = new File(pathname);
+    public static String create(long report_id) throws Exception {
+        String path = Long.toString(report_id);
+        String pathname="C:\\Program File\\Olympus\\temp\\"+path+"\\";
+        new File(pathname).mkdirs();
+        File file = new File(pathname+path+".oly");
         try{
             if (!file.createNewFile()){
                 System.out.println("File already exists.");
-                return false;
+                return "";
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return true;
+        return pathname+path+".oly";
     }
 
-    public static boolean append(long report_id, String text) throws IOException {
-        String pathname = "D:\\CS Project\\Patient Reports\\"+report_id+".oly";
+    public static boolean appendFirst(long report_id, String text, String localPath) throws IOException, JSchException, SftpException {
+        String path = Long.toString(report_id);
         FileWriter fw = null;
         BufferedWriter bw = null;
         PrintWriter pw = null;
         try {
-            fw = new FileWriter(pathname, true);
+            fw = new FileWriter(localPath, true);
             bw = new BufferedWriter(fw);
             pw = new PrintWriter(bw);
             pw.println(text);
@@ -40,10 +44,38 @@ public class ReportGenerator {
                 pw.close();
                 bw.close();
                 fw.close();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        sshConnect.uploadFile(localPath,path,".oly");
+        return true;
+    }
+
+    public static boolean append(long report_id, String text) throws IOException, JSchException, SftpException {
+        String path = Long.toString(report_id);
+        String localPath = sshConnect.downloadFile(path,path,".oly");
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        PrintWriter pw = null;
+        try {
+            fw = new FileWriter(localPath, true);
+            bw = new BufferedWriter(fw);
+            pw = new PrintWriter(bw);
+            pw.println(text);
+            pw.flush();
+        }  finally {
+            try {
+                pw.close();
+                bw.close();
+                fw.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        sshConnect.uploadFile(localPath,path,".oly");
         return true;
     }
 

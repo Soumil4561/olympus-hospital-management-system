@@ -3,6 +3,8 @@ package UI.Controllers.Doctor;
 import UI.Elements.Appointment;
 import UI.Elements.ParsedReport;
 import UI.Elements.PopUpBox;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import database.FileWriter.FileReader;
 import database.FileWriter.ReportGenerator;
 import hospital.Patient.PatientFile;
@@ -67,7 +69,7 @@ public class ReportsController implements Initializable {
     @FXML
     private TextArea desriptionField;
 
-    void displayReportContent() throws IOException {
+    void displayReportContent() throws Exception {
         ArrayList<String> output = FileReader.readReports(AppointmentController.inhtAppointment.getReportID());
         PatientFile file = PatientFile.parseFile(output);
 
@@ -118,6 +120,10 @@ public class ReportsController implements Initializable {
         }
         catch (IOException e) {
             UI.Elements.PopUpBox.displayAlert("Error", "Cannot update Report. Please try again later.");
+        } catch (JSchException e) {
+            throw new RuntimeException(e);
+        } catch (SftpException e) {
+            throw new RuntimeException(e);
         }
         Stage stage = (Stage) saveChangesButton.getScene().getWindow();
         stage.close();
@@ -145,7 +151,7 @@ public class ReportsController implements Initializable {
 
         try {
             displayReportContent();
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 

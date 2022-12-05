@@ -8,9 +8,8 @@ public class getConnection {
     public static PreparedStatement getStatement(String query) throws SQLException {
         Connection connection=null;
         try{
-            sshConnect.listFolderStructure("DELL","Kashyap@123","192.168.1.73",22);
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String connectionSting = "jdbc:mysql://192.168.1.73:3306";
+            String connectionSting = "jdbc:mysql://192.168.1.73";
             connection= DriverManager.getConnection(connectionSting, "soumil", "soumil");
             return connection.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
         }

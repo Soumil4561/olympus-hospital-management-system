@@ -1,6 +1,8 @@
 package hospital.Staff;
 
 import UI.Elements.Report;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import database.DBConnectors.SqlInsertUpdateConnection;
 import database.DBConnectors.getConnection;
 import database.DBFetchers.getAdmissionInfo;
@@ -48,7 +50,7 @@ public class Reception extends Staff{
         return SqlInsertUpdateConnection.execute(ps);
     }
 
-    public static boolean createNewReport(PatientReport report) throws SQLException, IOException {
+    public static boolean createNewReport(PatientReport report) throws Exception {
         String query="INSERT INTO hospital.patient_reports (`patient_id`, `staff_id`, `department_id`, `startdate`) VALUES (?,?,?,?)";
         PreparedStatement ps=getConnection.getStatement(query);
         assert ps != null;
@@ -62,8 +64,8 @@ public class Reception extends Staff{
         return true;
     }
 
-    private static void createReportFile(long report_id, Patient patient,Date start_date) throws IOException {
-        ReportGenerator.create(report_id);
+    private static void createReportFile(long report_id, Patient patient,Date start_date) throws Exception {
+        String pathname = ReportGenerator.create(report_id);
         long millis = System.currentTimeMillis();
         Time time = new  Time(millis);
         String text = "Report ID: "+report_id+
@@ -74,7 +76,7 @@ public class Reception extends Staff{
         ReportGenerator.append(report_id,text);
     }
 
-    public static boolean createNewAdmission(NewAdmission admission) throws SQLException, IOException {
+    public static boolean createNewAdmission(NewAdmission admission) throws SQLException, IOException, JSchException, SftpException {
         String query = "INSERT INTO `hospital`.`admission` (`patient_id`, `report_id`, `staff_id`, `bed_id`, `admission_date`) VALUES (?,?,?,?,?)";
         PreparedStatement ps = getConnection.getStatement(query);
         ps.setLong(1,admission.getPatient_id());

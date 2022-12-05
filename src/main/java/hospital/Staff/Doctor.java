@@ -1,5 +1,7 @@
 package hospital.Staff;
 
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import database.DBConnectors.SqlInsertUpdateConnection;
 import database.DBConnectors.SqlSearchConnection;
 import database.DBConnectors.getConnection;
@@ -29,6 +31,10 @@ public class Doctor extends Staff{
         }
         catch (IOException e){
             UI.Elements.PopUpBox.displayAlert("Error","Cannot update Report. Please try again later.");
+        } catch (JSchException e) {
+            throw new RuntimeException(e);
+        } catch (SftpException e) {
+            throw new RuntimeException(e);
         }
         return true;
     }
@@ -59,7 +65,7 @@ public class Doctor extends Staff{
         try{
             return ReportGenerator.append(report_id,text);
         }
-        catch (IOException e){
+        catch (IOException | JSchException | SftpException e){
             UI.Elements.PopUpBox.displayAlert("Error","Cannot update Report. Please try again later.");
         }
         return false;
@@ -71,13 +77,14 @@ public class Doctor extends Staff{
         return SqlInsertUpdateConnection.execute(ps);
     }
 
-    public static boolean createLabRequest(long patient_id, long test_id, long staff_id, long report_id) throws SQLException {
-        String query = "INSERT INTO `hospital`.`lab_requests` (`patient_id`, `test_id`, `staff_id`, `report_id`) VALUES (?,?,?,?)";
+    public static boolean createLabRequest(long patient_id, long test_id, long staff_id, long report_id, String remarks) throws SQLException {
+        String query = "INSERT INTO `hospital`.`lab_requests` (`patient_id`, `test_id`, `staff_id`, `report_id`,`remarks`) VALUES (?,?,?,?,?)";
         PreparedStatement ps = getConnection.getStatement(query);
         ps.setLong(1,patient_id);
         ps.setLong(2,test_id);
         ps.setLong(3,staff_id);
         ps.setLong(4,report_id);
+        ps.setString(5,remarks);
         return SqlInsertUpdateConnection.execute(ps);
     }
 

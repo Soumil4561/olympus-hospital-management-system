@@ -1,10 +1,12 @@
 package database.FileWriter;
 
+import ssh.sshConnect;
+
 import java.io.*;
 import java.util.ArrayList;
 
 public class FileReader {
-    public static ArrayList<String> readReports(long report_id) throws IOException {
+    public static ArrayList<String> readReports(long report_id) throws Exception {
         File file = new File("D:\\CS Project\\Patient Reports\\"+report_id+".oly");
         BufferedReader br = new BufferedReader(new java.io.FileReader(file));
         ArrayList<String> output= new ArrayList<String>();

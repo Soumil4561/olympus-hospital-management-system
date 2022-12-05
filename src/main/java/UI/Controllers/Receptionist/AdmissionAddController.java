@@ -2,6 +2,8 @@ package UI.Controllers.Receptionist;
 
 import UI.Elements.AdmBed;
 import UI.Elements.PopUpBox;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import database.DBFetchers.getBedInfo;
 import hospital.Admissions.NewAdmission;
 import hospital.Bed.Bed;
@@ -62,7 +64,7 @@ public class AdmissionAddController implements Initializable {
     }
 
     @FXML
-    void confirmAdd(MouseEvent event) throws IOException, SQLException {
+    void confirmAdd(MouseEvent event) throws IOException, SQLException, JSchException, SftpException {
         if(table.getSelectionModel().getSelectedItem() == null){
             PopUpBox.displayAlert("FUCK ON BED!", "PLeASe SeLecT a BeD tO fUck!");
         }

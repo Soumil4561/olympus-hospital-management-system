@@ -52,7 +52,7 @@ public class AddReportController implements Initializable {
     }
 
     @FXML
-    void confirmAdd(MouseEvent event) throws SQLException, IOException {
+    void confirmAdd(MouseEvent event) throws Exception {
         String dept_name = deptname.getValue();
         Patient patient = CurrentPatientInfo.getPatient();
         long staff_id = Long.parseLong(dic.getText());

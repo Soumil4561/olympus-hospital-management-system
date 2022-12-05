@@ -82,7 +82,8 @@ public class LabRequestController implements Initializable {
         long reportid = Long.parseLong(reportID.getText());
         Test test = table.getSelectionModel().getSelectedItem();
         long test_id = test.getTestID();
-        Doctor.createLabRequest(patid,test_id, CurrentUserInfo.getStaff().getStaff_id(), reportid);
+
+        //Doctor.createLabRequest(patid,test_id, CurrentUserInfo.getStaff().getStaff_id(), reportid);
     }
 
     void displayTests() throws SQLException {

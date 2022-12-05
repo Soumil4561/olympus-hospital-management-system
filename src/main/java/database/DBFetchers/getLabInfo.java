@@ -44,7 +44,8 @@ public class getLabInfo {
             long staff_id = data.getLong("staff_id");
             String doctor_name = data.getString("Doctor Name");
             long report_id = data.getLong("report_id");
-            list[counter++]= new LabRequest(record_id, patient_id, patient_name,staff_id,doctor_name,report_id);
+            String remarks = data.getString("remarks");
+            list[counter++]= new LabRequest(record_id, patient_id, patient_name,staff_id,doctor_name,report_id,remarks);
         }
         data.close();
         ps.close();
