@@ -129,6 +129,14 @@ public class PopUpBox {
         popUp("View Patient's Past Reports","/UI/patientPastReports_PopUp_Doctor.fxml" );
     }
 
+    public static void ReportNursePopUp() throws IOException {
+        popUp("View Patient's Past Report for Nurse","/UI/patientPastReports_PopUp_Nurse.fxml" );
+    }
+
+    public static void nurseViewReport() throws IOException {
+        popUp("View Patient's Report","/UI/viewPastReportNurse_PopUp.fxml" );
+    }
+
     public static void viewAdmissionViewPopUp() throws IOException {
         popUp("Patient's Admission Details","/UI/addmissionDetails_receptionist.fxml" );
 

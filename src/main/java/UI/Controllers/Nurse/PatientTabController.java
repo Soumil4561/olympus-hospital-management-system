@@ -3,6 +3,7 @@ package UI.Controllers.Nurse;
 import UI.Elements.PopUpBox;
 import UI.Elements.User;
 import UI.Functions.JumpScene;
+import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import javafx.beans.Observable;
@@ -29,6 +30,7 @@ public class PatientTabController implements Initializable {
     ObservableList<User> list = FXCollections.observableArrayList();
     @FXML
     private TableColumn<?, ?> fname;
+    public static User inhtedUser = new User();
 
     @FXML
     private TableColumn<?, ?> gender;
@@ -113,7 +115,17 @@ public class PatientTabController implements Initializable {
 
         table.setOnMousePressed(event -> {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
-
+                inhtedUser = table.getSelectionModel().getSelectedItem();
+                try {
+                    CurrentPatientInfo.setPatient(getPatientInfo.searchPatients(inhtedUser.getUid())[0]);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    PopUpBox.ReportNursePopUp();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
             }
         });

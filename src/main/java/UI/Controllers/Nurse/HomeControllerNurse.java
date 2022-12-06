@@ -38,4 +38,9 @@ public class HomeControllerNurse {
         if(PopUpBox.log) JumpScene.changeScene(homePane,"UI/login_staff.fxml",event);
     }
 
+    @FXML
+    void gotoMailTab(MouseEvent event) throws IOException {
+        JumpScene.changeScene(homePane,"UI/mailTab.fxml",event);
+    }
+
 }

@@ -34,9 +34,9 @@
                               <Insets />
                            </opaqueInsets>
                         </TextField>
-                        <PasswordField fx:id="pass_int" prefHeight="26.0" prefWidth="262.0">
+                        <PasswordField fx:id="pass_int" maxWidth="300.0" prefHeight="30.0" prefWidth="239.0" promptText="Password">
                            <VBox.margin>
-                              <Insets left="25.0" right="25.0" top="20.0" />
+                              <Insets left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </PasswordField>
                         <Button mnemonicParsing="false" onMouseClicked="#gotoStaffScene" prefHeight="30.0" prefWidth="79.0" styleClass="logInButton" text="Log In" textFill="WHITE">

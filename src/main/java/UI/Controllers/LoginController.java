@@ -44,7 +44,7 @@ public class LoginController {
                 }
                 case "Doctor" -> {
                     JumpScene.changeScene(loginPane, "UI/homeTabDoctor.fxml", event);
-                    USER = 3;
+                    USER = 2;
                 }
                 case "Nurse" -> {
                     JumpScene.changeScene(loginPane, "UI/homeTabNurse.fxml", event);

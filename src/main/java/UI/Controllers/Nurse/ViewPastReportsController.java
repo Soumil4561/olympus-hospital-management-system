@@ -1,16 +1,19 @@
-package UI.Controllers.Doctor;
+package UI.Controllers.Nurse;
 
 import UI.Elements.ParsedReport;
-import UI.Elements.Report;
 import database.FileWriter.FileReader;
 import hospital.Patient.PatientFile;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -20,6 +23,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ViewPastReportsController implements Initializable {
+
 
     @FXML
     private TableView<ParsedReport> table;
@@ -38,6 +42,9 @@ public class ViewPastReportsController implements Initializable {
     private TableColumn<ParsedReport, String> description;
 
     @FXML
+    private Button closeButton;
+
+    @FXML
     private Label patientID;
 
     @FXML
@@ -50,10 +57,10 @@ public class ViewPastReportsController implements Initializable {
     private Label reportID;
 
     @FXML
-    private Button closeButton;
+    private BorderPane reportPane;
 
     @FXML
-    void close(MouseEvent event){
+    void close(MouseEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
@@ -75,10 +82,10 @@ public class ViewPastReportsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        patientName.setText(PatientTabController.inhtUser.getFname()+" "+ PatientTabController.inhtUser.getLname());
-        patientID.setText(String.valueOf(PatientTabController.inhtUser.getUid()));
+        patientName.setText(PatientTabController.inhtedUser.getFname()+" "+ PatientTabController.inhtedUser.getLname());
+        patientID.setText(String.valueOf(PatientTabController.inhtedUser.getUid()));
         reportID.setText(String.valueOf(PastReportsController.inhtReport.getReportid()));
-        patientNameLabel.setText(PatientTabController.inhtUser.getFname()+" "+ PatientTabController.inhtUser.getLname());
+        patientNameLabel.setText(PatientTabController.inhtedUser.getFname()+" "+ PatientTabController.inhtedUser.getLname());
 
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -89,7 +96,7 @@ public class ViewPastReportsController implements Initializable {
         try {
             displayReportContent();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
