@@ -139,7 +139,9 @@ public class PopUpBox {
 
     public static void viewAdmissionViewPopUp() throws IOException {
         popUp("Patient's Admission Details","/UI/addmissionDetails_receptionist.fxml" );
-
     }
 
+    public static void viewAddBiologyPopUp() throws IOException {
+        popUp("Add Biology of Patient","/UI/addBiology_PopUp.fxml" );
+    }
 }

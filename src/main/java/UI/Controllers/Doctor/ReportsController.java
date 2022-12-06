@@ -161,6 +161,7 @@ public class ReportsController implements Initializable {
 
         table.getItems().add(report);
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onclicknotif.setVisible(false);

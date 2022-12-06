@@ -3,7 +3,9 @@ package UI.Controllers.Nurse;
 import UI.Elements.Admission;
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
+import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getAdmissionInfo;
+import database.DBFetchers.getPatientInfo;
 import hospital.Admissions.AdmissionView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,26 +22,37 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdmissionController implements Initializable {
 
-    @FXML
-    private TableColumn<?, ?> DIC;
-    ObservableList<Admission> list = FXCollections.observableArrayList();
+    public static Admission inhtAdmission = new Admission();
 
     @FXML
-    private TableColumn<?, ?> admissionID;
+    private TableView<Admission> table;
+    ObservableList<Admission> list = FXCollections.observableArrayList();
+    @FXML
+    private TableColumn<Admission, Long> bedID;
+
+    @FXML
+    private TableColumn<Admission, Date> date;
+
+    @FXML
+    private TableColumn<Admission, Long> admissionID;
+
+    @FXML
+    private TableColumn<Admission, String> DIC;
+
+    @FXML
+    private TableColumn<Admission, String> name;
+
+    @FXML
+    private TableColumn<Admission, Long> patientID;
 
     @FXML
     private BorderPane admissionPane;
-
-    @FXML
-    private TableColumn<?, ?> bedID;
-
-    @FXML
-    private TableColumn<?, ?> date;
 
     @FXML
     private GridPane gridpane;
@@ -48,20 +61,11 @@ public class AdmissionController implements Initializable {
     private Button homeButton;
 
     @FXML
-    private TableColumn<?, ?> name;
-
-    @FXML
-    private TableColumn<?, ?> patientID;
-
-    @FXML
     private TextField searchbox;
 
     @FXML
     private Button searchbutton;
     public String searchBoxContents;
-
-    @FXML
-    private TableView<Admission> table;
 
     @FXML
     void getAdmissionID(MouseEvent event) {
@@ -120,6 +124,18 @@ public class AdmissionController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        table.setOnMousePressed(event -> {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                inhtAdmission = table.getSelectionModel().getSelectedItem();
+                try {
+                    PopUpBox.viewAddBiologyPopUp();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        });
     }
 
 

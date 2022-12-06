@@ -81,15 +81,15 @@ public class AppointmentController implements Initializable {
         long millis= System.currentTimeMillis();
         Date date = new Date(millis);
         AppointmentView[] list = getAppointmentInfo.appointmentOnDate(date, CurrentUserInfo.getStaff().getStaff_id());
-        for (int i = 0; i < list.length; i++){
+        for (AppointmentView appointmentView : list) {
             Appointment appointment = new Appointment();
-            appointment.setName(list[i].getPatient_name());
-            appointment.setReportID(list[i].getReport_id());
-            appointment.setID(list[i].getAppointment_id());
-            appointment.setAppDate(list[i].getDate());
-            appointment.setAppTime(list[i].getTime());
-            appointment.setStatus(list[i].getStatus());
-            appointment.setPatientID(list[i].getPatient_id());
+            appointment.setName(appointmentView.getPatient_name());
+            appointment.setReportID(appointmentView.getReport_id());
+            appointment.setID(appointmentView.getAppointment_id());
+            appointment.setAppDate(appointmentView.getDate());
+            appointment.setAppTime(appointmentView.getTime());
+            appointment.setStatus(appointmentView.getStatus());
+            appointment.setPatientID(appointmentView.getPatient_id());
             table.getItems().add(appointment);
         }
     }
