@@ -41,6 +41,11 @@ public class PatientReceptionistController implements Initializable {
     private BorderPane patientPane;
 
     @FXML
+    void gotoAppointmentTab(MouseEvent event) throws IOException {
+     JumpScene.changeScene(patientPane,"UI/appointmentTab_Receptionist.fxml",event);
+    }
+
+    @FXML
     private TableColumn<User, String> status;
 
     @FXML

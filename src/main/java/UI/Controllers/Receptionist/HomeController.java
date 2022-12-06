@@ -41,4 +41,8 @@ public class HomeController {
     void gotoMail(MouseEvent event) throws IOException {
         JumpScene.changeScene(homePane,"UI/mailTab.fxml",event);
     }
+
+    public void gotoAppointmentTab(MouseEvent event) throws IOException {
+        JumpScene.changeScene(homePane,"UI/appointmentTab_Receptionist.fxml",event);
+    }
 }

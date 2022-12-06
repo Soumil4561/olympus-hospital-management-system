@@ -89,6 +89,11 @@ public class AdmissionController implements Initializable {
     }
 
     @FXML
+    void gotoAppointmentTab(MouseEvent event) throws IOException {
+     JumpScene.changeScene(admissionPane,"UI/appointmentTab_Receptionist.fxml",event);
+    }
+
+    @FXML
     void logout(MouseEvent event) throws IOException {
         PopUpBox.logout("Confirm Logout?");
         if(PopUpBox.log) JumpScene.changeScene(admissionPane,"UI/login_staff.fxml",event);

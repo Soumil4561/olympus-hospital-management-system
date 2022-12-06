@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Receptionist.HomeController">
+<BorderPane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" styleClass="homepane1" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Receptionist.HomeController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="homesidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
@@ -30,7 +30,7 @@
             </VBox>
             <Button fx:id="patientButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoPatientTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Patients" textFill="WHITE" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoAdmissionTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Admissons" textFill="WHITE" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Bills" textFill="WHITE" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoAppointmentTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Appointments" textFill="WHITE" />
             <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="107.0" prefWidth="182.0" VBox.vgrow="ALWAYS" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoSettingsTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Settings" textFill="WHITE" />
             <HBox prefHeight="50.0" prefWidth="182.0">
