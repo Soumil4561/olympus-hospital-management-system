@@ -97,7 +97,6 @@ public class LabRequestController implements Initializable {
         remarks.setCellValueFactory(new PropertyValueFactory<>("remarks"));
         staffID.setCellValueFactory(new PropertyValueFactory<>("staffID"));
         table.setItems(list);
-
         try {
             displayList();
         } catch (SQLException e) {

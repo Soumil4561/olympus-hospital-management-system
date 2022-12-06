@@ -55,7 +55,7 @@ public class getLabInfo {
     public static LabRequest[] getLabRequests() throws SQLException {
         String query = "Select id, CONCAT(patient.fname,' ',patient.lname) as 'Patient Name', " +
                 "CONCAT(staff.fname,' ',staff.lname) as 'Doctor Name', " +
-                "patient.patient_id, staff.staff.id, lab_requests.report_id , lab_requests.test_id , lab_test.test_name" +
+                "patient.patient_id, lab_requests.staff_id, lab_requests.report_id , lab_requests.test_id , lab_test.test_name, remarks " +
                 "from hospital.lab_requests " +
                 "join hospital.patient on patient.patient_id = lab_requests.patient_id " +
                 "join hospital.staff on staff.staff_id = lab_requests.staff_id " +
