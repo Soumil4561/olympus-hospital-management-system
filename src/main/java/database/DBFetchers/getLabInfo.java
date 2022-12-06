@@ -12,16 +12,16 @@ import java.sql.SQLException;
 import static database.DBFetchers.ResultsetFunctions.size;
 
 public class getLabInfo {
-    public static int getTestID(String test_name) throws SQLException {
-        String query = "SELECT test_id from hospital.lab_test where test_name = ?";
+    public static String getTestName(long test_id) throws SQLException {
+        String query = "SELECT test_name from hospital.lab_test where test_id = ?";
         PreparedStatement ps = getConnection.getStatement(query);
-        ps.setString(1,test_name);
+        ps.setLong(1,test_id);
         ResultSet data = SqlSearchConnection.execute(ps);
         data.absolute(1);
-        int test_id = data.getInt("test_id");
+        String name = data.getString("test_name");
         data.close();
         ps.close();
-        return test_id;
+        return name;
     }
 
     public static LabRequest[] getLabRequests(long test_id) throws SQLException {

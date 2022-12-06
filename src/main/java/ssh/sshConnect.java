@@ -71,6 +71,28 @@ public class sshConnect {
 
     }
 
+    public static void uploadFile(String localPath, String filename,String ext) throws JSchException, SftpException, IOException {
+        String username ="DELL";
+        String host = "192.168.1.73";
+        String password = "Kashyap@123";
+        int port = 22;
+
+        JSch jsch = new JSch();
+        jsch.setKnownHosts("C:\\Users\\soumi\\.ssh\\known_hosts");
+        Session jschSession = jsch.getSession(username, host, port);
+        jschSession.setPassword(password);
+        jschSession.connect();
+
+        ChannelSftp channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
+        channelSftp.connect();
+        channelSftp.cd("Olympus/reports/"+filename+"/");
+        channelSftp.put(localPath,channelSftp.pwd()+filename+ext);
+        channelSftp.exit();
+        channelSftp.disconnect();
+        jschSession.disconnect();
+
+    }
+
     public static String downloadFile(String localPath, String remotePath, String ext) throws JSchException, SftpException {
         String username ="DELL";
         String host = "192.168.1.73";
