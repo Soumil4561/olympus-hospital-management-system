@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="loginPane" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.LoginController">
+<BorderPane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="loginPane" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.LoginController">
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +26,7 @@
                               <Font name="Kristen ITC" size="41.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="uid_input" maxWidth="300.0" prefHeight="30.0" prefWidth="210.0" promptText="Username">
+                        <TextField fx:id="uid_input" maxWidth="300.0" prefHeight="30.0" prefWidth="239.0" promptText="Username">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" top="30.0" />
                            </VBox.margin>
@@ -33,11 +34,11 @@
                               <Insets />
                            </opaqueInsets>
                         </TextField>
-                        <TextField fx:id="pass_input" maxWidth="300.0" onAction="#gotoStaffHome" prefHeight="30.0" prefWidth="250.0" promptText="Password">
+                        <PasswordField fx:id="pass_int" prefHeight="26.0" prefWidth="262.0">
                            <VBox.margin>
-                              <Insets left="20.0" right="20.0" top="30.0" />
+                              <Insets left="25.0" right="25.0" top="20.0" />
                            </VBox.margin>
-                        </TextField>
+                        </PasswordField>
                         <Button mnemonicParsing="false" onMouseClicked="#gotoStaffScene" prefHeight="30.0" prefWidth="79.0" styleClass="logInButton" text="Log In" textFill="WHITE">
                            <VBox.margin>
                               <Insets bottom="10.0" top="25.0" />

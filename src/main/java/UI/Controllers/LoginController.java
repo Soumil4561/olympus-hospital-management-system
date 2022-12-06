@@ -5,6 +5,7 @@ import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import hospital.Staff.Staff;
+import javafx.scene.layout.VBox;
 
 
 public class LoginController {
@@ -22,8 +24,9 @@ public class LoginController {
 
     @FXML
     private BorderPane loginPane;
+
     @FXML
-    private TextField pass_input;
+    private PasswordField pass_int;
 
     @FXML
     private TextField uid_input;
@@ -31,7 +34,7 @@ public class LoginController {
     @FXML
     void gotoStaffScene(MouseEvent event) throws IOException, SQLException {
         uid = Long.parseLong(uid_input.getText());
-        pass = pass_input.getText();
+        pass = pass_int.getText();
         if(Staff.Login(uid,pass)){
             String typeOfStaff = CurrentUserInfo.getStaff().getType();
             switch (typeOfStaff) {
@@ -67,7 +70,8 @@ public class LoginController {
     @FXML
     void gotoStaffHome(ActionEvent event) throws SQLException, IOException {
         uid = Long.parseLong(uid_input.getText());
-        pass = pass_input.getText();
+        pass = pass_int.getText();
+        System.out.println(pass);
         if(Staff.Login(uid,pass)){
             String typeOfStaff = CurrentUserInfo.getStaff().getType();
             switch (typeOfStaff) {
