@@ -36,6 +36,7 @@ public class Doctor extends Staff{
         } catch (SftpException e) {
             throw new RuntimeException(e);
         }
+
         return true;
     }
 
@@ -71,11 +72,6 @@ public class Doctor extends Staff{
         return false;
     }
 
-    public static boolean createLabRequest(long patient_id, String test_name, long staff_id) throws SQLException {
-        String query = "INSERT INTO `hospital`.`lab_requests` (`patient_id`, `test_id`, `staff_id`) VALUES (?,?,?)";
-        PreparedStatement ps = getConnection.getStatement(query);
-        return SqlInsertUpdateConnection.execute(ps);
-    }
 
     public static boolean createLabRequest(long patient_id, long test_id, long staff_id, long report_id, String remarks) throws SQLException {
         String query = "INSERT INTO `hospital`.`lab_requests` (`patient_id`, `test_id`, `staff_id`, `report_id`,`remarks`) VALUES (?,?,?,?,?)";

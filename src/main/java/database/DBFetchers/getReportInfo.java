@@ -50,4 +50,30 @@ public class getReportInfo {
         ps.close();
         return reports;
     }
+
+    public static PatientReportView[] searchPatientReportsforDN(long patient_id , long department_id) throws SQLException {
+        String query="Select report_id, staff.staff_id, Concat(staff.fname,' ', staff.lname) as doctor_name, "+
+                "dept_name , staff.department_id, startdate from hospital.patient_reports " +
+                "join hospital.staff on patient_reports.staff_id = staff.staff_id " +
+                "join hospital.departments on patient_reports.department_id = departments.department_id " +
+                "where patient_reports.patient_id = ? and department_id = ?";
+        PreparedStatement ps = getConnection.getStatement(query);
+        ps.setLong(1,patient_id);
+        ps.setLong(2,department_id);
+        ResultSet data = SqlSearchConnection.execute(ps);
+        assert data!=null;
+        PatientReportView[] reports = new PatientReportView[size(data)];
+        int counter=0;
+        while(data.next()){
+            long report_id = data.getLong("report_id");
+            String doctor_name = data.getString("doctor_name");
+            String department_name = data.getString("dept_name");
+            Date date = data.getDate("startdate");
+            long staff_id = data.getLong("staff_id");
+            reports[counter++] = new PatientReportView(report_id,doctor_name,department_name,date,staff_id);
+        }
+        data.close();
+        ps.close();
+        return reports;
+    }
 }

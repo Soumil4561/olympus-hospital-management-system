@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 public class FileReader {
     public static ArrayList<String> readReports(long report_id) throws Exception {
-        File file = new File("D:\\CS Project\\Patient Reports\\"+report_id+".oly");
+        String path = Long.toString(report_id);
+        String pathname = sshConnect.downloadFile(path,path,".oly");
+        File file = new File(pathname);
         BufferedReader br = new BufferedReader(new java.io.FileReader(file));
         ArrayList<String> output= new ArrayList<String>();
         String text;

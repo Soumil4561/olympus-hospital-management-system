@@ -2,6 +2,7 @@ package UI.Controllers.Doctor;
 import UI.Elements.Appointment;
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
+import currentsession.CurrentUserInfo;
 import database.DBFetchers.getAppointmentInfo;
 import hospital.Appointments.AppointmentView;
 import javafx.collections.FXCollections;
@@ -79,7 +80,7 @@ public class AppointmentController implements Initializable {
     void displayAppointments() throws SQLException {
         long millis= System.currentTimeMillis();
         Date date = new Date(millis);
-        AppointmentView[] list = getAppointmentInfo.appointmentOnDate(date);
+        AppointmentView[] list = getAppointmentInfo.appointmentOnDate(date, CurrentUserInfo.getStaff().getStaff_id());
         for (int i = 0; i < list.length; i++){
             Appointment appointment = new Appointment();
             appointment.setName(list[i].getPatient_name());
