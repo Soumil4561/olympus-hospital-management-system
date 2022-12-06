@@ -33,7 +33,8 @@ public class getAdmissionInfo {
             String doctor_name=data.getString("Doctor Name");
             long bed_id=data.getLong("bed_id");
             Date admission_date=data.getDate("admission_date");
-            admissionList[counter++]=new AdmissionView(admission_id,patient_id,patient_name,doctor_name,bed_id,admission_date);
+            long report_id=data.getLong("report_id");
+            admissionList[counter++]=new AdmissionView(admission_id,patient_id,patient_name,doctor_name,bed_id,admission_date,report_id);
         }
         return admissionList;
     }

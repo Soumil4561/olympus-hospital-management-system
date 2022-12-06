@@ -109,6 +109,7 @@ public class AdmissionController implements Initializable {
             admission.setDIC(admissionView.getDoctor_name());
             admission.setName((admissionView.getPatient_name()));
             admission.setPatientID(admissionView.getPatient_id());
+            admission.setReportID(admissionView.getReport_id());
 
             table.getItems().add(admission);
         }

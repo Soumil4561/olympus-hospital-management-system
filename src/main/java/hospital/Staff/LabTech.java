@@ -20,9 +20,9 @@ public class LabTech extends Staff{
         this.test_id = test_id;
     }
 
-    public static LabRequest[] PendingLabRequests(long test_id) throws SQLException {
-        return getLabInfo.getLabRequests(test_id);
-    }
+//    public static LabRequest[] PendingLabRequests(long test_id) throws SQLException {
+//        return getLabInfo.getLabRequests(test_id);
+//    }
 
 
 }

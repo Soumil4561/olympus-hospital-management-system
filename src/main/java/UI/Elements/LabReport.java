@@ -1,5 +1,9 @@
 package UI.Elements;
 
+import database.DBFetchers.getLabInfo;
+
+import java.sql.SQLException;
+
 public class LabReport {
     private String remarks, test;
     private long patientID, reportID, staffID, testID;
@@ -69,4 +73,5 @@ public class LabReport {
     public void setTestID(long testID) {
         this.testID = testID;
     }
+
 }

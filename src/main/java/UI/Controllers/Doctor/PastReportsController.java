@@ -76,7 +76,6 @@ public class PastReportsController implements Initializable {
             report.setDeptname(patientReportView.getDepartment_name());
             report.setDic_id(patientReportView.getStaff_id());
             table.getItems().add(report);
-
         }
     }
 

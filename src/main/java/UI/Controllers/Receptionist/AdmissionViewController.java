@@ -2,6 +2,9 @@ package UI.Controllers.Receptionist;
 
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
+import hospital.Staff.Reception;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdmissionViewController implements Initializable {
@@ -50,10 +54,10 @@ public class AdmissionViewController implements Initializable {
     }
 
     @FXML
-    void viewConfirmPopUp(MouseEvent event) throws IOException {
+    void viewConfirmPopUp(MouseEvent event) throws IOException, JSchException, SQLException, SftpException {
         PopUpBox.confirmRemoveAdmissions();
         if(PopUpBox.confirm) {
-            // removal code
+            Reception.removeAdmission(AdmissionController.inhtadm.getBedID(),AdmissionController.inhtadm.getReportID(),AdmissionController.inhtadm.getAdmissionID(),AdmissionController.inhtadm.getPatientID());
             Stage stage = (Stage) closeButton.getScene().getWindow();
             stage.close();
         }

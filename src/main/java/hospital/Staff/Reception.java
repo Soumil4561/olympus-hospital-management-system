@@ -124,7 +124,23 @@ public class Reception extends Staff{
         ReportGenerator.append(report_id,text);
         return true;
     }
+    public static boolean removeAdmission(long bed_id, long report_id, long admission_id, long patient_id) throws JSchException, SftpException, IOException, SQLException {
+        long millis = System.currentTimeMillis();
+        Date date = new Date(millis);
+        Time time = new Time (millis);
+        String type = "Admission ID: "+admission_id;
+        String text = date.toString()+"~"+time.toString()+"~"+type+"~"+"Patient shifted back to OPD.";
+        ReportGenerator.append(report_id,text);
 
+        String query = "UPDATE `hospital`.`beds` SET `stat` = '0' WHERE (`bed_id` = ?)";
+        PreparedStatement ps = getConnection.getStatement(query);
+        ps.setLong(1,bed_id);
+        SqlInsertUpdateConnection.execute(ps);
 
-
+        query = "UPDATE `hospital`.`patient` SET `stat` = 'OPD' WHERE (`patient_id` = ?)";
+        ps = getConnection.getStatement(query);
+        ps.setLong(1,patient_id);
+        SqlInsertUpdateConnection.execute(ps);
+        return true;
+    }
 }

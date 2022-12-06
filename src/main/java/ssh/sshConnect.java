@@ -71,7 +71,7 @@ public class sshConnect {
 
     }
 
-    public static void uploadReport(String localpathname, long report_id, String filename,String ext) throws JSchException, SftpException, IOException {
+    public static void uploadReport(String localpathname, long report_id, String filename) throws JSchException, SftpException, IOException {
         String username ="DELL";
         String host = "192.168.1.73";
         String password = "Kashyap@123";
@@ -86,7 +86,7 @@ public class sshConnect {
         ChannelSftp channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
         channelSftp.connect();
         channelSftp.cd("Olympus/reports/"+report_id+"/");
-        channelSftp.put(localpathname,channelSftp.pwd()+filename+ext);
+        channelSftp.put(localpathname,channelSftp.pwd()+filename);
         channelSftp.exit();
         channelSftp.disconnect();
         jschSession.disconnect();

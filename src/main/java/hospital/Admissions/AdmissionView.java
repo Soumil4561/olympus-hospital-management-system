@@ -10,13 +10,16 @@ public class AdmissionView {
     private long bed_id;
     private Date admission_date;
 
-    public AdmissionView(long admission_id, long patient_id, String patient_name, String doctor_name, long bed_id, Date admission_date) {
+    private long report_id;
+
+    public AdmissionView(long admission_id, long patient_id, String patient_name, String doctor_name, long bed_id, Date admission_date, long report_id) {
         this.admission_id = admission_id;
         this.patient_id = patient_id;
         this.patient_name = patient_name;
         this.doctor_name = doctor_name;
         this.bed_id = bed_id;
         this.admission_date = admission_date;
+        this.report_id = report_id;
     }
 
     public long getAdmission_id() {
@@ -41,6 +44,10 @@ public class AdmissionView {
 
     public Date getAdmission_date() {
         return admission_date;
+    }
+
+    public long getReport_id() {
+        return report_id;
     }
 }
 

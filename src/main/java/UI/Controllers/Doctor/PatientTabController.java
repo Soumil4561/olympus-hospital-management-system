@@ -3,6 +3,7 @@ package UI.Controllers.Doctor;
 import UI.Elements.PopUpBox;
 import UI.Elements.User;
 import UI.Functions.JumpScene;
+import currentsession.CurrentPatientInfo;
 import database.DBFetchers.getPatientInfo;
 import hospital.Patient.Patient;
 import javafx.collections.FXCollections;
@@ -20,6 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import static UI.Controllers.Receptionist.PatientReceptionistController.inheritableUser;
 
 public class PatientTabController implements Initializable {
 
@@ -107,6 +110,11 @@ public class PatientTabController implements Initializable {
         table.setOnMousePressed(event -> {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
                 inhtUser = table.getSelectionModel().getSelectedItem();
+                try {
+                    CurrentPatientInfo.setPatient(getPatientInfo.searchPatients(inhtUser.getUid())[0]);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 try {
                     PopUpBox.PastReportPopUp();
                 } catch (IOException e) {

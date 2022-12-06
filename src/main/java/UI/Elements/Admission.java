@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Admission {
     private String name,DIC;
-    private Long admissionID,patientID,bedID;
+    private long admissionID,patientID,bedID,reportID;
     private Date date;
 
     public Admission(){
@@ -14,23 +14,25 @@ public class Admission {
         this.name=null;
         this.DIC=null;
         this.date=null;
+        this.reportID=0L;
     }
 
-    public Admission(String name, String DIC, Long admissionID, Long patientID, Long bedID, Date date){
+    public Admission(String name, String DIC, long admissionID, long reportID, long patientID, long bedID, Date date){
         this.admissionID=admissionID;
         this.bedID=bedID;
         this.patientID=patientID;
         this.name=name;
         this.DIC=DIC;
         this.date=date;
+        this.reportID=reportID;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String patientName) {
-        this.name = patientName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDIC() {
@@ -41,28 +43,36 @@ public class Admission {
         this.DIC = DIC;
     }
 
-    public Long getAdmissionID() {
+    public long getAdmissionID() {
         return admissionID;
     }
 
-    public void setAdmissionID(Long admissionID) {
+    public void setAdmissionID(long admissionID) {
         this.admissionID = admissionID;
     }
 
-    public Long getPatientID() {
+    public long getPatientID() {
         return patientID;
     }
 
-    public void setPatientID(Long patientID) {
+    public void setPatientID(long patientID) {
         this.patientID = patientID;
     }
 
-    public Long getBedID() {
+    public long getBedID() {
         return bedID;
     }
 
-    public void setBedID(Long bedID) {
+    public void setBedID(long bedID) {
         this.bedID = bedID;
+    }
+
+    public long getReportID() {
+        return reportID;
+    }
+
+    public void setReportID(long reportID) {
+        this.reportID = reportID;
     }
 
     public Date getDate() {

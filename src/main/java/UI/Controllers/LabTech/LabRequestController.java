@@ -2,7 +2,10 @@ package UI.Controllers.LabTech;
 
 import UI.Elements.LabReport;
 import UI.Elements.PopUpBox;
+import UI.Elements.Report;
 import UI.Functions.JumpScene;
+import database.DBFetchers.getLabInfo;
+import hospital.Lab.LabRequest;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,6 +20,7 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LabRequestController implements Initializable {
@@ -70,6 +74,20 @@ public class LabRequestController implements Initializable {
         if(PopUpBox.log) JumpScene.changeScene(patientPane,"UI/login_staff.fxml",event);
     }
 
+    void displayList() throws SQLException {
+        LabRequest[] list = getLabInfo.getLabRequests();
+        for (LabRequest labRequest: list){
+            LabReport report = new LabReport(
+                    labRequest.getRemarks(),
+                    labRequest.getTest_name(),
+                    labRequest.getPatient_id(),
+                    labRequest.getReport_id(),
+                    labRequest.getStaff_id(),
+                    labRequest.getTest_id());
+            table.getItems().add(report);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         test.setCellValueFactory(new PropertyValueFactory<>("test"));
@@ -79,5 +97,11 @@ public class LabRequestController implements Initializable {
         remarks.setCellValueFactory(new PropertyValueFactory<>("remarks"));
         staffID.setCellValueFactory(new PropertyValueFactory<>("staffID"));
         table.setItems(list);
+
+        try {
+            displayList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

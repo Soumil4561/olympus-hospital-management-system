@@ -2,12 +2,15 @@ package UI.Controllers.LabTech;
 
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.SftpException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
+import ssh.sshConnect;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,17 +36,26 @@ public class LabReportController {
     @FXML
     private TextField reportID;
 
+    private List<File> files;
+
     @FXML
-    void applyChanges(MouseEvent event) throws IOException {
-        //some code
+    void applyChanges(MouseEvent event) throws IOException, JSchException, SftpException {
+        for (File files: files){
+            if ( !reportID.getText().isEmpty() && !patID.getText().isEmpty()) {
+                String filepath = files.getAbsolutePath();
+                String filename = files.getName();
+                long reportid = Long.parseLong(reportID.getText());
+                sshConnect.uploadReport(filepath, reportid, filename);
+            }
+        }
         JumpScene.changeScene(labRequestPane,"UI/homeTabLabTech.fxml", event);
     }
 
     @FXML
     void chooseFile(MouseEvent event) {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "+.pdf"));
         List<File> fileList = fc.showOpenMultipleDialog(null);
+        files = fileList;
         for (File file: fileList){
             filedest.setText(file.getAbsolutePath());
         }
