@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="labReportPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.LabTech.LabReportController">
+<BorderPane fx:id="labRequestPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.LabTech.LabReportController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
@@ -82,7 +82,7 @@
                         <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="Patient ID:" GridPane.rowIndex="1">
@@ -117,11 +117,40 @@
                               <Insets right="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" onMouseClicked="#applyChanges" styleClass="popbuttonsedit" stylesheets="@css/fullpackstyling.css" text="Apply Changes" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <Label text="Lab ID:" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                            <GridPane.margin>
+                              <Insets right="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="labID" maxWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <opaqueInsets>
                               <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" onMouseClicked="#chooseFile" styleClass="popbuttonsedit" stylesheets="@css/fullpackstyling.css" text="Choose File" textFill="WHITE" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets right="15.0" />
                            </GridPane.margin>
                         </Button>
+                        <TextField fx:id="filedest" editable="false" maxWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <HBox alignment="CENTER_RIGHT" maxWidth="500.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <Button mnemonicParsing="false" onMouseClicked="#applyChanges" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Apply Changes" textFill="WHITE" />
+                           </children>
+                        </HBox>
                      </children>
                      <HBox.margin>
                         <Insets right="50.0" />

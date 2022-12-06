@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="patientPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Settings.SettingsController">
+<BorderPane fx:id="patientPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Settings.SettingsController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="415.0" prefWidth="182.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" BorderPane.alignment="CENTER">
          <children>
@@ -47,7 +47,7 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="30.0" prefWidth="455.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css">
+            <HBox alignment="CENTER" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="455.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -75,7 +75,7 @@
             <Region prefHeight="78.0" prefWidth="618.0" VBox.vgrow="SOMETIMES" />
             <GridPane alignment="TOP_RIGHT" prefHeight="505.0" prefWidth="618.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
-                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="201.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
                 <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="417.0" />
               </columnConstraints>
               <rowConstraints>
@@ -159,6 +159,9 @@
                      </GridPane.margin>
                   </TextField>
                </children>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </GridPane>
          </children>
       </VBox>

@@ -36,9 +36,8 @@
             </VBox>
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="curr_sideitem" stylesheets="@css/fullpackstyling.css" text="Patients" textFill="WHITE" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoAdmissionsTab" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Admissons" textFill="WHITE" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Bills" textFill="WHITE" />
             <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Settings" textFill="WHITE" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#gotoSettings" prefHeight="50.0" prefWidth="102.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css" text="Settings" textFill="WHITE" />
             <HBox prefHeight="50.0" prefWidth="182.0">
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#logout" prefHeight="48.0" prefWidth="183.0" styleClass="sideitem" text="Log out" textFill="WHITE" />
@@ -55,7 +54,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="39.0" prefWidth="54.0" styleClass="home" stylesheets="@css/fullpackstyling.css">
+                  <Button mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="34.0" prefWidth="42.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#gotoHome" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -82,7 +81,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="searchbar4" stylesheets="@css/fullpackstyling.css">
                      <children>
-                        <Label minWidth="105.0" prefHeight="20.0" prefWidth="140.0" text="Search Patients:">
+                        <Label maxWidth="100.0" minWidth="100.0" prefHeight="20.0" prefWidth="100.0" text="Search Patients:">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -90,9 +89,9 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="searchbox" maxWidth="250.0" minWidth="80.0" prefHeight="15.0" prefWidth="120.0" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="searchbox" maxWidth="250.0" minWidth="80.0" prefHeight="15.0" prefWidth="120.0" promptText="Press Search to search or all Patients" HBox.hgrow="ALWAYS">
                            <HBox.margin>
-                              <Insets bottom="1.0" />
+                              <Insets />
                            </HBox.margin></TextField>
                         <Button maxWidth="42.0" minHeight="20.0" minWidth="40.0" mnemonicParsing="false" onMouseClicked="#getPatientDetails" prefHeight="26.0" prefWidth="40.0">
                            <graphic>
@@ -116,7 +115,7 @@
                               </ImageView>
                            </graphic>
                            <font>
-                              <Font size="11.0" />
+                              <Font size="13.0" />
                            </font>
                         </Button>
                      </children>

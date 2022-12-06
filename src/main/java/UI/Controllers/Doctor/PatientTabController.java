@@ -9,23 +9,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class PatientTabController implements Initializable {
+
+    public static User inhtUser = new User();
 
     @FXML
     private TableColumn<User, String> fname;
@@ -108,8 +106,12 @@ public class PatientTabController implements Initializable {
 
         table.setOnMousePressed(event -> {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
-
-
+                inhtUser = table.getSelectionModel().getSelectedItem();
+                try {
+                    PopUpBox.PastReportPopUp();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }

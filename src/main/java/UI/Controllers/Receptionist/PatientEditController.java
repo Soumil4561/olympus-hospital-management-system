@@ -2,6 +2,7 @@ package UI.Controllers.Receptionist;
 
 import UI.Elements.PopUpBox;
 import UI.Elements.Report;
+import UI.Functions.JumpScene;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import currentsession.CurrentPatientInfo;
@@ -18,8 +19,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -29,16 +30,16 @@ import java.util.ResourceBundle;
 public class PatientEditController implements Initializable {
 
     @FXML
-    private TableColumn<Report, Long> date;
+    private TableColumn<Report, Date> date;
 
     @FXML
     private TableColumn<Report, Long> reportid;
 
     @FXML
-    private TableColumn<?, ?> deptname;
+    private TableColumn<Report, String> deptname;
 
     @FXML
-    private TableColumn<?, ?> dic;
+    private TableColumn<Report, String> dic;
 
     @FXML
     private TableView<Report> table;
@@ -73,6 +74,9 @@ public class PatientEditController implements Initializable {
     @FXML
     private TextField patient_uid;
 
+    @FXML
+    private BorderPane editPane;
+
     ObservableList<Report> list = FXCollections.observableArrayList();
     public static Report inheritedReport = new Report();
 
@@ -92,6 +96,11 @@ public class PatientEditController implements Initializable {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(e -> buttonnotif.setVisible(false));
         pause.play();
+    }
+
+    @FXML
+    void refresh(MouseEvent event) throws IOException {
+        JumpScene.changeScene(editPane,"UI/patientEditForm_PopUp.fxml",event);
     }
 
     @FXML

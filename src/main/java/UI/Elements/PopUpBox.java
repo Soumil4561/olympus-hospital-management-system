@@ -15,6 +15,7 @@ import java.io.IOException;
 
 public class PopUpBox {
     public static Boolean log = false;
+    public static Boolean confirm = false;
     @FXML
     private Button closeButton;
 
@@ -23,6 +24,14 @@ public class PopUpBox {
 
     @FXML
     private static Label warninglabel;
+
+    @FXML
+    void removeAdm(MouseEvent event) {
+        boolean remove = true;
+        confirm = remove;
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+    }
 
     @FXML
     void gotoLogin(MouseEvent event) throws IOException {
@@ -49,10 +58,6 @@ public class PopUpBox {
         window.showAndWait();
     }
 
-    public static void display(String title) throws IOException {
-        popUp(title,"/UI/alertbox.fxml");
-    }
-
     public static void displayAlert(String title, String warning) throws IOException {
         Stage window = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/warningbox.fxml"));
@@ -62,6 +67,14 @@ public class PopUpBox {
         Scene scene = new Scene(fxmlLoader.load());
         window.setScene(scene);
         window.showAndWait();
+    }
+
+    public static void display(String title) throws IOException {
+        popUp(title,"/UI/alertbox.fxml");
+    }
+
+    public static void confirmRemoveAdmissions() throws IOException {
+        popUp("Confirm Admission Removal","/UI/confirmRemoveAdm.fxml" );
     }
 
     public static void editformDisplay(String title) throws IOException {
@@ -85,15 +98,7 @@ public class PopUpBox {
 
     }
     public static void logout(String title) throws IOException {
-        Stage window = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/UI/confirmLogout.fxml"));
-        window.initModality(Modality.APPLICATION_MODAL);
-
-        window.setTitle(title);
-
-        Scene scene = new Scene(fxmlLoader.load());
-        window.setScene(scene);
-        window.showAndWait();
+        popUp(title,"/UI/confirmLogout.fxml");
     }
 
     public static void addAppointmentPopUp(String title) throws IOException {
@@ -114,6 +119,19 @@ public class PopUpBox {
 
     public static void viewAddAdmissionPopUp() throws IOException {
         popUp("Add Admission Details","/UI/addAdmissionsForm_receptionist.fxml" );
+    }
+
+    public static void viewPastReportPopUp() throws IOException {
+        popUp("View Patient's Report","/UI/viewPastReportDoctor_PopUp.fxml" );
+    }
+
+    public static void PastReportPopUp() throws IOException {
+        popUp("View Patient's Past Reports","/UI/patientPastReports_PopUp_Doctor.fxml" );
+    }
+
+    public static void viewAdmissionViewPopUp() throws IOException {
+        popUp("Patient's Admission Details","/UI/addmissionDetails_receptionist.fxml" );
+
     }
 
 }

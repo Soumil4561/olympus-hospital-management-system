@@ -3,6 +3,7 @@ package UI.Controllers.Doctor;
 import UI.Elements.Appointment;
 import UI.Elements.ParsedReport;
 import UI.Elements.PopUpBox;
+import UI.Functions.JumpScene;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import database.FileWriter.FileReader;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -27,7 +29,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ReportsController implements Initializable {
-
     ParsedReport transf = new ParsedReport();
     @FXML
     private TableView<ParsedReport> table;
@@ -50,6 +51,9 @@ public class ReportsController implements Initializable {
 
     @FXML
     private Label onclicknotif;
+
+    @FXML
+    private BorderPane reportPane;
 
     @FXML
     private Label patientID;
@@ -82,6 +86,12 @@ public class ReportsController implements Initializable {
 
             table.getItems().add(report);
         }
+    }
+
+
+    @FXML
+    void refresh(MouseEvent event) throws IOException {
+        JumpScene.changeScene(reportPane,"UI/viewReportDoctor_PopUp.fxml",event);
     }
 
     @FXML
@@ -135,6 +145,22 @@ public class ReportsController implements Initializable {
         PopUpBox.viewPrescriptionPopUp();
     }
 
+    public void addPrescriptionToTable(){
+        if (AddPrescriptionController.prescription == null) return;
+
+        ParsedReport report = new ParsedReport();
+        long millis = System.currentTimeMillis();
+        Date date = new Date(millis);
+        Time time = new Time(millis);
+
+        report.setDate(date);
+        report.setTime(time);
+        report.setDescription(AddPrescriptionController.prescription);
+        AddPrescriptionController.prescription = null;
+        report.setType("Prescription");
+
+        table.getItems().add(report);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         onclicknotif.setVisible(false);
@@ -148,6 +174,8 @@ public class ReportsController implements Initializable {
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         table.setItems(list);
+
+        addPrescriptionToTable();
 
         try {
             displayReportContent();

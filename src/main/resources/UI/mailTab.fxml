@@ -72,7 +72,7 @@
                      </HBox.margin>
                   </Label>
                   <Region maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="274.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="34.0" prefWidth="124.0" styleClass="home" text="Go to Home" textFill="WHITE">
+                  <Button mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="34.0" prefWidth="124.0" styleClass="addbutton" text="Go to Home" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>

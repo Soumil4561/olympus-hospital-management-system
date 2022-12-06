@@ -26,8 +26,12 @@ public class MailController {
 
     @FXML
     void gotoHome(MouseEvent event) throws IOException {
-        JumpScene.changeScene(mailPane,"UI/homeTabDoctor.fxml",event);
-
+        switch (LoginController.USER) {
+            case 1 -> JumpScene.changeScene(mailPane, "UI/homeTab.fxml", event);
+            case 2 -> JumpScene.changeScene(mailPane, "UI/homeTabDoctor.fxml", event);
+            case 3 -> JumpScene.changeScene(mailPane, "UI/homeTabNurse.fxml", event);
+            case 4 -> JumpScene.changeScene(mailPane, "UI/homeTabLabTech.fxml", event);
+        }
     }
 
 }

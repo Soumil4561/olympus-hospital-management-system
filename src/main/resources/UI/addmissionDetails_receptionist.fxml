@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="admissionPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.Receptionist.AdmissionViewController">
+   <center>
+      <VBox prefHeight="624.0" prefWidth="674.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane maxHeight="1.7976931348623157E308" prefHeight="370.0" prefWidth="455.0" VBox.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="50.0" prefWidth="196.99997253417968" />
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="303.4000274658203" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="15.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.60001220703124" minHeight="9.600012207031256" prefHeight="15.199987792968756" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Patient UID:" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Patient's Name:" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Admission ID:" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" text="Viewing Details For:" textFill="WHITE" underline="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="patientNameLabel" text="PatientName" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children></HBox>
+                  <Label fx:id="admissionID" prefHeight="25.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="patientID" prefHeight="25.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="patientName" prefHeight="25.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label text="Doctor In Charge:" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Bed No. Assigned:" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Date of Admission:" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="dic" prefHeight="25.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label fx:id="bedID" prefHeight="25.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label fx:id="doa" prefHeight="25.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="608.0">
+               <children>
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="250.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onMouseClicked="#viewConfirmPopUp" styleClass="popbuttonsedit" stylesheets="@css/fullpackstyling.css" text="Remove Admission" textFill="WHITE" />
+                  <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#close" styleClass="popbuttonscancel" stylesheets="@css/fullpackstyling.css" text="Close" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="50.0" top="3.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="15.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Region>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Region minWidth="30.0" prefHeight="200.0" prefWidth="30.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" />
+                  <Region prefHeight="200.0" prefWidth="200.0" styleClass="sidebox2x" stylesheets="@css/fullpackstyling.css" />
+               </children>
+            </HBox>
+            <Region maxHeight="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" styleClass="sidebox" stylesheets="@css/fullpackstyling.css" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Region>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

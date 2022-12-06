@@ -1,17 +1,15 @@
 package UI.Controllers.Settings;
 
+import UI.Controllers.LoginController;
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,16 +53,21 @@ public class SettingsController implements Initializable {
 
     @FXML
     void gotoEditTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(patientPane,"UI/editTab.fxml",event);
+        JumpScene.changeScene(patientPane, "UI/Settings_editTab.fxml",event);
     }
 
     @FXML
     void gotoHomeTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(patientPane,"UI/homeTabDoctor.fxml",event);
+        switch (LoginController.USER) {
+            case 1 -> JumpScene.changeScene(patientPane, "UI/homeTab.fxml", event);
+            case 2 -> JumpScene.changeScene(patientPane, "UI/homeTabDoctor.fxml", event);
+            case 3 -> JumpScene.changeScene(patientPane, "UI/homeTabNurse.fxml", event);
+            case 4 -> JumpScene.changeScene(patientPane, "UI/homeTabLabTech.fxml", event);
+        }
     }
     @FXML
     void gotoChangePassTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(patientPane,"UI/changePassword.fxml",event);
+        JumpScene.changeScene(patientPane, "UI/Settings_changePassword.fxml",event);
     }
 
     @FXML

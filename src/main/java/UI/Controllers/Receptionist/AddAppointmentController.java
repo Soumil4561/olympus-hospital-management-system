@@ -61,6 +61,9 @@ public class AddAppointmentController implements Initializable {
 
        NewAppointment newAppointment = new NewAppointment(CurrentPatientInfo.getPatient(),appointdate,appointtime,report.getReportid(),report.getDic_id());
        newAppointment.createNewAppointment();
+
+        Stage stage = (Stage) confirmButton.getScene().getWindow();
+        stage.close();
     }
 
     @Override

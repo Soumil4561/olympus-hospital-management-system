@@ -61,7 +61,7 @@ public class PatientAddController {
             stage.close();
         }
         else {
-            PopUpBox.display("YOU SUCK!");
+            PopUpBox.display("There was an error adding Patient!");
         }
     }
 

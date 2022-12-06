@@ -65,12 +65,12 @@
                   </TextArea>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <Button fx:id="confirmbutton" mnemonicParsing="false" onMouseClicked="#confirm" styleClass="popbuttons" text="Confirm" textFill="WHITE">
+                        <Button fx:id="confirmbutton" mnemonicParsing="false" onMouseClicked="#confirm" styleClass="popbuttons" stylesheets="@css/fullpackstyling.css" text="Confirm" textFill="WHITE">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="closebutton" mnemonicParsing="false" onMouseClicked="#close" styleClass="popbuttonscancel" text="Cancel" textFill="WHITE">
+                        <Button fx:id="closebutton" mnemonicParsing="false" onMouseClicked="#close" styleClass="popbuttonscancel" stylesheets="@css/fullpackstyling.css" text="Cancel" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" right="20.0" />
                            </HBox.margin>

@@ -16,6 +16,7 @@ import hospital.Staff.Staff;
 
 
 public class LoginController {
+    public static byte USER = 0;
     long uid;
     String pass;
 
@@ -33,12 +34,25 @@ public class LoginController {
         pass = pass_input.getText();
         if(Staff.Login(uid,pass)){
             String typeOfStaff = CurrentUserInfo.getStaff().getType();
-            if(typeOfStaff.equals("Receptionist")){
-                JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
+            switch (typeOfStaff) {
+                case "Receptionist" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTab.fxml", event);
+                    USER = 1;
+                }
+                case "Doctor" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTabDoctor.fxml", event);
+                    USER = 3;
+                }
+                case "Nurse" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTabNurse.fxml", event);
+                    USER = 3;
+                }
+                case "Lab Tech" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTabLabTech.fxml", event);
+                    USER = 4;
+                }
             }
-            else if(typeOfStaff.equals("Doctor")){
-                JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
-            }
+
         }
         else {
             try {
@@ -56,14 +70,23 @@ public class LoginController {
         pass = pass_input.getText();
         if(Staff.Login(uid,pass)){
             String typeOfStaff = CurrentUserInfo.getStaff().getType();
-            if(typeOfStaff.equals("Receptionist")){
-                JumpScene.changeScene(loginPane,"UI/homeTab.fxml",event);
-            }
-            else if(typeOfStaff.equals("Doctor")){
-                JumpScene.changeScene(loginPane,"UI/homeTabDoctor.fxml",event);
-            }
-            else if (typeOfStaff.equals("Nurse")) {
-                JumpScene.changeScene(loginPane,"UI/homeTabNurse.fxml",event);
+            switch (typeOfStaff) {
+                case "Receptionist" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTab.fxml", event);
+                    USER = 1;
+                }
+                case "Doctor" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTabDoctor.fxml", event);
+                    USER = 3;
+                }
+                case "Nurse" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTabNurse.fxml", event);
+                    USER = 3;
+                }
+                case "Lab Tech" -> {
+                    JumpScene.changeScene(loginPane, "UI/homeTabLabTech.fxml", event);
+                    USER = 4;
+                }
             }
 
         }
@@ -71,7 +94,7 @@ public class LoginController {
             try {
                 PopUpBox.display("Wrong Username or Password");
             } catch (Exception e){
-                System.out.println("cant open alertbox");
+                System.out.println("Can't Open Alert-Box!");
             }
         }
     }

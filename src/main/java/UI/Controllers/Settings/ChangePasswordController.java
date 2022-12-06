@@ -1,4 +1,5 @@
 package UI.Controllers.Settings;
+import UI.Controllers.LoginController;
 import UI.Elements.PopUpBox;
 import UI.Functions.JumpScene;
 import currentsession.CurrentUserInfo;
@@ -35,12 +36,17 @@ public class ChangePasswordController {
 
     @FXML
     void gotoEditTab(MouseEvent event) throws IOException {
-      JumpScene.changeScene(pane,"UI/editTab.fxml", event);
+      JumpScene.changeScene(pane, "UI/Settings_editTab.fxml", event);
     }
 
     @FXML
     void gotoHomeTab(MouseEvent event) throws IOException {
-        JumpScene.changeScene(pane,"UI/homeTabDoctor.fxml", event);
+        switch (LoginController.USER) {
+            case 1 -> JumpScene.changeScene(pane, "UI/homeTab.fxml", event);
+            case 2 -> JumpScene.changeScene(pane, "UI/homeTabDoctor.fxml", event);
+            case 3 -> JumpScene.changeScene(pane, "UI/homeTabNurse.fxml", event);
+            case 4 -> JumpScene.changeScene(pane, "UI/homeTabLabTech.fxml", event);
+        }
     }
 
     @FXML

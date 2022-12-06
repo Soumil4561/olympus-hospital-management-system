@@ -54,7 +54,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="homeButton" mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="7.0" prefWidth="22.0" styleClass="home" stylesheets="@css/fullpackstyling.css">
+                  <Button fx:id="homeButton" mnemonicParsing="false" onMouseClicked="#gotoHome" prefHeight="7.0" prefWidth="22.0" styleClass="sideitem" stylesheets="@css/fullpackstyling.css">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>

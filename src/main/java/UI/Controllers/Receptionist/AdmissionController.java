@@ -25,6 +25,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdmissionController implements Initializable {
+
+    public static Admission inhtadm = new Admission();
+
     @FXML
     private TableView<Admission> table;
     ObservableList<Admission> list = FXCollections.observableArrayList();
@@ -118,5 +121,16 @@ public class AdmissionController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        table.setOnMousePressed(event -> {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2){
+                inhtadm = table.getSelectionModel().getSelectedItem();
+                try {
+                    PopUpBox.viewAdmissionViewPopUp();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

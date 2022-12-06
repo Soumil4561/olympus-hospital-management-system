@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddPrescriptionController implements Initializable {
-
+    public static String prescription = null;
     @FXML
     private Button closebutton;
 
@@ -40,7 +40,7 @@ public class AddPrescriptionController implements Initializable {
 
     @FXML
     void confirm(MouseEvent event) {
-        //
+        prescription = prescriptionField.getText();
         // add to table n database code
         //
         Stage stage = (Stage) closebutton.getScene().getWindow();

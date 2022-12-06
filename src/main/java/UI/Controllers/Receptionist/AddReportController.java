@@ -58,6 +58,8 @@ public class AddReportController implements Initializable {
         long staff_id = Long.parseLong(dic.getText());
         PatientReport report = new PatientReport(patient,dept_name,staff_id);
         Reception.createNewReport(report);
+        Stage stage = (Stage) patid.getScene().getWindow();
+        stage.close();
     }
     private void setChoices() throws SQLException {
         String[] dept = getDepartmentInfo.getDeptNames();

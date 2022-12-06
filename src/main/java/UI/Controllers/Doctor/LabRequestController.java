@@ -11,10 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -36,7 +33,7 @@ public class LabRequestController implements Initializable {
     private BorderPane labRequestPane;
 
     @FXML
-    private TextField remarks;
+    private TextArea remarks;
 
     @FXML
     private TextField reportID;
@@ -82,8 +79,8 @@ public class LabRequestController implements Initializable {
         long reportid = Long.parseLong(reportID.getText());
         Test test = table.getSelectionModel().getSelectedItem();
         long test_id = test.getTestID();
-
-        //Doctor.createLabRequest(patid,test_id, CurrentUserInfo.getStaff().getStaff_id(), reportid);
+        String remark = remarks.getText();
+        Doctor.createLabRequest(patid,test_id, CurrentUserInfo.getStaff().getStaff_id(), reportid, remark);
     }
 
     void displayTests() throws SQLException {
