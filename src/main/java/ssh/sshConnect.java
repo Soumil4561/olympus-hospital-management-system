@@ -39,7 +39,7 @@ public class sshConnect {
 
     private static ChannelSftp setupJsch(String username, String password, String host, int port) throws JSchException {
         JSch jsch = new JSch();
-        jsch.setKnownHosts("C:\\Users\\manis\\.ssh\\known_hosts");
+        jsch.setKnownHosts("C:\\Users\\soumi\\.ssh\\known_hosts");
         Session jschSession = jsch.getSession(username, host, port);
         jschSession.setPassword(password);
         jschSession.connect();
@@ -53,7 +53,7 @@ public class sshConnect {
         int port = 22;
 
         JSch jsch = new JSch();
-        jsch.setKnownHosts("C:\\Users\\Lenovo\\.ssh\\known_hosts");
+        jsch.setKnownHosts("C:\\Users\\soumi\\.ssh\\known_hosts");
         Session jschSession = jsch.getSession(username, host, port);
         jschSession.setPassword(password);
         jschSession.connect();
@@ -75,7 +75,7 @@ public class sshConnect {
         int port = 22;
 
         JSch jsch = new JSch();
-        jsch.setKnownHosts("C:\\Users\\manis\\.ssh\\known_hosts");
+        jsch.setKnownHosts("C:\\Users\\soumi\\.ssh\\known_hosts");
         Session jschSession = jsch.getSession(username, host, port);
         jschSession.setPassword(password);
         jschSession.connect();
@@ -97,7 +97,7 @@ public class sshConnect {
         int port = 22;
 
         JSch jsch = new JSch();
-        jsch.setKnownHosts("C:\\Users\\manis\\.ssh\\known_hosts");
+        jsch.setKnownHosts("C:\\Users\\soumi\\.ssh\\known_hosts");
         Session jschSession = jsch.getSession(username, host, port);
         jschSession.setPassword(password);
         jschSession.connect();
